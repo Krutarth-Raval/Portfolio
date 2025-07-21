@@ -9,7 +9,7 @@ import Home from "./pages/Home";
 
 const App = () => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center ">
       <div
         className="bg-surface  p-3 max-sm:p-2 md:p-4 rounded-xl
                    mx-auto w-full 

@@ -1,0 +1,82 @@
+[
+  {
+    "image": "devicon-html5-plain colored",
+    "name": "HTML5",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5"
+  },
+  {
+    "image": "devicon-css3-plain colored",
+    "name": "CSS3",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+  },
+  {
+    "image": "devicon-javascript-plain colored",
+    "name": "JavaScript",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+  },
+  {
+    "image": "devicon-react-original colored",
+    "name": "React.js",
+    "url": "https://react.dev/"
+  },
+  {
+    "image": "devicon-tailwindcss-plain colored",
+    "name": "Tailwind CSS",
+    "url": "https://tailwindcss.com/"
+  },
+  {
+    "image": "https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg",
+    "name": "Node.js",
+    "url": "https://nodejs.org/"
+  },
+  {
+    "image": "devicon-express-original colored",
+    "name": "Express.js",
+    "url": "https://expressjs.com/"
+  },
+  {
+    "image": "devicon-mongodb-plain colored",
+    "name": "MongoDB",
+    "url": "https://www.mongodb.com/"
+  },
+  {
+    "image": "devicon-git-plain colored",
+    "name": "Git",
+    "url": "https://git-scm.com/"
+  },
+  {
+    "image": "devicon-github-original colored",
+    "name": "GitHub",
+    "url": "https://github.com/"
+  },
+  {
+    "image": "devicon-postman-plain colored",
+    "name": "Postman",
+    "url": "https://www.postman.com/"
+  },
+  {
+    "image": "devicon-vitejs-plain colored",
+    "name": "Vite",
+    "url": "https://vitejs.dev/"
+  },
+  {
+    "image": "devicon-axios-plain colored",
+    "name": "Axios",
+    "url": "https://axios-http.com/"
+  },
+  {
+    "image": "devicon-bootstrap-plain colored",
+    "name": "Bootstrap",
+    "url": "https://getbootstrap.com/"
+  },
+  {
+    "image":"devicon-netlify-plain colored",
+    "name":"Netlify",
+    "url":"https://www.netlify.com/"
+  },
+  {
+    "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/2560px-Npm-logo.svg.png",
+    "name":"NPM",
+    "url":"https://www.npmjs.com/"
+  }
+]
