@@ -1,8 +1,6 @@
 @import "tailwindcss";
-/* Inside App.css or index.css */
-@import url("https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css");
 @import "tw-animate-css";
-
+@import url("https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css");
 
 @layer base {
   :root {
@@ -106,6 +104,14 @@
     font-size: clamp(2rem, 2vw, 5rem);
   }
 
+  .back-to-top {
+    background-color: rgba(255, 255, 255, 0.137);
+    backdrop-filter: blur(.1rem);
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+
   @media (max-width: 768px) {
     .group:hover .tooltip {
       opacity: 0;
@@ -206,17 +212,14 @@
       var(--theme-text),
       transparent
     );
-    border-radius: 2PX;
+    border-radius: 2px;
   }
 
   .no-scrollbar::-webkit-scrollbar {
-  display: none;
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
-.no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none;    /* Firefox */
-}
-}
-
-
-

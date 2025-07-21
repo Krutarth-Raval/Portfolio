@@ -6,6 +6,7 @@ import Contact from "./pages/Contact"; // Make sure this exists or create a plac
 import "../src/App.css";
 import Introduction from "./components/Introduction";
 import Home from "./pages/Home";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/about" element={<AboutMe />} />
           <Route path="/contact" element={<Contact/>} />
         </Routes>
+        <Footer/>
       </div>
     </div>
   );
