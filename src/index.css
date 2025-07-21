@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --theme-bg: #0d0d0d;
+    --theme-surface: #1a1a1a;
+    --theme-text: #e0e0e0;
+    --theme-text-secondary: #b3b3b3;
+    --theme-border: #2e2e2e;
+    --theme-accent: #4d4d4d;
+    --theme-border: #d4d4d4;
+    --theme-button: #0f0f0f;
+  }
+
+  .light {
+    --theme-bg: #fafafa;
+    --theme-surface: #f0f0f0;
+    --theme-text: #1a1a1a;
+    --theme-text-secondary: #4a4a4a;
+    --theme-border: #e0e0e0;
+    --theme-accent: #c0c0c0;
+    --theme-border: #2e2e2e;
+    --theme-button: #e4e4e4;
+  }
+
+  body {
+    background-color: var(--theme-bg);
+    color: var(--theme-text);
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+}
+
+/* ✅ Custom utility classes using theme variables */
+@layer utilities {
+  *::selection {
+    background-color: var(--theme-accent);
+  }
+  .bg-theme {
+    background-color: var(--theme-bg);
+  }
+  .bg-surface {
+    background-color: var(--theme-surface);
+  }
+  .text-theme {
+    color: var(--theme-text);
+  }
+  .text-theme-secondary {
+    color: var(--theme-text-secondary);
+  }
+  .border-theme {
+    border-color: var(--theme-border);
+  }
+  .border-theme-surface {
+    border-color: var(--theme-surface);
+  }
+  .border-theme:hover {
+    border-color: var(--theme-border);
+  }
+  .bg-accent {
+    background-color: var(--theme-accent);
+  }
+  .bg-button {
+    background-color: var(--theme-button);
+  }
+  .title-font-size {
+    font-size: clamp(1.8rem, 5vw, 2.875rem);
+  }
+  .normal-font-size {
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+  }
+  .description-font-size {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .metadata-font-size {
+    font-size: clamp(0.8rem, 2vw, 1rem);
+  }
+  .tooltip {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 2.25rem; /* Tailwind top-9 = 36px = 2.25rem */
+    opacity: 0;
+    font-weight: 600;
+    color: var(--theme-text); /* You can customize this */
+    background-color: var(--theme-accent); /* Customize this */
+    border-radius: 0.375rem; /* Tailwind rounded-md */
+    padding: 0.25rem 0.5rem; /* Tailwind py-1 px-2 */
+    font-size: 0.875rem; /* Tailwind text-sm = 14px */
+    white-space: nowrap;
+    z-index: 10;
+    transition: all 0.3s ease;
+  }
+  .group:hover .tooltip {
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    .group:hover .tooltip {
+      opacity: 0;
+    }
+  }
+  /* Animationnnnn  */
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .animate-fade-in {
+    animation: fade-in 01s ease-in;
+  }
+
+  @keyframes fade-left {
+    0% {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+  .animate-fade-left {
+    animation: fade-left 01s ease-in;
+  }
+  @keyframes fade-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+  .animate-fade-up {
+    animation: fade-up 01s ease-in;
+  }
+
+  @keyframes fade {
+    0% {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+  }
+
+  .animate-fade {
+    animation: fade 2s ease-in infinite;
+  }
+
+  /* hoverrrrrr */
+  .hover\:text-theme-accent:hover {
+    color: var(--theme-text-secondary);
+  }
+}
