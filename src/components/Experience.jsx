@@ -20,18 +20,18 @@ const Experience = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="bg-accent rounded-xl py-4 px-2"
+            className="bg-glossy rounded-xl py-4 px-2"
           >
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center  w-full py-1 border-b  border-theme-surface pb-2">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center border-b-1 border-theme-surface w-full py-1 pb-2">
               <p className="normal-font-size font-semibold">{exp.name}</p>
             </div>
 
-            <div className="absolute top-3.5 right-2 metadata-font-size text-theme-secondary mt-1 flex items-center gap-1">
-              <p className="bg-surface w-max py-1 px-2 rounded-md metadata-font-size text-theme">
+            <div className="absolute top-2 right-3 metadata-font-size text-theme-secondary mt-1 flex items-center gap-2.5 max-sm:gap-1.5">
+              <p className="bg-accent w-max p-1  rounded-md metadata-font-size text-theme">
                 {exp.starting}
               </p>
               <p className="description-font-size font-bold"></p>
-              <p className="bg-surface w-max py-1 px-2 rounded-md  metadata-font-size text-theme">
+              <p className="bg-accent w-max p-1 rounded-md  metadata-font-size text-theme">
                 {exp.ending}
               </p>
             </div>

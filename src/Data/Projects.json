@@ -4,7 +4,7 @@
     "description": "A responsive personal portfolio website built with React and Tailwind CSS to showcase projects, skills, and contact information. Designed with smooth animations, clean layout, and optimized for performance across all devices.",
     "techSkill": ["React", "Tailwind CSS"],
     "github": "https://github.com/Krutarth-Raval/Portfolio",
-    "live": "https://krutrth.dev.netlify.app"
+    "live": "https://krutrthraval.netlify.app"
   },
   {
     "name": "CineSpot - Movie & Series Info",
@@ -18,6 +18,6 @@
     "description": "A responsive web app built with HTML, CSS, and JavaScript, focused on showcasing Batman movies using a custom JSON data file. The app features detailed overviews, cast info, trailers, and a smooth UI for exploring the Batman universe.",
     "techSkill": ["HTML", "JavaScript", "CSS", "Custom JSON"],
     "github": "https://github.com/Krutarth-Raval/BatCave",
-    "live": "https://batcave.netlify.app"
+    "live": "https://batmancave.netlify.app"
   }
 ]

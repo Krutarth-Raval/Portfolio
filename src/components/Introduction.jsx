@@ -31,7 +31,7 @@ const Introduction = () => {
       </div>
 
       <div className="max-sm:my-1 md:my-3 lg:my-5 bg-surface px-0  py-4 border-t-1 border-b-1 border-[var(--theme-accent)]  animate-fade-in overflow-hidden">
-        <p className=" max-sm:p-1 metadata-font-size text-theme-secondary max-sm:font-normal font-light text-pretty animate-fade-in">
+        <p className=" max-sm:p-1 metadata-font-size text-theme-secondary max-sm:font-normal font-medium text-pretty animate-fade-in">
           I'm a passionate and detail-oriented Frontend Developer with hands-on
           experience in building modern, responsive, and scalable web
           applications using the MERN stack. I specialize in crafting clean

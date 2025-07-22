@@ -15,9 +15,9 @@ const TechSkills = () => {
       <div className="flex flex-wrap mx-2 max-sm:mx-2 md:mx-40 justify-center   sm:justify-start gap-4 mt-4">
         {skills.map((skill,index) => (
           <motion.div   ref={ref}
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.3, delay: index * 0.1 }}
+            initial={{ opacity: 0, y: -50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.2, delay: index * 0.1 }}
             key={skill.name}
             className="relative group bg-gray-800  p-3 rounded-md grid gird-cols w-max h-auto items-center justify-center  gap-2 "
           >
