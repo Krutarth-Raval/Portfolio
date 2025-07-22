@@ -31,7 +31,7 @@ const Navbar = () => {
           <span className="tooltip">About</span>
         </NavLink>
         <NavLink
-          to="/about"
+          to="/blog"
           className="relative group text-theme max-sm:text-base md:text-xl cursor-pointer flex items-center gap-1"
         >
           <FaPenAlt />

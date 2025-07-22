@@ -7,6 +7,7 @@ import "../src/App.css";
 import Introduction from "./components/Introduction";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
+import Blog from "./pages/Blog";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/" element={<Home/>}/>
         
           <Route path="/about" element={<AboutMe />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact/>} />
         </Routes>
         <Footer/>
