@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { keyframes, motion, useInView } from "framer-motion";
+import React, { useRef, useState } from "react";
 
 const ContactForm = () => {
   const [result, setResult] = useState("");
@@ -29,17 +30,28 @@ const ContactForm = () => {
 
     setIsDialogOpen(true);
   };
-
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
   return (
     <div className="p-2 flex flex-col mt-6">
       <p className="description-font-size font-bold border-b border-[var(--theme-accent)] w-full py-2">
         Get In Touch
       </p>
 
-      <div className="bg-glossy mx-2 mt-5 rounded-lg flex justify-center">
-        <form
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, x: 50 }}
+        animate={isInView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.4 }}
+        className="bg-glossy mx-2 mt-5 rounded-lg flex justify-center "
+      >
+        <motion.form
           onSubmit={onSubmit}
-          className="flex flex-col gap-4 mt-4 mb-10 max-sm:mb-1 form"
+          ref={ref}
+          initial={{ opacity: 0, x: 50 }}
+          animate={isInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col gap-4 mt-4 mb-10 max-sm:mb-1 form "
         >
           <div className="flex flex-col">
             <label htmlFor="username" className="mb-1 font-normal">
@@ -95,16 +107,14 @@ const ContactForm = () => {
               Send
             </button>
           </div>
-        </form>
-      </div>
+        </motion.form>
+      </motion.div>
 
       {/* Popup Modal */}
       {isDialogOpen && (
         <div className="fixed inset-0 pop-up flex items-center justify-center z-50">
           <div className="pop-up-block p-6 rounded-xl shadow-lg max-sm:w-[350px] max-w-md text-center">
-            <p className=" metadata-font-size mb-4 font-medium">
-              {result}
-            </p>
+            <p className=" metadata-font-size mb-4 font-medium">{result}</p>
             <button
               onClick={() => setIsDialogOpen(false)}
               className=" more-btn font-bold px-6 py-2 mt-4 rounded-md"
