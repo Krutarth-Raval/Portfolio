@@ -2,7 +2,8 @@ import React from "react";
 import ThemeToggle from "../UI/ThemeToggle";
 import { NavLink } from "react-router-dom";
 import { IoHome, IoCall } from "react-icons/io5";
-import { FaUser } from "react-icons/fa";
+import { FaUser,FaPenAlt} from "react-icons/fa";
+
 import logo from "../assets/logo.png";
 const Navbar = () => {
   return (
@@ -28,6 +29,13 @@ const Navbar = () => {
         >
           <FaUser />
           <span className="tooltip">About</span>
+        </NavLink>
+        <NavLink
+          to="/about"
+          className="relative group text-theme max-sm:text-base md:text-xl cursor-pointer flex items-center gap-1"
+        >
+          <FaPenAlt />
+          <span className="tooltip">Blog</span>
         </NavLink>
 
         <NavLink
