@@ -2,10 +2,17 @@ import React from "react";
 import ThemeToggle from "../UI/ThemeToggle";
 import { NavLink } from "react-router-dom";
 import { IoHome, IoCall } from "react-icons/io5";
-import { FaUser,FaPenAlt} from "react-icons/fa";
+import { FaUser, FaPenAlt } from "react-icons/fa";
 
 import logo from "../assets/logo.png";
 const Navbar = () => {
+  const activeStyle = ({ isActive }) => {
+    return {
+      transition: "all 0.3s ease",
+      color:isActive ? "var(--theme-accent)" : "var(--theme-text)"
+    };
+  };
+
   return (
     <div className="flex items-center justify-between w-full  gap-4  animate-fade-left">
       <div className="h-15 w-15 sm:h-20 sm:w-20 flex-shrink-0 bg-theme rounded-xl">
@@ -17,7 +24,8 @@ const Navbar = () => {
       <div className="flex gap-6 items-center ml-auto bg-button p-3 rounded-lg">
         <NavLink
           to="/"
-          className="relative group max-sm:text-base md:text-xl cursor-pointer flex items-center gap-1 text-theme"
+          className="relative group max-sm:text-base md:text-xl cursor-pointer flex items-center gap-1 text-theme "
+          style={activeStyle}
         >
           <IoHome />
           <span className="tooltip">Home</span>
@@ -25,14 +33,16 @@ const Navbar = () => {
 
         <NavLink
           to="/about"
-          className="relative group text-theme max-sm:text-base md:text-xl cursor-pointer flex items-center gap-1"
+          className="relative group text-theme max-sm:text-base md:text-xl cursor-pointer flex items-center gap-1 "
+          style={activeStyle}
         >
           <FaUser />
           <span className="tooltip">About</span>
         </NavLink>
         <NavLink
           to="/blog"
-          className="relative group text-theme max-sm:text-base md:text-xl cursor-pointer flex items-center gap-1"
+          className="relative group text-theme max-sm:text-base md:text-xl cursor-pointer flex items-center gap-1 "
+          style={activeStyle}
         >
           <FaPenAlt />
           <span className="tooltip">Blog</span>
@@ -40,7 +50,8 @@ const Navbar = () => {
 
         <NavLink
           to="/contact"
-          className="relative group text-theme max-sm:text-base md:text-xl cursor-pointer flex items-center gap-1"
+          className="relative group text-theme max-sm:text-base md:text-xl cursor-pointer flex items-center gap-1 "
+          style={activeStyle}
         >
           <IoCall />
           <span className="tooltip">Contact</span>
