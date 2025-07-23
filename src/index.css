@@ -328,12 +328,13 @@
   left: 50%;
   transform: translateX(-50%) scale(0.95);
   background-color: var(--theme-accent);
-  color: var(--theme-text, white);
+  color: var(--theme-text);
   padding: 0.25rem 0.5rem;
   border-radius: 0.375rem;
   width: max-content;
   opacity: 0;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  z-index: 1;
 }
 
 .group:hover .about-skill-icon {

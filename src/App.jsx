@@ -8,27 +8,29 @@ import Introduction from "./components/Introduction";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import Blog from "./pages/Blog";
+import AboutCard from "./UI/AboutCard";
 
 const App = () => {
   return (
-    <div className="flex justify-center ">
+    <div className="relative flex justify-center ">
       <div
         className="bg-surface  p-3 max-sm:p-2 md:p-4 rounded-xl
                    mx-auto w-full 
                    max-w-full sm:max-w-[640px] md:max-w-[768px] lg:max-w-[800px] xl:max-w-[1000px] 
                    max-sm:my-1 max-sm:mx-2 sm:my-2 md:my-4 lg:my-10 overflow-hidden"
       >
+        
         <Navbar />
 
         {/* ✅ Routes added here */}
         <Routes>
-          <Route path="/" element={<Home/>}/>
-        
+          <Route path="/" element={<Home />} />
+
           <Route path="/about" element={<AboutMe />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/contact" element={<Contact/>} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
-        <Footer/>
+        <Footer />
       </div>
     </div>
   );

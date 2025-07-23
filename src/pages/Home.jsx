@@ -5,10 +5,12 @@ import Experience from '../components/Experience'
 import TechSkills from '../components/TechSkills'
 import Testimonials from '../components/Testimonials'
 import ContactForm  from '@/UI/ContactForm'
+import AboutCard from '@/UI/AboutCard'
 
 const Home = () => {
   return (
     <>
+
     <Introduction/>
     <AcademicProjects/>
     <Experience/>

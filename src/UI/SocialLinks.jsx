@@ -8,23 +8,25 @@ import {
   SiLinkedin,
   SiPinterest,
 } from "react-icons/si";
+import { FaLocationDot } from "react-icons/fa6";
 const SocialLinks = () => {
   const [showAll, setShowAll] = useState(false);
 
   const mainLinks = [
-    { icon: <SiLinkedin />, url: "https://www.linkedin.com/in/raval-krutarth" },
-    { icon: <SiGithub />, url: "https://github.com/Krutarth-Raval" },
-    { icon: <SiGmail />, url: "mailto:krutarth@example.com" },
+    {name:"LickedIn", icon: <SiLinkedin />, url: "https://www.linkedin.com/in/raval-krutarth" },
+    {name:"GitHub", icon: <SiGithub />, url: "https://github.com/Krutarth-Raval" },
+    {name:"Gmail", icon: <SiGmail />, url: "mailto:krutarth@example.com" },
   ];
 
   const moreLinks = [
-    { icon: <SiInstagram />, url: "https://www.instagram.com/raval_krutarth" },
-    { icon: <BsTwitterX />, url: "https://x.com/_krutarth_raval" },
-    { icon: <SiPinterest />, url: "https://pin.it/5kGuOJuRk" },
+    {name:"Instagram", icon: <SiInstagram />, url: "https://www.instagram.com/raval_krutarth" },
+    {name:'X', icon: <BsTwitterX />, url: "https://x.com/_krutarth_raval" },
+    {name:"Pinterest", icon: <SiPinterest />, url: "https://pin.it/5kGuOJuRk" },
+    {name:"Ahmadabad, Gujarat, India", icon: <FaLocationDot />, url: "https://maps.app.goo.gl/VVGJ8iKMzXpnKqzU8" },
   ];
 
   const iconClass =
-    "p-2 bg-accent rounded-md text-xl max-sm:text-base cursor-pointer hover:text-theme-accent";
+    "p-2 bg-accent rounded-md text-xl max-sm:text-base cursor-pointer hover:text-theme-accent relative group";
 
   return (
 
@@ -38,15 +40,17 @@ const SocialLinks = () => {
             className={iconClass}
           >
             {item.icon}
+            <span className="absolute bg-accent px-2 py-1 rounded-md top-10 left-1/2 -translate-x-1/2 w-max opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition duration-300 ease-in-out metadata-font-size">{item.name}</span>
           </NavLink>
         )
       )}
       {!showAll && (
         <button
           onClick={() => setShowAll(true)}
-          className="p-1  bg-accent text-theme-secondary  rounded-md text-xl max-sm:text-base max-sm:px-1.5 font-bold cursor-pointer hover:text-theme-accent "
+          className="p-1 relative bg-accent text-theme-secondary  rounded-md text-xl max-sm:text-base max-sm:px-1.5 font-bold cursor-pointer hover:text-theme-accent group"
         >
-          +3
+          +4
+          <span className="absolute bg-accent px-2 py-1 rounded-md top-10 left-1/2 -translate-x-1/2 w-max opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition duration-300 ease-in-out metadata-font-size">More</span>
         </button>
       )}
     </div>
