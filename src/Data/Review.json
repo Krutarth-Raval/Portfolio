@@ -1,16 +1,15 @@
 [
   {
     "name": "Jaimin Acharya",
-    "description": "Krutarth is dedicated, detail-oriented, and quick to solve problems. His React skills and calm approach make him a valuable asset to any team",
-    "position": "frontend Intern",
+    "description": "Krutarth consistently demonstrated a strong work ethic, quick learning ability, and attention to detail. His calm demeanor and problem-solving approach made him a reliable and valued contributor throughout the internship.",
+    "position": "Frontend Intern",
     "company": "NotionMind"
-  }
-  ,
+  },
+
   {
     "name": "AniruddhSinh Rathore",
     "description": "He has great potential and a sharp mindset. I've seen him improve consistently and tackle challenges with confidence. Proud to see how far he’s come.",
     "position": "Senior Developer",
     "company": "NotionMind"
   }
- 
 ]

@@ -41,7 +41,7 @@ const EduAndExpCard = () => {
             initial={{ opacity: 0, y: -50 }}
             animate={inViewEdu1 ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="relative p-5   w-full h-45 max-lg:h-auto bg-glossy rounded-lg"
+            className="relative p-5  shadow w-full h-45 max-lg:h-auto bg-glossy rounded-lg"
           >
             <div className="absolute top-2 sm:top-3 right-2 sm:right-3  flex items-center gap-2">
               <span className="font-semibold bg-accent px-2 py-1 rounded-sm">
@@ -76,7 +76,7 @@ const EduAndExpCard = () => {
             initial={{ opacity: 0, y: -50 }}
             animate={inViewEdu2 ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="relative p-5  w-full h-45 max-lg:h-auto bg-glossy rounded-lg"
+            className="relative p-5 shadow  w-full h-45 max-lg:h-auto bg-glossy rounded-lg"
           >
             <div className=" absolute top-2 sm:top-3 right-2 sm:right-3 flex items-center gap-2">
               <span className="font-semibold bg-accent px-2 py-1 rounded-sm">
@@ -110,7 +110,7 @@ const EduAndExpCard = () => {
             initial={{ opacity: 0, y: -50 }}
             animate={inViewEdu3 ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.7 }}
-            className="relative p-5  w-full h-45 max-lg:h-auto bg-glossy rounded-lg"
+            className="relative p-5 shadow w-full h-45 max-lg:h-auto bg-glossy rounded-lg"
           >
             <div className="absolute top-2 sm:top-3 right-2 sm:right-3  flex items-center gap-2">
               <span className="font-semibold bg-accent px-2 py-1 rounded-sm">
@@ -156,7 +156,7 @@ const EduAndExpCard = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={inViewSkill1 ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="relative p-5 w-full flex flex-col items-center  h-auto max-lg:h-auto bg-glossy rounded-lg"
+            className="relative p-5 shadow w-full flex flex-col items-center  h-auto max-lg:h-auto bg-glossy rounded-lg"
           >
             <p className="normal-font-size justify-center flex  font-normal mb-3">
               Frontend
@@ -196,7 +196,7 @@ const EduAndExpCard = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={inViewSkill2 ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="relative p-5 w-full flex flex-col items-center  h-auto max-lg:h-auto bg-glossy rounded-lg"
+            className="relative shadow p-5 w-full flex flex-col items-center  h-auto max-lg:h-auto bg-glossy rounded-lg"
           >
             <p className="normal-font-size font-normal mb-2">Backend</p>
             <ul className="flex flex-wrap  gap-5 justify-center m-2 max-sm:justify-start">
@@ -221,7 +221,7 @@ const EduAndExpCard = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={inViewSkill3 ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.7 }}
-            className="relative p-5 w-full flex flex-col items-center  h-auto max-lg:h-auto bg-glossy rounded-lg"
+            className="relative shadow p-5 w-full flex flex-col items-center  h-auto max-lg:h-auto bg-glossy rounded-lg"
           >
             <p className="normal-font-size font-normal mb-2">Tools</p>
             <ul className="flex flex-wrap   gap-5 justify-center m-2 max-sm:justify-start">

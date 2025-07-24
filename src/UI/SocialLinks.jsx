@@ -2,27 +2,27 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { BsTwitterX } from "react-icons/bs";
 import {
-  SiGmail,
-  SiGithub,
-  SiInstagram,
-  SiLinkedin,
-  SiPinterest,
+  SiGmail
 } from "react-icons/si";
+import { GrInstagram  } from "react-icons/gr";
+import { PiGithubLogoFill } from "react-icons/pi";
+import {RiLinkedinFill   } from "react-icons/ri";
+import { FaPinterestP } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 const SocialLinks = () => {
   const [showAll, setShowAll] = useState(false);
 
   const mainLinks = [
-    {name:"LickedIn", icon: <SiLinkedin />, url: "https://www.linkedin.com/in/raval-krutarth" },
-    {name:"GitHub", icon: <SiGithub />, url: "https://github.com/Krutarth-Raval" },
+    {name:"LickedIn", icon: <RiLinkedinFill />, url: "https://www.linkedin.com/in/raval-krutarth" },
+    {name:"GitHub", icon: <PiGithubLogoFill />, url: "https://github.com/Krutarth-Raval" },
     {name:"Gmail", icon: <SiGmail />, url: "mailto:krutarth@example.com" },
   ];
 
   const moreLinks = [
-    {name:"Instagram", icon: <SiInstagram />, url: "https://www.instagram.com/raval_krutarth" },
+    {name:"Instagram", icon: <GrInstagram    />, url: "https://www.instagram.com/raval_krutarth" },
     {name:'X', icon: <BsTwitterX />, url: "https://x.com/_krutarth_raval" },
-    {name:"Pinterest", icon: <SiPinterest />, url: "https://pin.it/5kGuOJuRk" },
-    {name:"Ahmadabad, Gujarat, India", icon: <FaLocationDot />, url: "https://maps.app.goo.gl/VVGJ8iKMzXpnKqzU8" },
+    {name:"Pinterest", icon: <FaPinterestP />, url: "https://pin.it/5kGuOJuRk" },
+    {name:"Ahmadabad, India", icon: <FaLocationDot />, url: "https://maps.app.goo.gl/VVGJ8iKMzXpnKqzU8" },
   ];
 
   const iconClass =
