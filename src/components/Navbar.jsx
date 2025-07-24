@@ -22,7 +22,7 @@ const Navbar = () => {
         </a>
       </div>
 
-      <div className=" flex gap-6 shadow items-center ml-auto bg-button p-3 rounded-lg">
+      <div className=" flex gap-6  items-center ml-auto bg-button p-3 rounded-lg">
         <NavLink
           to="/"
           className="relative group max-sm:text-base md:text-xl cursor-pointer flex items-center gap-1 text-theme "

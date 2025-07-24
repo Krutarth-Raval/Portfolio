@@ -1,165 +1,114 @@
 import React from "react";
-import { IoCall } from "react-icons/io5";
+import { IoCall, IoLocationSharp, IoOpenOutline } from "react-icons/io5";
 import { RiLinkedinFill } from "react-icons/ri";
 import { GrInstagram } from "react-icons/gr";
 import { SiGmail } from "react-icons/si";
 import { BsTwitterX } from "react-icons/bs";
 import { FaPinterestP } from "react-icons/fa";
 import { PiGithubLogoFill } from "react-icons/pi";
-import { IoLocationSharp } from "react-icons/io5";
-import { IoOpenOutline } from "react-icons/io5";
 import ContactForm from "@/UI/ContactForm";
+
+const contactInfo = [
+  {
+    icon: <RiLinkedinFill size={20} />,
+    label: "Krutarth Raval",
+    href: "https://www.linkedin.com/in/raval-krutarth/",
+  },
+  {
+    icon: <SiGmail size={20} />,
+    label: "ravalkrutarth95@gmail.com",
+    href: "mailto:ravalkrutarth95@gmail.com",
+  },
+  {
+    icon: <IoCall size={20} />,
+    label: "+91 6355330833",
+    href: "tel:+916355330833",
+  },
+  {
+    icon: <IoLocationSharp size={20} />,
+    label: "Ahmadabad, Gujarat, India",
+    href: "https://maps.app.goo.gl/VVGJ8iKMzXpnKqzU8",
+  },
+  {
+    icon: <PiGithubLogoFill size={20} />,
+    label: "Krutarth-Raval",
+    href: "https://github.com/Krutarth-Raval",
+  },
+  {
+    icon: <GrInstagram size={20} />,
+    label: "raval_krutarth",
+    href: "https://www.instagram.com/raval_krutarth",
+  },
+  {
+    icon: <BsTwitterX size={20} />,
+    label: "krutarth_raval",
+    href: "https://x.com/_krutarth_raval",
+  },
+  {
+    icon: <FaPinterestP size={20} />,
+    label: "krutarth_raval",
+    href: "https://pin.it/5kGuOJuRk",
+  },
+];
+
+const ContactLink = ({ icon, label, href }) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center py-2 px-2 rounded-md gap-3 group hover:opacity-80 transition hover:scale-101 hover:bg-[var(--theme-bg)]"
+  >
+    <span className="text-theme-secondary">{icon}</span>
+    <span className="metadata-font-size text-theme-secondary group-hover:underline">
+      {label}
+    </span>
+    <IoOpenOutline
+      size={20}
+      className="ml-auto text-theme opacity-90"
+    />
+  </a>
+);
 
 const Contact = () => {
   return (
-    <div className="mt-10 mx-2  ">
-      <div className="rounded-lg p-2">
-        <p className="description-font-size font-bold border-b-1 border-theme-accent">
-          Lets's Get In Touch
+    <section className="mt-16 px-4  mx-auto flex flex-col gap-12">
+      {/* Intro */}
+      <div>
+        <h2 className="description-font-size font-bold mb-2 border-b-1 border-theme-accent pb-2">
+          Let’s Get In Touch
+        </h2>
+        <p className="normal-font-size text-theme-secondary ">
+          Whether it’s a project idea, collaboration, or just a friendly
+          hello—feel free to reach out. I’m always open to meaningful
+          connections.
         </p>
-        <p className="normal-font-size font-normal text-center text-theme-secondary mt-5">
-          You’ll find me on these platforms
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-3  ">
-          <div className="mt-5 flex bg-glossy  rounded-md px-3 py-3 justify-center flex-col gap-5">
-            <div className="flex items-center relative gap-2">
-              <RiLinkedinFill size={20} />
-
-              <span className="ml-2 text-secondary-theme metadata-font-size">
-                Krutarth Raval
-              </span>
-              <a
-                href="https://www.linkedin.com/in/raval-krutarth/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute right-1 flex gap-2 items-center bg-accent px-2 py-1 rounded-md metadata-font-size  "
-              >
-                View <IoOpenOutline size={20} />
-              </a>
-            </div>
-            <div className="flex items-center relative gap-2">
-              <SiGmail size={20} />
-
-              <span className="ml-2 text-secondary-theme metadata-font-size">
-                ravalkrutarth95@gmail.com
-              </span>
-              <a
-                href="mailto:ravalkrutarth95@gamil.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute right-1 flex gap-2 items-center bg-accent px-2 py-1 rounded-md metadata-font-size"
-              >
-                View <IoOpenOutline size={20} />
-              </a>
-            </div>
-            <div className="flex items-center relative gap-2">
-              <IoCall size={20} />
-              <span className="ml-2 text-secondary-theme metadata-font-size">
-                +91 6355330833
-              </span>
-              <a
-                href="tel:+91 635533033"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute right-1 flex gap-2 items-center bg-accent px-2 py-1 rounded-md metadata-font-size"
-              >
-                View <IoOpenOutline size={20} />
-              </a>
-            </div>
-            <div className="flex items-center relative gap-2">
-              <IoLocationSharp size={20} />
-              <span className="ml-2 text-secondary-theme metadata-font-size">
-                Ahmadabad Gujarat India
-              </span>
-              <a
-                href="https://maps.app.goo.gl/VVGJ8iKMzXpnKqzU8"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute right-1 flex gap-2 items-center bg-accent px-2 py-1 rounded-md metadata-font-size"
-              >
-                View <IoOpenOutline size={20} />
-              </a>
-            </div>
-          </div>
-          <div className="mt-5  flex bg-glossy rounded-md  px-3 py-3 justify-center flex-col gap-5">
-            <div className="flex items-center relative gap-2">
-              <PiGithubLogoFill size={20} />
-
-              <span className="ml-2 text-secondary-theme metadata-font-size">
-                Krutarth-Raval
-              </span>
-              <a
-                href="https://github.com/Krutarth-Raval"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute right-1 flex gap-2 items-center bg-accent px-2 py-1 rounded-md metadata-font-size"
-              >
-                View <IoOpenOutline size={20} />
-              </a>
-            </div>
-            <div className="flex items-center relative gap-2">
-              <GrInstagram size={20} />
-
-              <span className="ml-2 text-secondary-theme metadata-font-size">
-                raval_krutarth
-              </span>
-              <a
-                href="https://www.instagram.com/raval_krutarth"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute right-1 flex gap-2 items-center bg-accent px-2 py-1 rounded-md metadata-font-size"
-              >
-                View <IoOpenOutline size={20} />
-              </a>
-            </div>
-            <div className="flex items-center relative gap-2">
-              <BsTwitterX size={20} />
-
-              <span className="ml-2 text-secondary-theme metadata-font-size">
-                krutarth_raval
-              </span>
-              <a
-                href="https://x.com/_krutarth_raval"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute right-1 flex gap-2 items-center bg-accent px-2 py-1 rounded-md metadata-font-size"
-              >
-                View <IoOpenOutline size={20} />
-              </a>
-            </div>
-            <div className="flex items-center relative gap-2">
-              <FaPinterestP size={20} />
-              <span className="ml-2 text-secondary-theme metadata-font-size">
-                krutarth_raval
-              </span>
-              <a
-                href="https://pin.it/5kGuOJuRk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute right-1 flex gap-2 items-center bg-accent px-2 py-1 rounded-md metadata-font-size"
-              >
-                View <IoOpenOutline size={20} />
-              </a>
-            </div>
-          </div>
-        </div>
-       
-        <ContactForm />
-
-        <div className="mt-10 text-center mb-5">
-          <p className="normal-font-size text-theme-secondary mb-2">
-            Not ready to send a message yet?
-          </p>
-          <a
-            href="/about"
-            className="metadata-font-size border-theme-accent border-2 py-2 inline-block px-2 rounded-md "
-          >
-            <span></span>
-            Learn more about me
-          </a>
-        </div>
       </div>
-    </div>
+
+      {/* Contact Links */}
+      <div className="flex flex-col gap-3">
+        {contactInfo.map((item, index) => (
+          <ContactLink key={index} {...item} />
+        ))}
+      </div>
+
+      {/* Contact Form without heading */}
+      <div>
+        <ContactForm />
+      </div>
+
+      {/* Footer line with button */}
+      <div className=" flex gap-3 flex-col items-center">
+        <p className="metadata-font-size text-theme-secondary">
+          Want to learn more before we connect?
+        </p>
+        <a
+          href="/about"
+          className="metadata-font-size  py-2 px-3 border rounded-md hover:scale-103 hover:opacity-90 hover:bg-theme duration-200 "
+        >
+          Learn About Me
+        </a>
+      </div>
+    </section>
   );
 };
 
