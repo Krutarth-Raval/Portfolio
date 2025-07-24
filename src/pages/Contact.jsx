@@ -7,6 +7,7 @@ import { BsTwitterX } from "react-icons/bs";
 import { FaPinterestP } from "react-icons/fa";
 import { PiGithubLogoFill } from "react-icons/pi";
 import ContactForm from "@/UI/ContactForm";
+import { NavLink } from "react-router-dom";
 
 const contactInfo = [
   {
@@ -103,6 +104,7 @@ const Contact = () => {
         </p>
         <a
           href="/about"
+          target="_self"
           className="metadata-font-size  py-2 px-3 border rounded-md hover:scale-103 hover:opacity-90 hover:bg-theme duration-200 "
         >
           Learn About Me
