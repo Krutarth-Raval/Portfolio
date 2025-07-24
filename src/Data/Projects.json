@@ -4,7 +4,7 @@
     "description": "A responsive personal portfolio website built with React and Tailwind CSS to showcase projects, skills, and contact information. Designed with smooth animations, clean layout, and optimized for performance across all devices.",
     "techSkill": ["React", "Tailwind CSS"],
     "github": "https://github.com/Krutarth-Raval/Portfolio",
-    "live": "https://krutrthraval.netlify.app"
+    "live": "https://krutarthraval.netlify.app"
   },
   {
     "name": "CineSpot - Movie & Series Info",
