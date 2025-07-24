@@ -8,6 +8,7 @@ import { FaPinterestP } from "react-icons/fa";
 import { PiGithubLogoFill } from "react-icons/pi";
 import ContactForm from "@/UI/ContactForm";
 import { NavLink } from "react-router-dom";
+import AboutMe from "./AboutMe";
 
 const contactInfo = [
   {
