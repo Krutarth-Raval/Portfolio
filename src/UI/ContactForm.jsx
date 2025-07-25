@@ -46,7 +46,7 @@ const ContactForm = () => {
         initial={{ opacity: 0, x: 50 }}
         animate={isInView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.4 }}
-        className=" mt-15 bg-glossy rounded-lg flex justify-center "
+        className=" mt-15  rounded-lg flex items-center justify-center "
       >
         <motion.form
           onSubmit={onSubmit}
@@ -54,7 +54,7 @@ const ContactForm = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="flex  flex-col gap-4 mt-4 mb-10 max-sm:mb-1 form "
+          className="flex shadow py-2 px-3  rounded-md bg-glossy flex-col gap-4  max-sm:mb-1 form "
         >
           <div className="flex flex-col">
             <label htmlFor="username" className="mb-1 font-normal">
@@ -97,7 +97,7 @@ const ContactForm = () => {
               rows="4"
               autoComplete="off"
               required
-              className="input-field metadata-font-size placeholder:font-light"
+              className="input-field mb-10 metadata-font-size placeholder:font-light"
               placeholder="Let me know how I can help you..."
             />
           </div>
@@ -105,9 +105,9 @@ const ContactForm = () => {
           <div className="relative flex justify-center mb-3">
             <button
               type="submit"
-              className="absolute p-2 w-max border send right-0 max-sm:relative rounded-md font-semibold cursor-pointer bg-accent px-10 group overflow-hidden flex items-center justify-center"
+              className="absolute p-2 w-max border bottom-0 send right-0 max-sm:relative rounded-md font-semibold cursor-pointer bg-accent px-10 group overflow-hidden flex items-center justify-center "
             >
-              <span className="block transform transition-transform duration-300 group-hover:-rotate-z-[10deg] hover:scale-120">Send</span>
+              <span className="flex items-center transform transition-transform duration-300 group-hover:-rotate-x-[360deg] scale-80 group-hover:scale-120 group-hover:text-theme-secondary">Send</span>
             </button>
           </div>
         </motion.form>

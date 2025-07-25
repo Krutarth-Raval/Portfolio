@@ -99,8 +99,8 @@ const Contact = () => {
       </div>
 
       {/* Footer line with button */}
-      <div className=" flex gap-3 flex-col items-center">
-        <p className="metadata-font-size text-theme-secondary">
+      <div className=" flex gap-3 flex-col border-t-1 border-theme-accent items-center">
+        <p className="metadata-font-size mt-10 text-theme-secondary">
           Want to learn more before we connect?
         </p>
         <a
