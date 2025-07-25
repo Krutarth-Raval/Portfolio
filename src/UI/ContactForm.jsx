@@ -37,16 +37,16 @@ const ContactForm = () => {
       <p className="description-font-size font-bold border-b border-[var(--theme-accent)] w-full py-2">
         Quick Message
       </p>
- <p className="normal-font-size font-normal text-center text-theme-secondary mt-10 ">
-          <span className="font-semibold">Got something to say?</span> Send a
-          quick message below.
-        </p>
+      <p className="normal-font-size font-light text-left text-theme mt-3 ">
+        <span className="font-semibold">Got something to say?</span> Send a
+        quick message below.
+      </p>
       <motion.div
         ref={ref}
         initial={{ opacity: 0, x: 50 }}
         animate={isInView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.4 }}
-        className=" mt-5 bg-glossy rounded-lg flex justify-center "
+        className=" mt-15 bg-glossy rounded-lg flex justify-center "
       >
         <motion.form
           onSubmit={onSubmit}
@@ -66,7 +66,7 @@ const ContactForm = () => {
               id="username"
               autoComplete="off"
               required
-              className="input-field placeholder:font-light"
+              className="input-field metadata-font-size placeholder:font-light"
               placeholder="John Doe"
             />
           </div>
@@ -81,7 +81,7 @@ const ContactForm = () => {
               id="email"
               autoComplete="off"
               required
-              className="input-field placeholder:font-light"
+              className="input-field metadata-font-size placeholder:font-light"
               placeholder="you@example.com"
             />
           </div>
@@ -97,7 +97,7 @@ const ContactForm = () => {
               rows="4"
               autoComplete="off"
               required
-              className="input-field placeholder:font-light"
+              className="input-field metadata-font-size placeholder:font-light"
               placeholder="Let me know how I can help you..."
             />
           </div>
@@ -105,9 +105,9 @@ const ContactForm = () => {
           <div className="relative flex justify-center mb-3">
             <button
               type="submit"
-              className="absolute p-2 w-max border send right-0 max-sm:relative rounded-md font-semibold cursor-pointer bg-accent px-10"
+              className="absolute p-2 w-max border send right-0 max-sm:relative rounded-md font-semibold cursor-pointer bg-accent px-10 group overflow-hidden flex items-center justify-center"
             >
-              Send
+              <span className="block transform transition-transform duration-300 group-hover:-rotate-z-[10deg] hover:scale-120">Send</span>
             </button>
           </div>
         </motion.form>

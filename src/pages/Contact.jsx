@@ -73,13 +73,13 @@ const ContactLink = ({ icon, label, href }) => (
 
 const Contact = () => {
   return (
-    <section className="mt-16 px-4  mx-auto flex flex-col gap-12">
+    <section className="mt-16 px-2  mx-auto flex flex-col gap-12">
       {/* Intro */}
       <div>
         <h2 className="description-font-size font-bold mb-2 border-b-1 border-theme-accent pb-2">
           Let’s Get In Touch
         </h2>
-        <p className="normal-font-size text-theme-secondary ">
+        <p className="normal-font-size text-theme font-light ">
           Whether it’s a project idea, collaboration, or just a friendly
           hello—feel free to reach out. I’m always open to meaningful
           connections.
@@ -87,7 +87,7 @@ const Contact = () => {
       </div>
 
       {/* Contact Links */}
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 ">
         {contactInfo.map((item, index) => (
           <ContactLink key={index} {...item} />
         ))}
