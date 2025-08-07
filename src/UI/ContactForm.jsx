@@ -54,7 +54,7 @@ const ContactForm = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="flex shadow py-2 px-3  rounded-md bg-glossy flex-col gap-4  max-sm:mb-1 form "
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full shadow py-2 px-3 rounded-md bg-glossy form "
         >
           <div className="flex flex-col">
             <label htmlFor="username" className="mb-1 font-normal">
@@ -86,7 +86,7 @@ const ContactForm = () => {
             />
           </div>
 
-          <div className="flex flex-col">
+          <div className="flex flex-col md:col-span-2">
             <label htmlFor="message" className="mb-1 font-normal">
               Your Message
             </label>
@@ -97,12 +97,12 @@ const ContactForm = () => {
               rows="4"
               autoComplete="off"
               required
-              className="input-field mb-10 metadata-font-size placeholder:font-light"
+              className="input-field mb-10 metadata-font-size placeholder:font-light  "
               placeholder="Let me know how I can help you..."
             />
           </div>
 
-          <div className="relative flex justify-center mb-3">
+          <div className="relative flex justify-end md:col-span-2 mb-3">
             <button
               type="submit"
               className="absolute p-2 w-max border bottom-0 send right-0 max-sm:relative rounded-md font-semibold cursor-pointer bg-accent px-10 group overflow-hidden flex items-center justify-center "

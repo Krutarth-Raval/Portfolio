@@ -4,11 +4,9 @@ import { RiLinkedinFill } from "react-icons/ri";
 import { GrInstagram } from "react-icons/gr";
 import { SiGmail } from "react-icons/si";
 import { BsTwitterX } from "react-icons/bs";
-import { FaPinterestP } from "react-icons/fa";
 import { PiGithubLogoFill } from "react-icons/pi";
 import ContactForm from "@/UI/ContactForm";
-import { NavLink } from "react-router-dom";
-import AboutMe from "./AboutMe";
+
 
 const contactInfo = [
   {
@@ -45,11 +43,6 @@ const contactInfo = [
     icon: <BsTwitterX size={20} />,
     label: "krutarth_raval",
     href: "https://x.com/_krutarth_raval",
-  },
-  {
-    icon: <FaPinterestP size={20} />,
-    label: "krutarth_raval",
-    href: "https://pin.it/5kGuOJuRk",
   },
 ];
 

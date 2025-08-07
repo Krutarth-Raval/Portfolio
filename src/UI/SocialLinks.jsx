@@ -7,7 +7,6 @@ import {
 import { GrInstagram  } from "react-icons/gr";
 import { PiGithubLogoFill } from "react-icons/pi";
 import {RiLinkedinFill   } from "react-icons/ri";
-import { FaPinterestP } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 const SocialLinks = () => {
   const [showAll, setShowAll] = useState(false);
@@ -21,7 +20,6 @@ const SocialLinks = () => {
   const moreLinks = [
     {name:"Instagram", icon: <GrInstagram    />, url: "https://www.instagram.com/raval_krutarth" },
     {name:'X', icon: <BsTwitterX />, url: "https://x.com/_krutarth_raval" },
-    {name:"Pinterest", icon: <FaPinterestP />, url: "https://pin.it/5kGuOJuRk" },
     {name:"Ahmadabad, India", icon: <FaLocationDot />, url: "https://maps.app.goo.gl/VVGJ8iKMzXpnKqzU8" },
   ];
 
@@ -49,7 +47,7 @@ const SocialLinks = () => {
           onClick={() => setShowAll(true)}
           className="p-1 relative bg-accent text-theme-secondary  rounded-md text-xl max-sm:text-base max-sm:px-1.5 font-bold cursor-pointer hover:text-theme-accent group"
         >
-          +4
+          +3
           <span className="absolute bg-accent px-2 py-1 rounded-md top-10 left-1/2 -translate-x-1/2 w-max opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition duration-300 ease-in-out metadata-font-size">More</span>
         </button>
       )}
