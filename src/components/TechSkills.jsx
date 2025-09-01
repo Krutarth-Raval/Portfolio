@@ -12,7 +12,7 @@ const TechSkills = () => {
         Tech Stack
       </p>
 
-      <div className="flex flex-wrap mx-2 max-sm:mx-2 md:mx-40 justify-center   sm:justify-start gap-4 mt-4">
+      <div className="flex flex-wrap mx-2 max-sm:mx-2 md:mx-40 justify-center   sm:justify-start gap-8 mt-4">
         {skills.map((skill,index) => (
           <motion.div   ref={ref}
             initial={{ opacity: 0, y: -50 }}

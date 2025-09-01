@@ -20,8 +20,14 @@ const Introduction = () => {
 
   return (
     <div className="mt-10 mx-2  ">
-      <p className="title-font-size font-bold text-theme  animate-fade-in">
-        I'm, Krutarth Raval
+      <p className="title-font-size font-bold text-theme  animate-fade-in ">
+        <span className="text-theme-secondary brightness-70">
+          <span className="inline md:hidden">Hi!</span>
+          <span className="hidden md:inline lg:hidden">Hey!</span>
+          <span className="hidden lg:inline">Hello!</span>
+          <span className="ml-2">I'm </span>
+        </span>
+        Krutarth Raval
       </p>
 
       <div className="relative h-10 mt-1 ">
@@ -41,9 +47,7 @@ const Introduction = () => {
         </p>
       </div>
 
-      
-       <SocialLinks/>
-     
+      <SocialLinks />
     </div>
   );
 };

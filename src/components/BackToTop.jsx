@@ -30,7 +30,7 @@ const BackToTop = () => {
           onClick={goToTop}
           className="back-to-top"
         >
-            <BiSolidUpArrow size={20}  className="animate-bounce text-theme"/>
+            <BiSolidUpArrow size={25}  className="animate-bounce text-blue-500"/>
         </button>
       )}
     </div>

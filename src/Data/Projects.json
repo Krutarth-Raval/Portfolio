@@ -1,5 +1,12 @@
 [
   {
+    "name": "Task Manager",
+    "description": "A full-stack application for managing tasks with features like creating, updating, and tracking task progress.",
+    "techSkill": ["React", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
+    "github": "https://github.com/Krutarth-Raval/Task-Manager",
+    "live": ""
+  },
+  {
     "name": "Portfolio",
     "description": "A responsive personal portfolio website built with React and Tailwind CSS to showcase projects, skills, and contact information. Designed with smooth animations, clean layout, and optimized for performance across all devices.",
     "techSkill": ["React", "Tailwind CSS"],

@@ -45,7 +45,7 @@ const AcademicProjects = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.4, delay: index * 0.05 }}
-          className="mt-5  bg-glossy p-2 rounded-md relative"
+          className="mt-5  bg-glossy p-2 rounded-md relative "
           key={index}
         >
           <div className=" flex justify-end gap-5 max-sm:gap-3 items-center">
@@ -53,18 +53,20 @@ const AcademicProjects = () => {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="metadata-font-size flex flex-row justify-center items-center gap-2 max-sm:gap-1 hover:text-theme-accent bg-accent p-1 rounded-md"
+              className="metadata-font-size flex flex-row justify-center items-center gap-2 max-sm:gap-1 hover:text-black bg-accent p-1 rounded-md transition-all duration-300"
             >
               GitHub <SiGithub />
             </a>
-            <a
-              href={project.live}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="metadata-font-size flex flex-row justify-center items-center gap-2 max-sm:gap-1 hover:text-theme-accent bg-accent p-1 rounded-md cursor-pointer"
-            >
-              View <BiLinkExternal />
-            </a>
+            {project.live && project.live.trim() !== "" && (
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="metadata-font-size flex flex-row justify-center items-center gap-2 max-sm:gap-1 hover:text-blue-600 bg-accent p-1 rounded-md cursor-pointer transition-all duration-300"
+              >
+                View <BiLinkExternal />
+              </a>
+            )}
           </div>
 
           <p className=" normal-font-size py-2 max-sm:py-2 font-semibold border-b-1 border-theme-surface">
@@ -101,10 +103,7 @@ const AcademicProjects = () => {
 
       {projects.length > 2 && !showAll && (
         <div className="text-center mt-3">
-          <button
-            onClick={() => setShowAll(true)}
-            className="more-btn "
-          >
+          <button onClick={() => setShowAll(true)} className="more-btn ">
             More +
           </button>
         </div>
