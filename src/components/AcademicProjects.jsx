@@ -24,6 +24,21 @@ const AcademicProjects = () => {
 
     "Express.js":
       "https://cdn.hashnode.com/res/hashnode/image/upload/v1675637255386/f3a9a38b-116d-4b35-8f46-8d8abb78166f.png",
+
+      "Next.js":
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+      "TypeScript":
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+
+      "Drizzle ORM":
+      "https://avatars.githubusercontent.com/u/108468352?v=4",
+
+      "Better Auth":
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKWK0MLkM5pzW-uULfdP5ynajXiuFm2GyqBA&s",
+
+      "Neon":
+      "https://neon.tech/favicon.ico",
+
   };
 
   const [showAll, setShowAll] = useState(false);

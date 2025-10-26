@@ -1,4 +1,18 @@
-[
+[{
+  "name": "Notly - Modern Notes App",
+  "description": "A modern, fast, and secure notes application built with Next.js 15. Features a clean, distraction-free interface for capturing ideas, managing tasks, and staying organized.",
+  "techSkill": [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "Drizzle ORM",
+    "Better Auth",
+    "Neon"
+  ],
+  "github": "https://github.com/Krutarth-Raval/Notly",
+  "live": "https://notly-six.vercel.app"
+},
   {
     "name": "Task Manager",
     "description": "A full-stack application for managing tasks with features like creating, updating, and tracking task progress.",
@@ -12,13 +26,6 @@
     "techSkill": ["React", "Tailwind CSS"],
     "github": "https://github.com/Krutarth-Raval/Portfolio",
     "live": "https://krutarthraval.netlify.app"
-  },
-  {
-    "name": "CineSpot - Movie & Series Info",
-    "description": "A responsive React web app powered by the TMDb API, featuring movie and TV show discovery, dynamic search, user authentication, and personal favorites collection. Users can view detailed overviews, ratings, and trailers, with secure account management and cloud deployment.",
-    "techSkill": ["React", "Node.js", "MongoDB", "Express.js", "TMDB API"],
-    "github": "https://github.com/Krutarth-Raval/CineSpot",
-    "live": "https://cinemaspot.netlify.app"
   },
   {
     "name": "BatCave - Movie & Series Info",

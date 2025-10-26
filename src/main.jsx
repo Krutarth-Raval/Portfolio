@@ -8,6 +8,7 @@ import BackToTop from './components/BackToTop';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
+    
       <App />
     <BackToTop/>
     </BrowserRouter>

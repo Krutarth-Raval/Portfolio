@@ -1,3 +1,5 @@
+
+import { BoxesCore } from "@/components/ui/background-boxes";
 import { keyframes, motion, useInView } from "framer-motion";
 import React, { useRef, useState } from "react";
 
@@ -54,10 +56,13 @@ const ContactForm = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full shadow py-2 px-3 rounded-md bg-glossy form "
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full  py-2 px-3 rounded-md bg-glossy form "
         >
           <div className="flex flex-col">
-            <label htmlFor="username" className="mb-1 font-normal">
+            <div className="absolute inset-0 overflow-hidden ">
+              <BoxesCore />
+            </div>
+            <label htmlFor="username" className="mb-1  w-max font-normal z-1">
               Full Name
             </label>
             <input
@@ -66,13 +71,13 @@ const ContactForm = () => {
               id="username"
               autoComplete="off"
               required
-              className="input-field metadata-font-size placeholder:font-light"
+              className="input-field metadata-font-size placeholder:font-light z-1"
               placeholder="John Doe"
             />
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="email" className="mb-1 font-normal">
+            <label htmlFor="email" className="mb-1  w-max font-normal z-1">
               Email ID
             </label>
             <input
@@ -81,13 +86,13 @@ const ContactForm = () => {
               id="email"
               autoComplete="off"
               required
-              className="input-field metadata-font-size placeholder:font-light"
+              className="input-field metadata-font-size placeholder:font-light z-1"
               placeholder="you@example.com"
             />
           </div>
 
           <div className="flex flex-col md:col-span-2">
-            <label htmlFor="message" className="mb-1 font-normal">
+            <label htmlFor="message" className="mb-1 w-max font-normal z-1">
               Your Message
             </label>
             <textarea
@@ -97,7 +102,7 @@ const ContactForm = () => {
               rows="4"
               autoComplete="off"
               required
-              className="input-field mb-10 metadata-font-size placeholder:font-light  "
+              className="input-field mb-10 metadata-font-size placeholder:font-light  z-1"
               placeholder="Let me know how I can help you..."
             />
           </div>
