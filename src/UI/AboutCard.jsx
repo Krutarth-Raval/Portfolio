@@ -14,7 +14,7 @@ const AboutCard = () => {
           <img
             src={myImage}
             alt=""
-            className="object-cover max-md:h-30 max-md:w-30 bg-none  shadow h-50 w-50 rounded-[50%]  select-none"
+            className="object-cover max-md:h-30 max-md:w-30 bg-none  shadow h-50 w-50 rounded-[50%] select-none"
           />
           {/* <p className="absolute top-2 py-1 px-5 rounded-lg text-theme   text-sm font-light sm:opacity-70 ">
             Turning ideas into code.
