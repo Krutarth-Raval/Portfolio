@@ -25,7 +25,7 @@ const AboutCard = () => {
           <div className="relative p-4 h-max rounded-lg flex flex-col gap-4 text-theme  text-wrap animate-fade-left">
             <p className="font-light normal-font-size leading-relaxed text-start p-2">
               Hey, my name is{" "}
-              <span className="text-theme font-bold">Krutarth Raval</span> — a
+              <span className="text-theme font-bold">Krutarth Raval</span> a
               passionate individual who loves building and creating with intent.
               I find purpose in learning, growing, and shaping ideas into
               something real and impactful. Whether it’s a project or a
@@ -37,7 +37,7 @@ const AboutCard = () => {
               <span className="font-semibold text-accent">
                 open to opportunities
               </span>{" "}
-              — if you think we can collaborate, feel free to reach out or
+               if you think we can collaborate, feel free to reach out or
               explore my CV.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">

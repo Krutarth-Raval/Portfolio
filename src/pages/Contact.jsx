@@ -20,11 +20,6 @@ const contactInfo = [
     href: "mailto:ravalkrutarth95@gmail.com",
   },
   {
-    icon: <IoCall size={20} />,
-    label: "+91 6355330833",
-    href: "tel:+916355330833",
-  },
-  {
     icon: <IoLocationSharp size={20} />,
     label: "Ahmadabad, Gujarat, India",
     href: "https://maps.app.goo.gl/VVGJ8iKMzXpnKqzU8",
@@ -74,7 +69,7 @@ const Contact = () => {
         </h2>
         <p className="normal-font-size text-theme font-light ">
           Whether it’s a project idea, collaboration, or just a friendly
-          hello—feel free to reach out. I’m always open to meaningful
+          hello, feel free to reach out. I’m always open to meaningful
           connections.
         </p>
       </div>
