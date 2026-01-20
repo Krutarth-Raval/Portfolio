@@ -14,11 +14,11 @@ const contactInfo = [
     label: "Krutarth Raval",
     href: "https://www.linkedin.com/in/raval-krutarth/",
   },
-  {
-    icon: <SiGmail size={20} />,
-    label: "ravalkrutarth95@gmail.com",
-    href: "mailto:ravalkrutarth95@gmail.com",
-  },
+  // {
+  //   icon: <SiGmail size={20} />,
+  //   label: "ravalkrutarth95@gmail.com",
+  //   href: "mailto:ravalkrutarth95@gmail.com",
+  // },
   {
     icon: <IoLocationSharp size={20} />,
     label: "Ahmadabad, Gujarat, India",
@@ -34,11 +34,11 @@ const contactInfo = [
     label: "raval_krutarth",
     href: "https://www.instagram.com/raval_krutarth",
   },
-  {
-    icon: <BsTwitterX size={20} />,
-    label: "krutarth_raval",
-    href: "https://x.com/_krutarth_raval",
-  },
+  // {
+  //   icon: <BsTwitterX size={20} />,
+  //   label: "krutarth_raval",
+  //   href: "https://x.com/_krutarth_raval",
+  // },
 ];
 
 const ContactLink = ({ icon, label, href }) => (

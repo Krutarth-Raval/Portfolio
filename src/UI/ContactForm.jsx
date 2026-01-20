@@ -1,139 +1,55 @@
+import { Mail } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
-import { BoxesCore } from "@/components/ui/background-boxes";
-import { keyframes, motion, useInView } from "framer-motion";
-import React, { useRef, useState } from "react";
-
-const ContactForm = () => {
-  const [result, setResult] = useState("");
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-
-  const onSubmit = async (event) => {
-    event.preventDefault();
-    setResult("Sending...");
-    const formData = new FormData(event.target);
-    formData.append("access_key", import.meta.env.VITE_ACCESS_KEY);
-
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
-
-    const data = await response.json();
-
-    if (data.success) {
-      setResult(
-        "Thanks for reaching out! I'll get in touch with you as soon as possible."
-      );
-
-      event.target.reset();
-    } else {
-      setResult("Failed to submit. Please try again.");
-    }
-
-    setIsDialogOpen(true);
-  };
+const ContactBox = () => {
+  const email = "ravalkrutarth95@gmail.com";
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   return (
-    <div className="p-2 flex flex-col mt-6">
-      <p className="description-font-size font-bold border-b border-[var(--theme-accent)] w-full py-2">
-        Quick Message
+    <div className="p-2 flex flex-col justify-start mt-6">
+      <p className="description-font-size font-bold  border-b border-[var(--theme-accent)] w-full py-2">
+        Email Me
       </p>
-      <p className="normal-font-size font-light text-left text-theme mt-3 ">
-        <span className="font-semibold">Got something to say?</span> Send a
-        quick message below.
+      <p className="normal-font-size text-theme font-light ">
+        Have a project, opportunity, or collaboration in mind?
       </p>
-      <motion.div
-        ref={ref}
-        initial={{ opacity: 0, x: 50 }}
-        animate={isInView ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 0.4 }}
-        className=" mt-15  rounded-lg flex items-center justify-center "
-      >
-        <motion.form
-          onSubmit={onSubmit}
+      <div className="flex justify-center">
+        <motion.a
           ref={ref}
-          initial={{ opacity: 0, x: 50 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full  py-2 px-3 rounded-md bg-glossy form "
+          href={`mailto:${email}`}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+          className="
+        relative
+        flex items-center gap-4 justify-center
+        w-full max-w-md
+        p-4 mt-6
+        rounded-xl
+        bg-glossy
+        border border-[var(--theme-accent)]
+        cursor-pointer
+        group
+        overflow-hidden
+      "
         >
-          <div className="flex flex-col">
-            <div className="absolute inset-0 overflow-hidden ">
-              <BoxesCore />
-            </div>
-            <label htmlFor="username" className="mb-1  w-max font-normal z-1">
-              Full Name
-            </label>
-            <input
-              type="text"
-              name="username"
-              id="username"
-              autoComplete="off"
-              required
-              className="input-field metadata-font-size placeholder:font-light z-1"
-              placeholder="John Doe"
-            />
+          {/* Glow accent */}
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(circle_at_top_left,var(--theme-accent),transparent_70%)]" />
+          {/* Text */}
+          <div className="relative z-10 flex flex-col">
+            <span className="normal-font-size font-light text-theme opacity-80">
+              {email}
+            </span>
+          </div>{" "}
+          {/* Icon */}
+          <div className="relative z-10 flex items-center justify-center w-12 h-12 rounded-lg bg-accent">
+            <Mail className="w-6 h-6 text-theme-secondary" />
           </div>
-
-          <div className="flex flex-col">
-            <label htmlFor="email" className="mb-1  w-max font-normal z-1">
-              Email ID
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              autoComplete="off"
-              required
-              className="input-field metadata-font-size placeholder:font-light z-1"
-              placeholder="you@example.com"
-            />
-          </div>
-
-          <div className="flex flex-col md:col-span-2">
-            <label htmlFor="message" className="mb-1 w-max font-normal z-1">
-              Your Message
-            </label>
-            <textarea
-              name="message"
-              id="message"
-              cols="30"
-              rows="4"
-              autoComplete="off"
-              required
-              className="input-field mb-10 metadata-font-size placeholder:font-light  z-1"
-              placeholder="Let me know how I can help you..."
-            />
-          </div>
-
-          <div className="relative flex justify-end md:col-span-2 mb-3">
-            <button
-              type="submit"
-              className="absolute p-2 w-max border bottom-0 send right-0 max-sm:relative rounded-md font-semibold cursor-pointer bg-accent px-10 group overflow-hidden flex items-center justify-center "
-            >
-              <span className="flex items-center transform transition-transform duration-300 group-hover:-rotate-x-[360deg] scale-80 group-hover:scale-120 group-hover:text-theme-secondary">Send</span>
-            </button>
-          </div>
-        </motion.form>
-      </motion.div>
-
-      {/* Popup Modal */}
-      {isDialogOpen && (
-        <div className="fixed inset-0 pop-up flex items-center justify-center z-50">
-          <div className="pop-up-block p-6 rounded-xl shadow-lg max-sm:w-[350px] max-w-md text-center">
-            <p className=" metadata-font-size mb-4 font-medium">{result}</p>
-            <button
-              onClick={() => setIsDialogOpen(false)}
-              className=" more-btn font-bold px-6 py-2 mt-4 rounded-md"
-            >
-              OKAY
-            </button>
-          </div>
-        </div>
-      )}
+        </motion.a>
+      </div>
     </div>
   );
 };
 
-export default ContactForm;
+export default ContactBox;

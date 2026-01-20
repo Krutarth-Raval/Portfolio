@@ -6,6 +6,16 @@
     "location": "Ahmedabad, India",
     "starting": "Nov-2024",
     "ending": "Apr-2025",
-    "description": "Worked remotely as a Frontend Intern, collaborating with senior developers on CineSpot—a movie and series platform built with React and Tailwind CSS. Gained real-world experience in component-based architecture, REST API integration (TMDb), responsive design, Git version control, Framer Motion animations, and clean UI/UX practices. Contributed to development workflows, participated in team discussions, and improved code quality through peer reviews."
-  }
+    "description": "Worked remotely as a Frontend Intern, collaborating with senior developers on CineSpot, a movie and series platform built with React and Tailwind CSS. Gained real-world experience in component-based architecture, REST API integration (TMDb), responsive design, Git version control, Framer Motion animations, and clean UI/UX practices. Contributed to development workflows, participated in team discussions, and improved code quality through peer reviews."
+  },
+  {
+  "name": "Codeworks Services",
+  "role": "Full-stack Developer Intern",
+  "type": "Remote",
+  "location": "Ahmedabad, India",
+  "starting": "Jan-2026",
+  "ending": "Present",
+  "description": "Working as a Full-stack Developer Intern, developing a complete MERN stack web application. Responsible for designing and implementing frontend interfaces using React, building RESTful APIs with Node.js and Express, and managing application data with MongoDB. Gaining hands-on experience in full project development, feature implementation, and real-world development workflows."
+}
+
 ]

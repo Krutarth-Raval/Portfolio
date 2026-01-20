@@ -19,7 +19,7 @@ const Greeting = () => {
         className="mt-10 w-full"
       >
         <p className="bg-glossy p-2 rounded-md font-light metadata-font-size  mx-auto">
-          Thanks for reading this far — I genuinely appreciate your time. If you
+          Thanks for reading this far, I genuinely appreciate your time. If you
           think we’d be a good fit for a project, job, or just a chat, don’t
           hesitate to reach out.
           <a

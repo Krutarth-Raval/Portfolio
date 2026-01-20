@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import '../src/index.css'
 import App from './App';
 import BackToTop from './components/BackToTop';
+import "devicon/devicon.min.css";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

@@ -11,7 +11,7 @@ import {
   RiGithubLine,
 } from "react-icons/ri";
 import { FaLocationDot } from "react-icons/fa6";
-import { SiMongodb, SiExpress, SiPostman, SiNetlify } from "react-icons/si";
+import { SiMongodb, SiExpress, SiPostman, SiNetlify, SiTypescript, SiMongoose, SiJsonwebtokens, SiVercel, SiSwagger } from "react-icons/si";
 import { TbBrandFramerMotion } from "react-icons/tb";
 import { VscVscode } from "react-icons/vsc";
 const EduAndExpCard = () => {
@@ -144,46 +144,50 @@ const EduAndExpCard = () => {
       </div>
 
       {/* Expertise Section */}
-      <div className="flex flex-col w-full gap-5 p-2 items-start  text-theme">
+      <div className="flex flex-col w-full gap-5 p-2 items-start text-theme">
         <h2 className="description-font-size w-full font-semibold pb-2 border-b-1 border-theme-accent">
           Expertise
         </h2>
 
-        <div className="metadata-font-size w-full flex sm:justify-center  max-lg:flex-col gap-3 max-sm:gap-2">
+        <div className="metadata-font-size w-full flex sm:justify-center max-lg:flex-col gap-3 max-sm:gap-2">
           {/* Frontend */}
           <motion.div
             ref={skillRef1}
             initial={{ opacity: 0, y: 50 }}
             animate={inViewSkill1 ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="relative p-5  w-full flex flex-col items-center   h-auto max-lg:h-auto bg-glossy rounded-lg"
+            className="relative p-5 w-full flex flex-col items-center bg-glossy rounded-lg"
           >
-            <p className="normal-font-size justify-center flex  font-normal mb-3">
+            <p className="normal-font-size flex justify-center font-normal mb-3">
               Frontend
             </p>
-            <ul className="grid grid-cols-3  gap-5  m-2 ">
-              <li className="bg-surface w-max  px-2 py-1 rounded relative group">
+
+            <ul className="grid grid-cols-3 gap-5 m-2">
+              <li className="bg-surface px-2 py-1 rounded relative group">
                 <RiReactjsLine size={40} />
                 <span className="about-skill-icon">React</span>
               </li>
-              <li className="bg-surface w-max  px-2 py-1 rounded relative group">
+              <li className="bg-surface px-2 py-1 rounded relative group">
                 <RiTailwindCssFill size={40} />
                 <span className="about-skill-icon">Tailwind CSS</span>
               </li>
-              <li className="bg-surface w-max px-2 py-1 rounded relative group">
-                {" "}
+              <li className="bg-surface px-2 py-1 rounded relative group">
                 <RiHtml5Fill size={40} />
                 <span className="about-skill-icon">HTML5</span>
               </li>
-              <li className="bg-surface w-max  px-2 py-1 rounded relative group">
+              <li className="bg-surface px-2 py-1 rounded relative group">
                 <RiCss3Fill size={40} />
                 <span className="about-skill-icon">CSS3</span>
               </li>
-              <li className="bg-surface w-max px-2 py-1 rounded relative group">
+              <li className="bg-surface px-2 py-1 rounded relative group">
                 <RiJavascriptFill size={40} />
                 <span className="about-skill-icon">JavaScript</span>
               </li>
-              <li className="bg-surface w-max  px-2 py-1 rounded relative group">
+              <li className="bg-surface px-2 py-1 rounded relative group">
+                <SiTypescript size={40} />
+                <span className="about-skill-icon">TypeScript</span>
+              </li>
+              <li className="bg-surface px-2 py-1 rounded relative group">
                 <TbBrandFramerMotion size={40} />
                 <span className="about-skill-icon">Framer Motion</span>
               </li>
@@ -196,21 +200,34 @@ const EduAndExpCard = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={inViewSkill2 ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="relative  p-5 w-full flex flex-col items-center  h-auto max-lg:h-auto bg-glossy rounded-lg"
+            className="relative p-5 w-full flex flex-col items-center bg-glossy rounded-lg"
           >
             <p className="normal-font-size font-normal mb-2">Backend</p>
-            <ul className="  gap-5  m-2 grid grid-cols-3  ">
-              <li className="bg-surface w-max  px-2 py-1 rounded relative group">
+
+            <ul className="grid grid-cols-3 gap-5 m-2">
+              <li className="bg-surface px-2 py-1 rounded relative group">
                 <RiNodejsLine size={40} />
                 <span className="about-skill-icon">Node.js</span>
               </li>
-              <li className="bg-surface w-max  px-2 py-1 rounded relative group">
+              <li className="bg-surface px-2 py-1 rounded relative group">
                 <SiExpress size={40} />
                 <span className="about-skill-icon">Express</span>
               </li>
-              <li className="bg-surface w-max  px-2 py-1 rounded relative group">
+              <li className="bg-surface px-2 py-1 rounded relative group">
                 <SiMongodb size={40} />
                 <span className="about-skill-icon">MongoDB</span>
+              </li>
+              <li className="bg-surface px-2 py-1 rounded relative group">
+                <SiMongoose size={40} />
+                <span className="about-skill-icon">Mongoose</span>
+              </li>
+              <li className="bg-surface px-2 py-1 rounded relative group">
+                <SiJsonwebtokens size={40} />
+                <span className="about-skill-icon">JWT Auth</span>
+              </li>
+              <li className="bg-surface px-2 py-1 rounded relative group">
+                <SiSwagger size={40} />
+                <span className="about-skill-icon">REST APIs</span>
               </li>
             </ul>
           </motion.div>
@@ -221,30 +238,30 @@ const EduAndExpCard = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={inViewSkill3 ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.7 }}
-            className="relative  p-5 w-full flex flex-col items-center  h-auto max-lg:h-auto bg-glossy rounded-lg"
+            className="relative p-5 w-full flex flex-col items-center bg-glossy rounded-lg"
           >
             <p className="normal-font-size font-normal mb-2">Tools</p>
+
             <ul className="grid grid-cols-3 gap-5 m-2">
-              <li className="bg-surface w-max  px-2 py-1 rounded relative group">
+              <li className="bg-surface px-2 py-1 rounded relative group">
                 <RiGitMergeFill size={40} />
                 <span className="about-skill-icon">Git</span>
               </li>
-              <li className="bg-surface w-max  px-2 py-1 rounded relative group">
+              <li className="bg-surface px-2 py-1 rounded relative group">
                 <RiGithubLine size={40} />
                 <span className="about-skill-icon">GitHub</span>
               </li>
-              <li className="bg-surface w-max  px-2 py-1 rounded relative group">
+              <li className="bg-surface px-2 py-1 rounded relative group">
                 <VscVscode size={40} />
                 <span className="about-skill-icon">VS Code</span>
               </li>
-
-              <li className="bg-surface w-max  px-2 py-1 rounded relative group">
+              <li className="bg-surface px-2 py-1 rounded relative group">
                 <SiPostman size={40} />
                 <span className="about-skill-icon">Postman</span>
               </li>
-              <li className="bg-surface w-max  px-2 py-1 rounded relative group">
-                <SiNetlify size={40} />
-                <span className="about-skill-icon">Netlify</span>
+              <li className="bg-surface px-2 py-1 rounded relative group">
+                <SiVercel size={40} />
+                <span className="about-skill-icon">Vercel</span>
               </li>
             </ul>
           </motion.div>

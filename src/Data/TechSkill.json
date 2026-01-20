@@ -15,6 +15,11 @@
     "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
   },
   {
+    "image": "devicon-typescript-plain colored",
+    "name": "TypeScript",
+    "url": "https://www.typescriptlang.org/"
+  },
+  {
     "image": "devicon-react-original colored",
     "name": "React.js",
     "url": "https://react.dev/"
@@ -40,6 +45,11 @@
     "url": "https://www.mongodb.com/"
   },
   {
+    "image": "devicon-mongoose-original colored",
+    "name": "Mongoose",
+    "url": "https://mongoosejs.com/"
+  },
+  {
     "image": "devicon-git-plain colored",
     "name": "Git",
     "url": "https://git-scm.com/"
@@ -60,23 +70,23 @@
     "url": "https://vitejs.dev/"
   },
   {
-    "image": "devicon-axios-plain colored",
-    "name": "Axios",
-    "url": "https://axios-http.com/"
+    "image": "devicon-netlify-plain colored",
+    "name": "Netlify",
+    "url": "https://www.netlify.com/"
   },
   {
-    "image": "devicon-bootstrap-plain colored",
-    "name": "Bootstrap",
-    "url": "https://getbootstrap.com/"
+    "image": "devicon-vercel-original colored",
+    "name": "Vercel",
+    "url": "https://vercel.com/"
   },
   {
-    "image":"devicon-netlify-plain colored",
-    "name":"Netlify",
-    "url":"https://www.netlify.com/"
+    "image": "devicon-json-plain colored",
+    "name": "REST APIs",
+    "url": "https://restfulapi.net/"
   },
   {
-    "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/2560px-Npm-logo.svg.png",
-    "name":"NPM",
-    "url":"https://www.npmjs.com/"
+    "image": "https://www.jwt.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fjwt-flower.f20616b0.png&w=1920&q=75",
+    "name": "JWT Authentication",
+    "url": "https://jwt.io/"
   }
 ]

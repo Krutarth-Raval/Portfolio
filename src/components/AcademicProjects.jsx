@@ -36,8 +36,8 @@ const AcademicProjects = () => {
       "Better Auth":
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKWK0MLkM5pzW-uULfdP5ynajXiuFm2GyqBA&s",
 
-      "Neon":
-      "https://neon.tech/favicon.ico",
+      Neon:
+      "https://avatars.githubusercontent.com/u/77690634?s=200&v=4",
 
   };
 
