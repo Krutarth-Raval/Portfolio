@@ -10,7 +10,7 @@ const AcademicProjects = () => {
     React:
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
     "Tailwind CSS":
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2560px-Tailwind_CSS_Logo.svg.png",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1280px-Tailwind_CSS_Logo.svg.png",
     "Node.js":
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
     MongoDB:
@@ -25,19 +25,34 @@ const AcademicProjects = () => {
     "Express.js":
       "https://cdn.hashnode.com/res/hashnode/image/upload/v1675637255386/f3a9a38b-116d-4b35-8f46-8d8abb78166f.png",
 
-      "Next.js":
+    "Next.js":
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-      "TypeScript":
+    "TypeScript":
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
 
-      "Drizzle ORM":
+    "Drizzle ORM":
       "https://avatars.githubusercontent.com/u/108468352?v=4",
 
-      "Better Auth":
+    "Better Auth":
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKWK0MLkM5pzW-uULfdP5ynajXiuFm2GyqBA&s",
 
-      Neon:
+    Neon:
       "https://avatars.githubusercontent.com/u/77690634?s=200&v=4",
+
+    PostgreSQL:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+
+    Prisma:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg",
+
+    Clerk:
+      "https://avatars.githubusercontent.com/u/49538330?s=200&v=4",
+
+    Razorpay:
+      "https://avatars.githubusercontent.com/u/7713209?s=200&v=4",
+
+    "Gemini AI":
+      "https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg",
 
   };
 

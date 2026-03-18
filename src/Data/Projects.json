@@ -1,36 +1,66 @@
-[{
-  "name": "Notly - Modern Notes App",
-  "description": "A modern, fast, and secure notes application built with Next.js 15. Features a clean, distraction-free interface for capturing ideas, managing tasks, and staying organized.",
-  "techSkill": [
-    "Next.js",
-    "React",
-    "TypeScript",
-    "Tailwind CSS",
-    "Drizzle ORM",
-    "Better Auth",
-    "Neon"
-  ],
-  "github": "https://github.com/Krutarth-Raval/Notly",
-  "live": "https://notely-web-application.vercel.app"
-},
+[
+  {
+    "name": "Notly - Modern Notes App",
+    "description": "A modern, fast, and secure notes application built with Next.js 15. Features a clean, distraction-free interface for capturing ideas, managing tasks, and staying organized.",
+    "techSkill": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Drizzle ORM",
+      "Better Auth",
+      "Neon"
+    ],
+    "github": "https://github.com/Krutarth-Raval/Notly",
+    "live": "https://notely-web-application.vercel.app"
+  },
+  {
+    "name": "Mindlink Career Coach",
+    "description": "A premium, AI-powered career coaching platform designed to bridge the gap between your current skills and your dream job. Features AI video and image generation, automated resume tailoring, and mock interview prep.",
+    "techSkill": [
+      "Next.js",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Prisma",
+      "Clerk",
+      "Razorpay",
+      "Gemini AI"
+    ],
+    "github": "https://github.com/Krutarth-Raval/mindlink-project",
+    "live": "https://mindlink-project.vercel.app/"
+  },
   {
     "name": "Task Manager",
     "description": "A full-stack application for managing tasks with features like creating, updating, and tracking task progress.",
-    "techSkill": ["React", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
+    "techSkill": [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Tailwind CSS"
+    ],
     "github": "https://github.com/Krutarth-Raval/Task-Manager",
     "live": ""
   },
   {
     "name": "Portfolio",
     "description": "A responsive personal portfolio website built with React and Tailwind CSS to showcase projects, skills, and contact information. Designed with smooth animations, clean layout, and optimized for performance across all devices.",
-    "techSkill": ["React", "Tailwind CSS"],
+    "techSkill": [
+      "React",
+      "Tailwind CSS"
+    ],
     "github": "https://github.com/Krutarth-Raval/Portfolio",
     "live": "https://krutarthraval.netlify.app"
   },
   {
     "name": "BatCave - Movie & Series Info",
     "description": "A responsive web app built with HTML, CSS, and JavaScript, focused on showcasing Batman movies using a custom JSON data file. The app features detailed overviews, cast info, trailers, and a smooth UI for exploring the Batman universe.",
-    "techSkill": ["HTML", "JavaScript", "CSS", "Custom JSON"],
+    "techSkill": [
+      "HTML",
+      "JavaScript",
+      "CSS",
+      "Custom JSON"
+    ],
     "github": "https://github.com/Krutarth-Raval/BatCave",
     "live": "https://batmancave.netlify.app"
   }

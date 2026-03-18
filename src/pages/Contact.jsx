@@ -21,7 +21,7 @@ const contactInfo = [
   // },
   {
     icon: <IoLocationSharp size={20} />,
-    label: "Ahmadabad, Gujarat, India",
+    label: "Ahmedabad, Gujarat, India",
     href: "https://maps.app.goo.gl/VVGJ8iKMzXpnKqzU8",
   },
   {

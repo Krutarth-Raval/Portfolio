@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import ExperienceData from "../Data/Experience.json";
+import { Globe } from "lucide-react";
 
 const Experience = () => {
   const ref = useRef(null);
@@ -30,10 +31,17 @@ const Experience = () => {
               <p className="bg-accent w-max p-1  rounded-md metadata-font-size text-theme">
                 {exp.starting}
               </p>
-              <p className="description-font-size font-bold"></p>
+              {/* <p className="description-font-size font-bold"></p> */}
               <p className="bg-accent w-max p-1 rounded-md  metadata-font-size text-theme">
                 {exp.ending}
               </p>
+              {/* <p className="description-font-size font-bold"></p> */}
+              <p className="bg-accent w-max p-1 rounded-md  metadata-font-size text-theme">
+                <a href={exp.site} target="_blank" rel="noopener noreferrer">
+                  <Globe />
+                </a>
+              </p>
+
             </div>
 
             <p className="metadata-font-size text-theme-secondary mt-3 leading-relaxed">
