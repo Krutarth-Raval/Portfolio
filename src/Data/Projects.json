@@ -1,5 +1,6 @@
 [
   {
+    "image": "/Banners/notely.png",
     "name": "Notly - Modern Notes App",
     "description": "A modern, fast, and secure notes application built with Next.js 15. Features a clean, distraction-free interface for capturing ideas, managing tasks, and staying organized.",
     "techSkill": [
@@ -15,6 +16,7 @@
     "live": "https://notely-web-application.vercel.app"
   },
   {
+    "image": "/Banners/mindlink.png",
     "name": "Mindlink Career Coach",
     "description": "A premium, AI-powered career coaching platform designed to bridge the gap between your current skills and your dream job. Features AI video and image generation, automated resume tailoring, and mock interview prep.",
     "techSkill": [
@@ -30,6 +32,7 @@
     "live": "https://mindlink-project.vercel.app/"
   },
   {
+    "image": "",
     "name": "Task Manager",
     "description": "A full-stack application for managing tasks with features like creating, updating, and tracking task progress.",
     "techSkill": [
@@ -43,6 +46,7 @@
     "live": ""
   },
   {
+    "image": "/Banners/portfolio.png",
     "name": "Portfolio",
     "description": "A responsive personal portfolio website built with React and Tailwind CSS to showcase projects, skills, and contact information. Designed with smooth animations, clean layout, and optimized for performance across all devices.",
     "techSkill": [
@@ -53,6 +57,7 @@
     "live": "https://krutarthraval.netlify.app"
   },
   {
+    "image": "/Banners/batmancave.png",
     "name": "BatCave - Movie & Series Info",
     "description": "A responsive web app built with HTML, CSS, and JavaScript, focused on showcasing Batman movies using a custom JSON data file. The app features detailed overviews, cast info, trailers, and a smooth UI for exploring the Batman universe.",
     "techSkill": [

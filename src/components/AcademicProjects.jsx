@@ -3,6 +3,8 @@ import { SiGithub } from "react-icons/si";
 import projectData from "../Data/Projects.json";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import { Button } from "./ui/button";
+import { Card, CardHeader, CardTitle } from "./ui/card";
 
 const AcademicProjects = () => {
   const projects = projectData;
@@ -57,6 +59,7 @@ const AcademicProjects = () => {
   };
 
   const [showAll, setShowAll] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const visibleProjects = showAll ? projects : projects.slice(0, 2);
 
@@ -69,71 +72,157 @@ const AcademicProjects = () => {
       </p>
 
       {/* Project List */}
-      {visibleProjects.map((project, index) => (
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, x: 50 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.4, delay: index * 0.05 }}
-          className="mt-5  bg-glossy p-2 rounded-md relative "
-          key={index}
-        >
-          <div className=" flex justify-end gap-5 max-sm:gap-3 items-center">
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="metadata-font-size flex flex-row justify-center items-center gap-2 max-sm:gap-1 hover:text-black bg-accent p-1 rounded-md transition-all duration-300"
-            >
-              GitHub <SiGithub />
-            </a>
-            {project.live && project.live.trim() !== "" && (
-              <a
-                href={project.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="metadata-font-size flex flex-row justify-center items-center gap-2 max-sm:gap-1 hover:text-blue-600 bg-accent p-1 rounded-md cursor-pointer transition-all duration-300"
-              >
-                View <BiLinkExternal />
-              </a>
-            )}
-          </div>
-
-          <p className=" normal-font-size py-2 max-sm:py-2 font-semibold border-b-1 border-theme-surface">
-            {project.name}
-          </p>
-          <p className="metadata-font-size text-theme-secondary mt-2">
-            {project.description}
-          </p>
-
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6" ref={ref}>
+        {visibleProjects.map((project, index) => (
           <motion.div
-            className="w-full mt-4 flex flex-wrap gap-3"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
+            key={index}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
           >
-            {project.techSkill.map((skill, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: i * 0.1 }}
-                className="flex flex-col items-center h-auto justify-center bg-surface p-1 rounded group "
-              >
+            <Card className="relative h-full p-0 gap-0 overflow-hidden border border-white/5 bg-glossy shadow-2xl hover:shadow-[0_0_30px_rgba(0,0,0,0.3)] transition-all duration-500 group rounded-3xl">
+              <div className="relative aspect-video w-full overflow-hidden rounded-t-3xl">
+                <div className="absolute inset-0 z-30 bg-black/20 group-hover:bg-black/5 transition-colors duration-500" />
                 <img
-                  src={skillLogos[skill]}
-                  alt={skill}
-                  className="h-8 w-8 object-contain p-1 "
+                  src={project.image && project.image !== "" ? project.image : "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=2070&auto=format&fit=crop"}
+                  alt={project.name}
+                  className="relative z-10 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 rounded-t-3xl"
                 />
-              </motion.div>
-            ))}
+              </div>
+
+              <CardHeader className="p-6">
+                <div className="flex justify-between items-center gap-4">
+                  <CardTitle className="text-lg font-bold text-white tracking-tight">
+                    {project.name}
+                  </CardTitle>
+                  <div className="flex gap-2 shrink-0">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all text-theme-secondary hover:text-white"
+                      title="Github"
+                    >
+                      <SiGithub className="w-4 h-4" />
+                    </a>
+                    {project.live && project.live.trim() !== "" && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all text-theme-secondary hover:text-white"
+                        title="Live Demo"
+                      >
+                        <BiLinkExternal className="w-4 h-4" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+                <div className="mt-6">
+                  <Button
+                    onClick={() => setSelectedProject(project)}
+                    className="w-full cursor-pointer bg-white/5 border border-white/10 rounded-xl py-5 hover:bg-white/10 transition-all text-white font-semibold tracking-wide hover:shadow-[0_0_15px_rgba(255,255,255,0.05)] active:scale-[0.98]"
+                  >
+                    View Details
+                  </Button>
+                </div>
+              </CardHeader>
+            </Card>
           </motion.div>
-        </motion.div>
-      ))}
+        ))}
+      </div>
+
+      {/* Projects end */}
+
+      {/* Project Detail Modal */}
+      {selectedProject && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            className="w-full max-w-lg pop-up-block rounded-xl relative shadow-2xl"
+          >
+            <Button
+              onClick={() => setSelectedProject(null)}
+              className="absolute top-[-15px] right-[-15px] z-50 h-6 w-6 bg-red-600 hover:bg-red-700 text-white rounded-full transition-all cursor-pointer shadow-xl flex items-center justify-center px-1 py-2"
+            >
+              <span className="text-sm font-bold leading-none">✕</span>
+            </Button>
+
+            <div className="aspect-video w-full overflow-hidden bg-surface rounded-xl">
+              <img
+                src={selectedProject.image && selectedProject.image !== "" ? selectedProject.image : "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=2070&auto=format&fit=crop"}
+                alt={selectedProject.name}
+                className="w-full h-full object-cover p-1 rounded-xl"
+              />
+            </div>
+
+            <div className="p-6">
+              <div className="flex justify-between items-start mb-3">
+                <h2 className="text-xl font-bold text-white leading-tight">
+                  {selectedProject.name}
+                </h2>
+                <div className="flex gap-2 shrink-0">
+                  <a
+                    href={selectedProject.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all text-theme-secondary hover:text-white"
+                    title="Github"
+                  >
+                    <SiGithub className="w-4 h-4" />
+                  </a>
+                  {selectedProject.live && selectedProject.live.trim() !== "" && (
+                    <a
+                      href={selectedProject.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all text-theme-secondary hover:text-white"
+                      title="Live Demo"
+                    >
+                      <BiLinkExternal className="w-4 h-4" />
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              <div className="max-h-[25vh] overflow-y-auto pr-2 text-sm text-theme-secondary/90 leading-relaxed mb-6 scrollbar-thin">
+                {selectedProject.description}
+              </div>
+
+              <div className="overflow-hidden pause-on-hover py-4 border-t border-white/10">
+                <p className="text-[10px] text-white/40 uppercase tracking-[0.2em] font-bold mb-4">
+                  Tech Stack
+                </p>
+                <div className="animate-marquee flex gap-4 w-max">
+                  {[...selectedProject.techSkill, ...selectedProject.techSkill, ...selectedProject.techSkill, ...selectedProject.techSkill].map((skill, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center gap-1.5 bg-theme border border-white/10 px-3 py-1.5 rounded-md shrink-0"
+                    >
+                      <img
+                        src={skillLogos[skill]}
+                        alt={skill}
+                        className="h-4 w-4 object-contain"
+                      />
+                      <span className="text-[11px] text-white/80 uppercase tracking-wider font-bold">
+                        {skill}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      )}
 
       {projects.length > 2 && !showAll && (
-        <div className="text-center mt-3">
-          <button onClick={() => setShowAll(true)} className="more-btn ">
+        <div className="text-center mt-10">
+          <button
+            onClick={() => setShowAll(true)}
+            className="more-btn px-8 py-2.5 bg-accent/20 border border-[var(--theme-accent)] rounded-full hover:bg-[var(--theme-accent)] hover:text-white transition-all duration-300 font-bold uppercase tracking-widest text-[12px]"
+          >
             More +
           </button>
         </div>
