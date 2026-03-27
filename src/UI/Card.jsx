@@ -1,54 +1,69 @@
-import React, { useState } from "react";
-import { Star } from "lucide-react";
+import React, { useState, useRef } from "react";
+import { Star, Quote } from "lucide-react";
 import reviewData from "../Data/Review.json";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-const Card = () => {
-  const review = reviewData;
-  const [showAll, setShowAll] = useState(false);
 
-  const visibleReviews = showAll ? review : review.slice(0, 2);
+const Card = () => {
+  const reviews = reviewData;
+  const [showAll, setShowAll] = useState(false);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const visibleReviews = showAll ? reviews : reviews.slice(0, 2);
+
   return (
-    <div className="relative w-full  ">
-      {/* Card Container */}
-      <div className="flex gap-4 max-sm:justify-start justify-start flex-wrap p-2 ">
+    <div className="relative w-full py-6" ref={ref}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-2">
         {visibleReviews.map((rev, index) => (
           <motion.div
-            ref={ref}
-            initial={{ opacity: 0, x: -20 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.3, delay: index * 0.1 }}
             key={index}
-            className="relative w-full  bg-glossy p-2 rounded-lg  shrink-0 snap-center    transition-all duration-500 bg-accent"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: index * 0.2 }}
+            whileHover={{ y: -5 }}
+            className="btn-glossy p-8 rounded-3xl relative flex flex-col justify-between min-h-[250px] group transition-all duration-500 overflow-hidden"
           >
-            <div className="mb-2 border-b-1  flex justify-between items-center border-theme-surface py-2  ">
-              <h3 className="text-lg font-semibold  ">{rev.name}</h3>
-              <div className="flex gap-1">
+            {/* Quote Icon Overlay */}
+            <div className="absolute top-4 right-6 opacity-10 group-hover:opacity-20 transition-opacity">
+              <Quote className="w-16 h-16 text-[var(--theme-accent)] rotate-180" />
+            </div>
+
+            <div className="relative z-10">
+              <div className="flex gap-1 mb-6">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} fill="goldenrod" stroke="none" />
+                  <Star key={i} size={14} className="fill-[var(--theme-accent)] text-transparent group-hover:scale-110 transition-transform duration-300" style={{ transitionDelay: `${i * 50}ms` }} />
                 ))}
               </div>
+
+              <p className="text-theme opacity-90 leading-relaxed italic text-sm sm:text-base mb-8 line-clamp-4 relative">
+                "{rev.description}"
+              </p>
             </div>
-            <p className="metadata-font-size text-theme-secondary mb-5">
-              {rev.description}
-            </p>
-            <p className="absolute bottom-1 right-2 metadata-font-size font-light text-theme-secondary italic">
-              — {rev.position || "Contributor"}, {rev.company}
-            </p>
+
+            <div className="flex items-center gap-4 border-t border-white/5 pt-6 group-hover:border-[var(--theme-accent)]/20 transition-colors">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-[var(--theme-accent)]/20 via-transparent to-[var(--theme-accent)]/20 flex items-center justify-center border border-white/5 font-bold text-theme">
+                {rev.name.charAt(0)}
+              </div>
+              <div className="flex flex-col">
+                <h3 className="text-sm sm:text-base font-bold text-theme tracking-tight">
+                  {rev.name}
+                </h3>
+                <p className="text-[10px] sm:text-[11px] font-bold text-theme-secondary uppercase tracking-[0.2em] opacity-60">
+                  {rev.company}
+                </p>
+              </div>
+            </div>
           </motion.div>
         ))}
       </div>
 
-      {/* More+ Button */}
-      {review.length > 2 && !showAll && (
-        <div className="text-center mt-2">
+      {reviews.length > 2 && !showAll && (
+        <div className="text-center mt-12">
           <button
             onClick={() => setShowAll(true)}
-            className="more-btn "
+            className="more-btn px-12 py-3 bg-accent/20 border border-[var(--theme-accent)] rounded-full hover:bg-[var(--theme-accent)] hover:text-white transition-all duration-300 font-bold uppercase tracking-widest text-[12px]"
           >
-            More +
+            Read More +
           </button>
         </div>
       )}

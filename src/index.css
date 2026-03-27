@@ -13,6 +13,8 @@
     --theme-accent: #4d4d4d;
     --theme-button: #0f0f0f;
     --theme-glossy: #0d0d0d8f;
+    --theme-btn-bg: rgba(255, 255, 255, 0.05);
+    --theme-btn-border: rgba(255, 255, 255, 0.1);
   }
 
   .light {
@@ -24,6 +26,8 @@
     --theme-accent: #c0c0c0;
     --theme-button: #e4e4e4;
     --theme-glossy: #fafafa8f;
+    --theme-btn-bg: rgba(0, 0, 0, 0.05);
+    --theme-btn-border: rgba(0, 0, 0, 0.1);
   }
 
   body {
@@ -92,6 +96,7 @@
       rgb(0, 47, 202)
     );
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
@@ -135,10 +140,10 @@
 
   .more-btn {
     cursor: pointer;
-    background-color: transparent;
+    background-color: var(--theme-btn-bg);
     padding: 2px 10px;
     font-size: clamp(1rem, 2vw, 1rem);
-    border: 1px solid var(--theme-accent);
+    border: 1px solid var(--theme-btn-border);
     border-radius: 6px;
     transition: all 0.2s ease-in-out;
   }
@@ -148,6 +153,18 @@
     border-color: var(--theme-text);
     border-style: 2px;
     box-shadow: 0px 0px 100px var(--theme-accent);
+  }
+
+  .btn-glossy {
+    background-color: var(--theme-btn-bg);
+    border: 1px solid var(--theme-btn-border);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+
+  .btn-glossy:hover {
+    background-color: var(--theme-btn-border);
+    border-color: var(--theme-btn-bg);
   }
   .send {
     cursor: pointer;

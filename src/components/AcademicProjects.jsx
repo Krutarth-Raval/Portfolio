@@ -92,7 +92,7 @@ const AcademicProjects = () => {
 
               <CardHeader className="p-6">
                 <div className="flex justify-between items-center gap-4">
-                  <CardTitle className="text-lg font-bold text-white tracking-tight">
+                  <CardTitle className="text-lg font-bold text-theme tracking-tight">
                     {project.name}
                   </CardTitle>
                   <div className="flex gap-2 shrink-0">
@@ -100,7 +100,7 @@ const AcademicProjects = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all text-theme-secondary hover:text-white"
+                      className="p-2 btn-glossy rounded-xl transition-all text-theme-secondary hover:text-theme"
                       title="Github"
                     >
                       <SiGithub className="w-4 h-4" />
@@ -110,7 +110,7 @@ const AcademicProjects = () => {
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all text-theme-secondary hover:text-white"
+                        className="p-2 btn-glossy rounded-xl transition-all text-theme-secondary hover:text-theme"
                         title="Live Demo"
                       >
                         <BiLinkExternal className="w-4 h-4" />
@@ -121,7 +121,7 @@ const AcademicProjects = () => {
                 <div className="mt-6">
                   <Button
                     onClick={() => setSelectedProject(project)}
-                    className="w-full cursor-pointer bg-white/5 border border-white/10 rounded-xl py-5 hover:bg-white/10 transition-all text-white font-semibold tracking-wide hover:shadow-[0_0_15px_rgba(255,255,255,0.05)] active:scale-[0.98]"
+                    className="w-full cursor-pointer btn-glossy rounded-xl py-5 transition-all text-theme font-semibold tracking-wide hover:shadow-[0_0_15px_rgba(255,255,255,0.05)] active:scale-[0.98]"
                   >
                     View Details
                   </Button>
@@ -159,7 +159,7 @@ const AcademicProjects = () => {
 
             <div className="p-6">
               <div className="flex justify-between items-start mb-3">
-                <h2 className="text-xl font-bold text-white leading-tight">
+                <h2 className="text-xl font-bold text-theme leading-tight">
                   {selectedProject.name}
                 </h2>
                 <div className="flex gap-2 shrink-0">
@@ -167,7 +167,7 @@ const AcademicProjects = () => {
                     href={selectedProject.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all text-theme-secondary hover:text-white"
+                    className="p-2 btn-glossy rounded-xl transition-all text-theme-secondary hover:text-theme"
                     title="Github"
                   >
                     <SiGithub className="w-4 h-4" />
@@ -177,7 +177,7 @@ const AcademicProjects = () => {
                       href={selectedProject.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all text-theme-secondary hover:text-white"
+                      className="p-2 btn-glossy rounded-xl transition-all text-theme-secondary hover:text-theme"
                       title="Live Demo"
                     >
                       <BiLinkExternal className="w-4 h-4" />
@@ -191,7 +191,7 @@ const AcademicProjects = () => {
               </div>
 
               <div className="overflow-hidden pause-on-hover py-4 border-t border-white/10">
-                <p className="text-[10px] text-white/40 uppercase tracking-[0.2em] font-bold mb-4">
+                <p className="text-[10px] text-theme-secondary opacity-50 uppercase tracking-[0.2em] font-bold mb-4">
                   Tech Stack
                 </p>
                 <div className="animate-marquee flex gap-4 w-max">
@@ -205,7 +205,7 @@ const AcademicProjects = () => {
                         alt={skill}
                         className="h-4 w-4 object-contain"
                       />
-                      <span className="text-[11px] text-white/80 uppercase tracking-wider font-bold">
+                      <span className="text-[11px] text-theme opacity-80 uppercase tracking-wider font-bold">
                         {skill}
                       </span>
                     </div>

@@ -6,8 +6,11 @@ import { Button } from "./ui/button";
 
 const Experience = () => {
   const [selectedExp, setSelectedExp] = useState(null);
+  const [showAll, setShowAll] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+
+  const visibleExperiences = showAll ? ExperienceData : ExperienceData.slice(0, 2);
 
   return (
     <div className="p-2 flex flex-col justify-start mt-6">
@@ -17,7 +20,7 @@ const Experience = () => {
 
       {/* Experience List */}
       <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4" ref={ref}>
-        {ExperienceData.map((exp, index) => (
+        {visibleExperiences.map((exp, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, scale: 0.95 }}
@@ -27,10 +30,10 @@ const Experience = () => {
           >
             <div>
               <div className="flex items-center gap-3 mb-5 pl-1">
-                <div className="bg-white/5 p-2 rounded-xl border border-white/10 shadow-inner group-hover:bg-[var(--theme-accent)]/20 transition-colors">
-                  <Building2 className="w-5 h-5 text-white/70" />
+                <div className="btn-glossy p-2 rounded-xl shadow-inner group-hover:bg-[var(--theme-accent)]/20 transition-colors">
+                  <Building2 className="w-5 h-5 text-theme-secondary" />
                 </div>
-                <h3 className="text-xl font-bold text-white tracking-tight truncate">{exp.name}</h3>
+                <h3 className="text-xl font-bold text-theme tracking-tight truncate">{exp.name}</h3>
               </div>
 
               <div className="flex items-start justify-between gap-3 mb-6">
@@ -39,22 +42,33 @@ const Experience = () => {
                   <p className="text-theme-secondary text-[11px] font-bold uppercase tracking-widest break-words leading-relaxed">{exp.role}</p>
                 </div>
                 
-                <div className="flex items-center gap-1.5 px-2.5 py-1 bg-white/5 border border-white/5 rounded-lg shrink-0">
-                  <Calendar className="w-3 h-3 text-white/30" />
-                  <span className="text-[10px] font-bold text-white/50 tracking-wide uppercase whitespace-nowrap">{exp.starting} — {exp.ending}</span>
+                <div className="flex items-center gap-1.5 px-2.5 py-1 btn-glossy rounded-lg shrink-0">
+                  <Calendar className="w-3 h-3 text-theme-secondary opacity-50" />
+                  <span className="text-[10px] font-bold text-theme-secondary tracking-wide uppercase whitespace-nowrap">{exp.starting} — {exp.ending}</span>
                 </div>
               </div>
             </div>
 
             <Button
               onClick={() => setSelectedExp(exp)}
-              className="w-full mt-2 cursor-pointer bg-white/5 border border-white/10 rounded-xl py-4 hover:bg-white/10 transition-all text-white font-medium text-sm"
+              className="w-full mt-2 cursor-pointer btn-glossy rounded-xl py-4 transition-all text-theme font-medium text-sm"
             >
               View Details
             </Button>
           </motion.div>
         ))}
       </div>
+
+      {ExperienceData.length > 2 && !showAll && (
+        <div className="text-center mt-10">
+          <button
+            onClick={() => setShowAll(true)}
+            className="more-btn px-8 py-2.5 bg-accent/20 border border-[var(--theme-accent)] rounded-full hover:bg-[var(--theme-accent)] hover:text-white transition-all duration-300 font-bold uppercase tracking-widest text-[12px]"
+          >
+            More +
+          </button>
+        </div>
+      )}
 
       {/* Experience Pop-up Modal */}
       {selectedExp && (
@@ -74,10 +88,10 @@ const Experience = () => {
             <div className="p-8">
               <div className="flex flex-col gap-1 mb-6">
                 <div className="flex items-center gap-3 mb-1">
-                  <h2 className="text-2xl font-bold text-white">
+                  <h2 className="text-2xl font-bold text-theme">
                     {selectedExp.name}
                   </h2>
-                  <span className="text-[12px] bg-[var(--theme-accent)]/20 px-3 py-1 rounded-full text-white border border-[var(--theme-accent)]/40">
+                  <span className="text-[12px] bg-[var(--theme-accent)]/20 px-3 py-1 rounded-full text-theme border border-[var(--theme-accent)]/40">
                     {selectedExp.type}
                   </span>
                 </div>
@@ -87,22 +101,22 @@ const Experience = () => {
               </div>
 
               <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="bg-white/5 p-3 rounded-xl border border-white/5">
-                  <div className="flex items-center gap-2 text-white/40 text-[10px] uppercase font-bold tracking-widest mb-1.5">
+                <div className="btn-glossy p-3 rounded-xl">
+                  <div className="flex items-center gap-2 text-theme-secondary opacity-50 text-[10px] uppercase font-bold tracking-widest mb-1.5">
                     <Calendar className="w-3 h-3" /> Duration
                   </div>
-                  <p className="text-sm text-white/90">{selectedExp.starting} - {selectedExp.ending}</p>
+                  <p className="text-sm text-theme">{selectedExp.starting} - {selectedExp.ending}</p>
                 </div>
-                <div className="bg-white/5 p-3 rounded-xl border border-white/5">
-                  <div className="flex items-center gap-2 text-white/40 text-[10px] uppercase font-bold tracking-widest mb-1.5">
+                <div className="btn-glossy p-3 rounded-xl">
+                  <div className="flex items-center gap-2 text-theme-secondary opacity-50 text-[10px] uppercase font-bold tracking-widest mb-1.5">
                     <MapPin className="w-3 h-3" /> Location
                   </div>
-                  <p className="text-sm text-white/90">{selectedExp.location}</p>
+                  <p className="text-sm text-theme">{selectedExp.location}</p>
                 </div>
               </div>
 
               <div className="mb-8">
-                <p className="text-white/40 text-[10px] uppercase font-bold tracking-widest mb-3">
+                <p className="text-theme-secondary opacity-50 text-[10px] uppercase font-bold tracking-widest mb-3">
                   Description
                 </p>
                 <div className="max-h-[30vh] overflow-y-auto pr-2 text-sm text-theme-secondary leading-relaxed scrollbar-thin">

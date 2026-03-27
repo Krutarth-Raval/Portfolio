@@ -88,5 +88,40 @@
     "image": "https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/4/jwt-icon-138bxvrhijus263d2f2wur.png/jwt-icon-aqjx58uyj3lrxtborzgyg.png?_a=DATAiZAAZAA0",
     "name": "JWT Authentication",
     "url": "https://jwt.io/"
+  },
+  {
+    "image": "https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/vector-icons/brand-framer-motion-pk1mas1m7u9hi06fqzq77f.png/brand-framer-motion-nuunolaqtcs7zlblwkjs.png?_a=DATAiZAAZAA0",
+    "name": "Framer Motion",
+    "url": "https://www.framer.com/motion/"
+  },
+  {
+    "image": "https://bun.sh/logo.svg",
+    "name": "Bun",
+    "url": "https://bun.sh/"
+  },
+  {
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg",
+    "name": "Gemini AI",
+    "url": "https://deepmind.google/technologies/gemini/"
+  },
+  {
+    "image": "https://img.icons8.com/color/48/000000/artificial-intelligence.png",
+    "name": "Antigravity",
+    "url": "https://antigravity.ai/"
+  },
+  {
+    "image": "https://img.icons8.com/color/48/000000/processor.png",
+    "name": "Claude AI",
+    "url": "https://claude.ai/"
+  },
+  {
+    "image": "https://avatars.githubusercontent.com/u/49538330?s=200&v=4",
+    "name": "Clerk Auth",
+    "url": "https://clerk.com/"
+  },
+  {
+    "image": "https://avatars.githubusercontent.com/u/77690634?s=200&v=4",
+    "name": "Neon Database",
+    "url": "https://neon.tech/"
   }
 ]

@@ -1,48 +1,57 @@
 import React from "react";
 import skillData from "../Data/TechSkill.json";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
+
 const TechSkills = () => {
-  const skills = skillData;
- const ref = useRef(null);
-        const isInView = useInView(ref, { once: true });
   return (
-    <div className="p-2 flex flex-col justify-start mt-6 mb-6">
-      <p className="description-font-size font-bold  border-b border-[var(--theme-accent)] w-full py-2">
-        Tech Stack
+    <div className="p-2 flex flex-col justify-start mt-10 mb-20 overflow-visible">
+      <p className="description-font-size font-bold border-b border-[var(--theme-accent)] w-full py-2 mb-10 text-theme">
+        Technical Toolkit
       </p>
 
-      <div className="flex flex-wrap mx-2 max-sm:mx-2 md:mx-40 justify-center   sm:justify-start gap-8 mt-4">
-        {skills.map((skill,index) => (
-          <motion.div   ref={ref}
-            initial={{ opacity: 0, y: -50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.2, delay: index * 0.1 }}
+      <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-2 sm:gap-3 lg:gap-4">
+        {skillData.map((skill, index) => (
+          <motion.a
+            href={skill.url}
+            target="_blank"
+            rel="noopener noreferrer"
             key={skill.name}
-            className="relative group bg-gray-800  p-3 rounded-md grid gird-cols w-max h-auto items-center justify-center  gap-2 "
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.2, delay: index * 0.02 }}
+            whileHover={{ 
+              scale: 1.1,
+              zIndex: 30
+            }}
+            className="group relative flex items-center justify-center aspect-square btn-glossy rounded-xl sm:rounded-[20px] p-1.5 transition-all duration-300 hover:shadow-lg hover:border-[var(--theme-accent)]/50 cursor-pointer"
           >
-            <a href={skill.url} target="_blank" rel="noopener noreferrer " >
-              <div className="hover:animate-bounce hover:scale-3d w-10  flex
-              justify-center">
+            {/* Simple Glow on Hover */}
+            <div className="absolute inset-0 bg-[var(--theme-accent)]/5 opacity-0 group-hover:opacity-100 rounded-xl sm:rounded-[20px] transition-opacity" />
+            
+            <div className="relative flex items-center justify-center w-full h-full">
+              <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center">
                 {skill.image.startsWith("http") ? (
                   <img
                     src={skill.image}
                     alt={skill.name}
-                    className="w-7 h-7 object-contain "
+                    className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
                   />
                 ) : (
-                  <i className={`${skill.image} tech-skill-size `}></i>
+                  <i className={`${skill.image} text-lg sm:text-2xl text-theme-secondary group-hover:text-theme transition-colors`}></i>
                 )}
               </div>
-              <span className="absolute left-1/2 -translate-x-1/2 top-16 opacity-0 text-theme font-semibold group-hover:opacity-100 bg-accent text-white  rounded-md py-1 px-2 text-sm transition-all duration-300 whitespace-nowrap z-10 ">
+            </div>
+
+            {/* Tiny Minimalist Tooltip */}
+            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none z-40 hidden sm:block">
+              <div className="bg-surface/90 backdrop-blur-md text-[8px] text-theme font-bold uppercase px-2 py-0.5 rounded border border-[var(--theme-accent)]/20 shadow-lg whitespace-nowrap">
                 {skill.name}
-              </span>
-            </a>
-          </motion.div>
+              </div>
+            </div>
+          </motion.a>
         ))}
       </div>
-
-
     </div>
   );
 };
