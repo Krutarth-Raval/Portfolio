@@ -1,5 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+
+@theme {
+  --font-sans: "Sansation", sans-serif;
+}
+
 /* @import url("https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"); */
 
 /* ===================== BASE ===================== */
@@ -31,6 +36,7 @@
   }
 
   body {
+    font-family: 'Sansation', sans-serif;
     background-color: var(--theme-bg);
     color: var(--theme-text);
     transition:
