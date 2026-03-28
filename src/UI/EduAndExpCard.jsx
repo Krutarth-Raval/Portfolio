@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { useInView, motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   RiTailwindCssFill,
   RiReactjsLine,
@@ -10,264 +10,262 @@ import {
   RiGitMergeFill,
   RiGithubLine,
 } from "react-icons/ri";
-import { FaLocationDot } from "react-icons/fa6";
-import { SiMongodb, SiExpress, SiPostman, SiNetlify, SiTypescript, SiMongoose, SiJsonwebtokens, SiVercel, SiSwagger } from "react-icons/si";
+import { FaGraduationCap } from "react-icons/fa";
+import { SiMongodb, SiExpress, SiPostman, SiTypescript, SiMongoose, SiJsonwebtokens, SiVercel, SiSwagger } from "react-icons/si";
 import { TbBrandFramerMotion } from "react-icons/tb";
 import { VscVscode } from "react-icons/vsc";
+
 const EduAndExpCard = () => {
-  const eduRef1 = useRef(null);
-  const eduRef2 = useRef(null);
-  const eduRef3 = useRef(null);
-  const skillRef1 = useRef(null);
-  const skillRef2 = useRef(null);
-  const skillRef3 = useRef(null);
+  const [activeTab, setActiveTab] = useState("Frontend");
+  const [hoveredSkill, setHoveredSkill] = useState(null);
 
-  const inViewEdu1 = useInView(eduRef1, { once: true });
-  const inViewEdu2 = useInView(eduRef2, { once: true });
-  const inViewEdu3 = useInView(eduRef3, { once: true });
-  const inViewSkill1 = useInView(skillRef1, { once: true });
-  const inViewSkill2 = useInView(skillRef2, { once: true });
-  const inViewSkill3 = useInView(skillRef3, { once: true });
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  };
+
+  const education = [
+    {
+      year: "2023 — 2026",
+      degree: "B.Voc in IT & ITES",
+      school: "Silver Oak University",
+      score: "CGPA (3rd Year): 8.44"
+    },
+    {
+      year: "2022 — 2023",
+      degree: "12th Standard (Commerce)",
+      school: "C.M. Vidyalaya School",
+      score: "Percentile: 66.66%"
+    },
+    {
+      year: "2019 — 2020",
+      degree: "10th Standard",
+      school: "C.M. Vidyalaya School",
+      score: "Percentile: 89.39%"
+    }
+  ];
+
+  const skillGroups = {
+    Frontend: [
+      { icon: <RiReactjsLine />, name: "React" },
+      { icon: <SiTypescript />, name: "TypeScript" },
+      { icon: <RiTailwindCssFill />, name: "Tailwind" },
+      { icon: <TbBrandFramerMotion />, name: "Framer" },
+      { icon: <RiJavascriptFill />, name: "JavaScript" },
+      { icon: <RiHtml5Fill />, name: "HTML5" }
+    ],
+    Backend: [
+      { icon: <RiNodejsLine />, name: "Node.js" },
+      { icon: <SiExpress />, name: "Express" },
+      { icon: <SiMongodb />, name: "MongoDB" },
+      { icon: <SiMongoose />, name: "Mongoose" },
+      { icon: <SiJsonwebtokens />, name: "JWT" },
+      { icon: <SiSwagger />, name: "APIs" }
+    ],
+    Tools: [
+      { icon: <RiGitMergeFill />, name: "Git" },
+      { icon: <RiGithubLine />, name: "GitHub" },
+      { icon: <SiVercel />, name: "Vercel" },
+      { icon: <VscVscode />, name: "VS Code" },
+      { icon: <SiPostman />, name: "Postman" }
+    ]
+  };
+
+  const getPosition = (index, total) => {
+    const angle = (index / total) * 2 * Math.PI - Math.PI / 2;
+    const radius = typeof window !== 'undefined' && window.innerWidth < 768 ? 100 : 150;
+    return {
+      x: Math.cos(angle) * radius,
+      y: Math.sin(angle) * radius
+    };
+  };
+
   return (
-    <div className="flex flex-col sm:gap-10 gap-5 items-start mt-10 text-theme">
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+      className="w-full flex flex-col gap-12 text-theme"
+    >
       {/* Education Section */}
-      <div className=" p-2 rounded-lg  w-full">
-        <p className="description-font-size  font-semibold mb-5  pb-1 border-b-1 border-theme-accent">
-          Education
-        </p>
-        <div className=" metadata-font-size flex sm:justify-center items-center max-lg:flex-col gap-5 max-sm:gap-5 ">
-          <motion.div
-            ref={eduRef1}
-            initial={{ opacity: 0, y: -50 }}
-            animate={inViewEdu1 ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="relative p-5 w-full h-45 max-lg:h-auto bg-glossy rounded-lg"
-          >
-            <div className="absolute top-2 sm:top-3 right-2 sm:right-3  flex items-center gap-2">
-              <span className="font-semibold bg-accent px-2 py-1 rounded-sm">
-                2023
-              </span>
-              <span className="font-semibold bg-accent px-2 py-1 rounded-sm">
-                2026
-              </span>
-            </div>
-            <p className="mt-8 font-medium normal-font-size">
-              B.Voc in IT & ITES
-            </p>
-            <p className="mt-1 absolute sm:bottom-3 bottom-2 right-2 sm:right-3 italic text-theme-secondary font-light metadata-font-size flex items-center gap-2 ">
-              — Silver Oak University{" "}
-              <span className="bg-accent p-2 text-theme rounded-md sm:relative group">
-                <FaLocationDot size={20} />
-                <i className="absolute bg-accent px-2 py-1 rounded-md font-medium  top-1 left-12 sm:top-13 sm:left-1/2 -translate-x-1/2 w-max opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition duration-300 ease-in-out ">
-                  Ahmadabad, Gujarat, India
-                </i>
-              </span>
-            </p>
-
-            <p className="mt-2 font-medium metadata-font-size mb-3 flex items-center max-sm:mb-6">
-              <span className="font-light">CGPA (2nd Year)</span>
-              <span className="bg-surface py-1 px-3 ml-2 rounded-md font-normal">
-                9.00
-              </span>
-            </p>
-          </motion.div>
-          <motion.div
-            ref={eduRef2}
-            initial={{ opacity: 0, y: -50 }}
-            animate={inViewEdu2 ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="relative p-5   w-full h-45 max-lg:h-auto bg-glossy rounded-lg"
-          >
-            <div className=" absolute top-2 sm:top-3 right-2 sm:right-3 flex items-center gap-2">
-              <span className="font-semibold bg-accent px-2 py-1 rounded-sm">
-                2022
-              </span>
-              <span className="font-semibold bg-accent px-2 py-1 rounded-sm">
-                2023
-              </span>
-            </div>
-            <p className="mt-8 font-medium normal-font-size ">
-              12th Standard (Commerce)
-            </p>
-            <p className="mt-2 font-medium metadata-font-size mb-3 flex items-center max-sm:mb-6">
-              <span className="font-light">Percentile</span>
-              <span className="bg-surface py-1 px-3 ml-2 rounded-md font-normal">
-                66.66%
-              </span>
-            </p>
-            <p className="mt-1 absolute sm:bottom-3 bottom-2 right-2 sm:right-3 italic  text-theme-secondary font-light metadata-font-size flex items-center gap-2">
-              — C.M. Vidyalaya School
-              <span className="bg-accent text-theme p-2 rounded-md group sm:relative">
-                <FaLocationDot size={20} />
-                <i className="absolute bg-accent px-2 py-1 rounded-md font-medium  top-1 left-17 sm:top-13 sm:left-1/2 -translate-x-1/2 w-max opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition duration-300 ease-in-out ">
-                  Palitana, Gujarat, India
-                </i>
-              </span>
-            </p>
-          </motion.div>
-          <motion.div
-            ref={eduRef3}
-            initial={{ opacity: 0, y: -50 }}
-            animate={inViewEdu3 ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.7 }}
-            className="relative p-5  w-full h-45 max-lg:h-auto bg-glossy rounded-lg"
-          >
-            <div className="absolute top-2 sm:top-3 right-2 sm:right-3  flex items-center gap-2">
-              <span className="font-semibold bg-accent px-2 py-1 rounded-sm">
-                2019
-              </span>
-              <span className="font-semibold bg-accent px-2 py-1 rounded-sm">
-                2020
-              </span>
-            </div>
-            <p className="mt-8 font-medium normal-font-size max-sm:mb-3">
-              10th Standard
-            </p>
-
-            <p className=" absolute sm:bottom-3  bottom-2 right-2 sm:right-3 italic  text-theme-secondary font-light metadata-font-size flex items-center gap-2">
-              — C.M. Vidyalaya School
-              <span className="bg-accent  text-theme p-2 rounded-md group sm:relative">
-                <FaLocationDot size={20} />
-                <i className="absolute bg-accent px-2 py-1 rounded-md top-1 left-17 font-medium sm:top-13 sm:left-[-130px] max-sm:-translate-x-1/2  w-max opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition duration-300 ease-in-out ">
-                  Palitana, Gujarat, India
-                </i>
-              </span>
-            </p>
-            <p className="mt-2 font-medium metadata-font-size mb-3 flex items-center max-sm:mb-6">
-              <span className="font-light">Percentile</span>
-              <span className="bg-surface py-1 px-3 ml-2 rounded-md font-normal">
-                89.39%
-              </span>
-            </p>
-          </motion.div>
+      <section className="w-full">
+        <div className="flex items-center gap-4 mb-4">
+          <h2 className="description-font-size font-bold tracking-tight">Education</h2>
+          <div className="flex-1 h-px bg-white/10"></div>
         </div>
-      </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {education.map((edu, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className="p-6 rounded-xl bg-glossy border border-white/5 hover:border-white/10 transition-colors group"
+            >
+              <div className="flex items-start justify-between mb-4">
+                <span className="text-[10px] font-bold py-1 px-2 rounded-md bg-accent/10 text-accent uppercase tracking-tighter">
+                  {edu.year}
+                </span>
+                <FaGraduationCap className="text-theme/20 group-hover:text-accent transition-colors duration-300" size={20} />
+              </div>
+              <h3 className="font-bold text-lg mb-1">{edu.degree}</h3>
+              <p className="md:text-sm text-xs text-theme/60 mb-2">{edu.school}</p>
+              <div className="md:text-sm text-xs font-medium text-theme/40">{edu.score}</div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
       {/* Expertise Section */}
-      <div className="flex flex-col w-full gap-5 p-2 items-start text-theme">
-        <h2 className="description-font-size w-full font-semibold pb-2 border-b-1 border-theme-accent">
-          Expertise
-        </h2>
-
-        <div className="metadata-font-size w-full flex sm:justify-center max-lg:flex-col gap-3 max-sm:gap-2">
-          {/* Frontend */}
-          <motion.div
-            ref={skillRef1}
-            initial={{ opacity: 0, y: 50 }}
-            animate={inViewSkill1 ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="relative p-5 w-full flex flex-col items-center bg-glossy rounded-lg"
-          >
-            <p className="normal-font-size flex justify-center font-normal mb-3">
-              Frontend
-            </p>
-
-            <ul className="grid grid-cols-3 gap-5 m-2">
-              <li className="bg-surface px-2 py-1 rounded relative group">
-                <RiReactjsLine size={40} />
-                <span className="about-skill-icon">React</span>
-              </li>
-              <li className="bg-surface px-2 py-1 rounded relative group">
-                <RiTailwindCssFill size={40} />
-                <span className="about-skill-icon">Tailwind CSS</span>
-              </li>
-              <li className="bg-surface px-2 py-1 rounded relative group">
-                <RiHtml5Fill size={40} />
-                <span className="about-skill-icon">HTML5</span>
-              </li>
-              <li className="bg-surface px-2 py-1 rounded relative group">
-                <RiCss3Fill size={40} />
-                <span className="about-skill-icon">CSS3</span>
-              </li>
-              <li className="bg-surface px-2 py-1 rounded relative group">
-                <RiJavascriptFill size={40} />
-                <span className="about-skill-icon">JavaScript</span>
-              </li>
-              <li className="bg-surface px-2 py-1 rounded relative group">
-                <SiTypescript size={40} />
-                <span className="about-skill-icon">TypeScript</span>
-              </li>
-              <li className="bg-surface px-2 py-1 rounded relative group">
-                <TbBrandFramerMotion size={40} />
-                <span className="about-skill-icon">Framer Motion</span>
-              </li>
-            </ul>
-          </motion.div>
-
-          {/* Backend */}
-          <motion.div
-            ref={skillRef2}
-            initial={{ opacity: 0, y: 50 }}
-            animate={inViewSkill2 ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="relative p-5 w-full flex flex-col items-center bg-glossy rounded-lg"
-          >
-            <p className="normal-font-size font-normal mb-2">Backend</p>
-
-            <ul className="grid grid-cols-3 gap-5 m-2">
-              <li className="bg-surface px-2 py-1 rounded relative group">
-                <RiNodejsLine size={40} />
-                <span className="about-skill-icon">Node.js</span>
-              </li>
-              <li className="bg-surface px-2 py-1 rounded relative group">
-                <SiExpress size={40} />
-                <span className="about-skill-icon">Express</span>
-              </li>
-              <li className="bg-surface px-2 py-1 rounded relative group">
-                <SiMongodb size={40} />
-                <span className="about-skill-icon">MongoDB</span>
-              </li>
-              <li className="bg-surface px-2 py-1 rounded relative group">
-                <SiMongoose size={40} />
-                <span className="about-skill-icon">Mongoose</span>
-              </li>
-              <li className="bg-surface px-2 py-1 rounded relative group">
-                <SiJsonwebtokens size={40} />
-                <span className="about-skill-icon">JWT Auth</span>
-              </li>
-              <li className="bg-surface px-2 py-1 rounded relative group">
-                <SiSwagger size={40} />
-                <span className="about-skill-icon">REST APIs</span>
-              </li>
-            </ul>
-          </motion.div>
-
-          {/* Tools */}
-          <motion.div
-            ref={skillRef3}
-            initial={{ opacity: 0, y: 50 }}
-            animate={inViewSkill3 ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.7 }}
-            className="relative p-5 w-full flex flex-col items-center bg-glossy rounded-lg"
-          >
-            <p className="normal-font-size font-normal mb-2">Tools</p>
-
-            <ul className="grid grid-cols-3 gap-5 m-2">
-              <li className="bg-surface px-2 py-1 rounded relative group">
-                <RiGitMergeFill size={40} />
-                <span className="about-skill-icon">Git</span>
-              </li>
-              <li className="bg-surface px-2 py-1 rounded relative group">
-                <RiGithubLine size={40} />
-                <span className="about-skill-icon">GitHub</span>
-              </li>
-              <li className="bg-surface px-2 py-1 rounded relative group">
-                <VscVscode size={40} />
-                <span className="about-skill-icon">VS Code</span>
-              </li>
-              <li className="bg-surface px-2 py-1 rounded relative group">
-                <SiPostman size={40} />
-                <span className="about-skill-icon">Postman</span>
-              </li>
-              <li className="bg-surface px-2 py-1 rounded relative group">
-                <SiVercel size={40} />
-                <span className="about-skill-icon">Vercel</span>
-              </li>
-            </ul>
-          </motion.div>
+      <section className="w-full overflow-visible">
+        <div className="flex items-center gap-4 mb-8">
+          <h2 className="description-font-size font-bold tracking-tight">Expertise</h2>
+          <div className="flex-1 h-px bg-white/10"></div>
         </div>
-      </div>
-    </div>
+
+        {/* Tab Navigation */}
+        <div className="flex justify-center gap-2 md:mb-5 mb-10 p-1 bg-white/5 w-max mx-auto rounded-xl border border-white/10">
+          {Object.keys(skillGroups).map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`px-6 py-2 rounded-lg text-xs font-black uppercase tracking-widest transition-all duration-300 cursor-pointer ${activeTab === tab
+                ? "bg-accent text-white shadow-lg shadow-accent/20"
+                : "text-theme/40 hover:text-theme/80 hover:bg-white/5"
+                }`}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+
+        {/* Circular Display */}
+        <div className="relative h-[280px] md:h-[420px] flex items-center justify-center">
+          {/* Animated Glow in Background */}
+          <div className="absolute inset-0 flex items-center justify-center -z-10">
+            <div className="w-48 h-48 bg-accent/10 rounded-full blur-[100px] animate-pulse"></div>
+          </div>
+
+          {/* SVG Connector Lines Container */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+            <svg
+              className="w-full h-full overflow-visible"
+              viewBox="-250 -250 500 500"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <AnimatePresence mode="wait">
+                <motion.g
+                  key={activeTab}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  {skillGroups[activeTab].map((skill, index) => {
+                    const total = skillGroups[activeTab].length;
+                    const pos = getPosition(index, total);
+                    const isHovered = hoveredSkill?.name === skill.name;
+                    const someoneIsHovered = hoveredSkill !== null;
+
+                    // Start the line away from center so it doesn't overlap text
+                    const innerRadiusRatio = typeof window !== 'undefined' && window.innerWidth < 768 ? 0.45 : 0.35;
+                    const xStart = pos.x * innerRadiusRatio;
+                    const yStart = pos.y * innerRadiusRatio;
+
+                    return (
+                      <motion.line
+                        key={skill.name}
+                        x1={xStart}
+                        y1={yStart}
+                        x2={pos.x}
+                        y2={pos.y}
+                        stroke="var(--theme-accent)"
+                        strokeWidth={isHovered ? "2.5" : "1"}
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        animate={{
+                          pathLength: 1,
+                          opacity: someoneIsHovered ? (isHovered ? 1 : 0) : 0.08,
+                          stroke: isHovered ? "var(--theme-accent)" : "rgba(255,255,255,0.05)"
+                        }}
+                        transition={{
+                          pathLength: { duration: 0.6, ease: "easeOut" },
+                          opacity: { duration: 0.3 }
+                        }}
+                        strokeLinecap="round"
+                      />
+                    );
+                  })}
+                </motion.g>
+              </AnimatePresence>
+            </svg>
+          </div>
+
+          {/* Central Label */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab + (hoveredSkill || "default")}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.4 }}
+              className="text-center z-10 pointer-events-none absolute"
+            >
+              <h3 className="text-2xl md:text-3xl font-black text-theme uppercase tracking-tighter opacity-10 leading-none">
+                {hoveredSkill ? hoveredSkill.name : activeTab}
+              </h3>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Skill Orbit Items */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 flex items-center justify-center overflow-visible"
+            >
+              {skillGroups[activeTab].map((skill, index) => {
+                const isHovered = hoveredSkill?.name === skill.name;
+                const someoneIsHovered = hoveredSkill !== null;
+                const total = skillGroups[activeTab].length;
+                const pos = getPosition(index, total);
+
+                return (
+                  <motion.div
+                    key={skill.name}
+                    initial={{ x: 0, y: 0, opacity: 0 }}
+                    animate={{
+                      x: pos.x,
+                      y: pos.y,
+                      opacity: someoneIsHovered ? (isHovered ? 1 : 0.15) : 1,
+                      scale: someoneIsHovered ? (isHovered ? 1.65 : 0.6) : 1,
+                      zIndex: isHovered ? 50 : 10
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 150,
+                      damping: 18
+                    }}
+                    onMouseEnter={() => setHoveredSkill(skill)}
+                    onMouseLeave={() => setHoveredSkill(null)}
+                    className="absolute cursor-pointer p-4 md:p-5 rounded-full bg-glossy border border-white/10 group shadow-lg"
+                  >
+                    <div className={`text-xl md:text-2xl transition-colors duration-300 ${isHovered ? 'text-accent' : 'text-theme group-hover:text-accent'}`}>
+                      {skill.icon}
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </section>
+    </motion.div>
   );
 };
 

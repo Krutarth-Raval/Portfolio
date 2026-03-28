@@ -4,18 +4,18 @@ import AcademicProjects from '../components/AcademicProjects'
 import Experience from '../components/Experience'
 import TechSkills from '../components/TechSkills'
 import Testimonials from '../components/Testimonials'
-import ContactForm  from '@/UI/ContactForm'
+import ContactForm from '@/UI/ContactForm'
 
 const Home = () => {
   return (
     <>
 
-    <Introduction/>
-    <AcademicProjects/>
-    <Experience/>
-    <TechSkills/>
-    <Testimonials/>
-    <ContactForm/>
+      <Introduction />
+      <AcademicProjects />
+      <Experience />
+      <TechSkills />
+      <Testimonials />
+      <ContactForm />
     </>
   )
 }

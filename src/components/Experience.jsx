@@ -1,5 +1,5 @@
-import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 import ExperienceData from "../Data/Experience.json";
 import { Globe, MapPin, Building2, Calendar, X } from "lucide-react";
 import { Button } from "./ui/button";
@@ -12,11 +12,25 @@ const Experience = () => {
 
   const visibleExperiences = showAll ? ExperienceData : ExperienceData.slice(0, 2);
 
+  // Prevent background scroll when modal is open
+  useEffect(() => {
+    if (selectedExp) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedExp]);
+
   return (
-    <div className="p-2 flex flex-col justify-start mt-6">
-      <p className="description-font-size font-bold border-b border-[var(--theme-accent)] w-full py-2">
-        Real-World Experience
-      </p>
+    <div className="p-2 flex flex-col justify-start mt-6 mb-20">
+      <div className="flex items-center gap-4 mb-2">
+        <h2 className="description-font-size font-bold tracking-tight">Real-World Experience</h2>
+        <div className="flex-1 h-px bg-white/10"></div>
+      </div>
+
 
       {/* Experience List */}
       <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4" ref={ref}>
@@ -41,7 +55,7 @@ const Experience = () => {
                   <div className="w-1.5 h-1.5 rounded-full bg-[var(--theme-accent)] shrink-0 mt-1.5" />
                   <p className="text-theme-secondary text-[11px] font-bold uppercase tracking-widest break-words leading-relaxed">{exp.role}</p>
                 </div>
-                
+
                 <div className="flex items-center gap-1.5 px-2.5 py-1 btn-glossy rounded-lg shrink-0">
                   <Calendar className="w-3 h-3 text-theme-secondary opacity-50" />
                   <span className="text-[10px] font-bold text-theme-secondary tracking-wide uppercase whitespace-nowrap">{exp.starting} — {exp.ending}</span>
@@ -71,17 +85,25 @@ const Experience = () => {
       )}
 
       {/* Experience Pop-up Modal */}
-      {selectedExp && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            className="w-full max-w-lg pop-up-block rounded-2xl relative shadow-2xl"
+      <AnimatePresence>
+        {selectedExp && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md"
           >
-            <button
-              onClick={() => setSelectedExp(null)}
-              className="absolute top-[-12px] right-[-12px] z-50 h-6 w-6 bg-red-600 hover:bg-red-700 text-white rounded-full transition-all cursor-pointer shadow-xl flex items-center justify-center px-1 py-2"
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 400 }}
+              className="w-full max-w-lg pop-up-block rounded-2xl relative shadow-2xl"
             >
+              <button
+                onClick={() => setSelectedExp(null)}
+                className="absolute top-[-12px] right-[-12px] z-50 h-6 w-6 bg-red-600 hover:bg-red-700 text-white rounded-full transition-all cursor-pointer shadow-xl flex items-center justify-center px-1 py-2"
+              >
               <X className="w-5 h-5" />
             </button>
 
@@ -137,8 +159,9 @@ const Experience = () => {
               </div>
             </div>
           </motion.div>
-        </div>
+        </motion.div>
       )}
+    </AnimatePresence>
     </div>
   );
 };

@@ -48,7 +48,7 @@
 /* ✅ Custom utility classes using theme variables */
 @layer utilities {
   *::selection {
-    background-color: var(--theme-accent);
+    background-color: var(--theme-glossy);
   }
   .bg-theme {
     background-color: var(--theme-bg);
@@ -233,14 +233,6 @@
     background-color: transparent;
   }
 
-  .pop-up-block {
-    background: var(--theme-glossy);
-    backdrop-filter: blur(4px);
-    border: 1px solid var(--theme-border);
-  }
-
-  /* Animation  */
-
   @keyframes fade-in {
     0% {
       opacity: 0;
@@ -250,7 +242,15 @@
     }
   }
   .animate-fade-in {
-    animation: fade-in 01s ease-in;
+    animation: fade-in 0.2s ease-out;
+  }
+
+  .pop-up-block {
+    background: rgba(13, 13, 13, 0.7);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 25px 70px -10px rgba(0, 0, 0, 0.6);
   }
 
   @keyframes fade-left {
@@ -264,7 +264,7 @@
     }
   }
   .animate-fade-left {
-    animation: fade-left 01s ease-in;
+    animation: fade-left 0.4s ease-out;
   }
   @keyframes fade-up {
     0% {

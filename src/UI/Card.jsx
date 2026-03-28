@@ -6,6 +6,7 @@ import { motion, useInView } from "framer-motion";
 const Card = () => {
   const reviews = reviewData;
   const [showAll, setShowAll] = useState(false);
+  const [expandedIdx, setExpandedIdx] = useState(null);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -21,7 +22,7 @@ const Card = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: index * 0.2 }}
             whileHover={{ y: -5 }}
-            className="btn-glossy p-8 rounded-3xl relative flex flex-col justify-between min-h-[250px] group transition-all duration-500 overflow-hidden"
+            className={`btn-glossy p-8 rounded-3xl relative flex flex-col justify-between group transition-all duration-500 overflow-hidden ${expandedIdx === index ? 'min-h-max' : 'min-h-[250px]'}`}
           >
             {/* Quote Icon Overlay */}
             <div className="absolute top-4 right-6 opacity-10 group-hover:opacity-20 transition-opacity">
@@ -35,9 +36,19 @@ const Card = () => {
                 ))}
               </div>
 
-              <p className="text-theme opacity-90 leading-relaxed italic text-sm sm:text-base mb-8 line-clamp-4 relative">
-                "{rev.description}"
-              </p>
+              <div className="mb-8">
+                <p className={`text-theme opacity-90 leading-relaxed italic text-sm sm:text-base relative ${expandedIdx === index ? "" : "line-clamp-4"}`}>
+                  "{rev.description}"
+                </p>
+                {rev.description.length > 150 && (
+                  <button 
+                    onClick={() => setExpandedIdx(expandedIdx === index ? null : index)}
+                    className="mt-2 text-[10px] font-black uppercase tracking-widest text-accent hover:underline cursor-pointer"
+                  >
+                    {expandedIdx === index ? "Show Less" : "Read More"}
+                  </button>
+                )}
+              </div>
             </div>
 
             <div className="flex items-center gap-4 border-t border-white/5 pt-6 group-hover:border-[var(--theme-accent)]/20 transition-colors">

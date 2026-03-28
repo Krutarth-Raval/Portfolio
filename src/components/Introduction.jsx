@@ -19,7 +19,7 @@ const Introduction = () => {
   }, []);
 
   return (
-    <div className="mt-10 mx-2  ">
+    <div className="mt-10 mx-2 mb-10 ">
       <p className="title-font-size font-bold text-theme  animate-fade-in ">
         <span className="text-theme-secondary brightness-70">
           <span className="inline md:hidden">Hi!</span>

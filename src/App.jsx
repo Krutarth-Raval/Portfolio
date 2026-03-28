@@ -14,7 +14,7 @@ const App = () => {
       <div className="absolute inset-0 -z-0 overflow-hidden ">
         <BackgroundRippleEffect />
       </div>
-      <div className="relative flex justify-center w-max">
+      <div className="relative flex justify-center w-full max-w-full">
         <div
           className="bg-surface  p-3 max-sm:p-2 md:p-4 rounded-xl
                    mx-auto w-full 

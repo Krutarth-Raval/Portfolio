@@ -43,7 +43,7 @@ const ContactBox = () => {
         >
           {/* Main Card */}
           <div className="btn-glossy p-6 sm:p-10 rounded-[32px] flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden group-hover:border-[var(--theme-accent)]/30 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
-            
+
             {/* Background Glow */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_var(--x,50%)_var(--y,50%),var(--theme-accent)/10,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -51,7 +51,7 @@ const ContactBox = () => {
               <span className="text-[var(--theme-accent)] font-bold text-[10px] uppercase tracking-widest opacity-80 mb-1">
                 Direct Email
               </span>
-              <h3 className="text-xl sm:text-2xl font-bold text-theme tracking-tight group-hover:text-[var(--theme-accent)] transition-colors duration-300">
+              <h3 className="text-xl sm:text-2xl font-bold text-[var(--theme-text-secondary)] tracking-tight group-hover:text-[var(--theme-text)] transition-colors duration-300">
                 {email}
               </h3>
               <p className="text-theme-secondary text-xs sm:text-sm font-medium opacity-60">

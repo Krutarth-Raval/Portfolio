@@ -1,8 +1,8 @@
 import { BiLinkExternal } from "react-icons/bi";
 import { SiGithub } from "react-icons/si";
 import projectData from "../Data/Projects.json";
-import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Card, CardHeader, CardTitle } from "./ui/card";
 
@@ -65,11 +65,25 @@ const AcademicProjects = () => {
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+
+  // Prevent background scroll when modal is open
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedProject]);
+
   return (
-    <div className="p-2 flex flex-col justify-start mt-6">
-      <p className="description-font-size font-bold  border-b border-[var(--theme-accent)] w-full py-2">
-        Hands-on Experience
-      </p>
+    <div className="p-2 flex flex-col justify-start mt-6 mb-20">
+      <div className="flex items-center gap-4 mb-2">
+        <h2 className="description-font-size font-bold tracking-tight">Projects</h2>
+        <div className="flex-1 h-px bg-white/10"></div>
+      </div>
 
       {/* Project List */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6" ref={ref}>
@@ -135,17 +149,25 @@ const AcademicProjects = () => {
       {/* Projects end */}
 
       {/* Project Detail Modal */}
-      {selectedProject && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            className="w-full max-w-lg pop-up-block rounded-xl relative shadow-2xl"
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md"
           >
-            <Button
-              onClick={() => setSelectedProject(null)}
-              className="absolute top-[-15px] right-[-15px] z-50 h-6 w-6 bg-red-600 hover:bg-red-700 text-white rounded-full transition-all cursor-pointer shadow-xl flex items-center justify-center px-1 py-2"
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 400 }}
+              className="w-full max-w-lg pop-up-block rounded-xl relative shadow-2xl"
             >
+              <Button
+                onClick={() => setSelectedProject(null)}
+                className="absolute top-[-15px] right-[-15px] z-50 h-6 w-6 bg-red-600 hover:bg-red-700 text-white rounded-full transition-all cursor-pointer shadow-xl flex items-center justify-center px-1 py-2"
+              >
               <span className="text-sm font-bold leading-none">✕</span>
             </Button>
 
@@ -214,8 +236,9 @@ const AcademicProjects = () => {
               </div>
             </div>
           </motion.div>
-        </div>
+        </motion.div>
       )}
+    </AnimatePresence>
 
       {projects.length > 2 && !showAll && (
         <div className="text-center mt-10">
