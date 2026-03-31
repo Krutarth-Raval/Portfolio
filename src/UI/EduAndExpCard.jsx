@@ -97,7 +97,7 @@ const EduAndExpCard = () => {
       <section className="w-full">
         <div className="flex items-center gap-4 mb-4">
           <h2 className="description-font-size font-bold tracking-tight">Education</h2>
-          <div className="flex-1 h-px bg-white/10"></div>
+          <div className="flex-1 h-px bg-[var(--theme-btn-border)]"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -105,7 +105,7 @@ const EduAndExpCard = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="p-6 rounded-xl bg-glossy border border-white/5 hover:border-white/10 transition-colors group"
+              className="p-6 rounded-xl bg-glossy border border-[var(--theme-btn-border)] hover:border-accent/30 transition-colors group"
             >
               <div className="flex items-start justify-between mb-4">
                 <span className="text-[10px] font-bold py-1 px-2 rounded-md bg-accent/10 text-accent uppercase tracking-tighter">
@@ -125,18 +125,18 @@ const EduAndExpCard = () => {
       <section className="w-full overflow-visible">
         <div className="flex items-center gap-4 mb-8">
           <h2 className="description-font-size font-bold tracking-tight">Expertise</h2>
-          <div className="flex-1 h-px bg-white/10"></div>
+          <div className="flex-1 h-px bg-[var(--theme-btn-border)]"></div>
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex justify-center gap-2 md:mb-5 mb-10 p-1 bg-white/5 w-max mx-auto rounded-xl border border-white/10">
+        <div className="flex justify-center gap-2 md:mb-5 mb-10 p-1 bg-[var(--theme-btn-bg)] w-max mx-auto rounded-xl border border-[var(--theme-btn-border)]">
           {Object.keys(skillGroups).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={`px-6 py-2 rounded-lg text-xs font-black uppercase tracking-widest transition-all duration-300 cursor-pointer ${activeTab === tab
                 ? "bg-accent text-white shadow-lg shadow-accent/20"
-                : "text-theme/40 hover:text-theme/80 hover:bg-white/5"
+                : "text-theme/40 hover:text-theme/80 hover:bg-[var(--theme-btn-bg)]"
                 }`}
             >
               {tab}
@@ -189,7 +189,7 @@ const EduAndExpCard = () => {
                         animate={{
                           pathLength: 1,
                           opacity: someoneIsHovered ? (isHovered ? 1 : 0) : 0.08,
-                          stroke: isHovered ? "var(--theme-accent)" : "rgba(255,255,255,0.05)"
+                          stroke: isHovered ? "var(--theme-accent)" : "var(--theme-btn-border)"
                         }}
                         transition={{
                           pathLength: { duration: 0.6, ease: "easeOut" },
@@ -253,7 +253,7 @@ const EduAndExpCard = () => {
                     }}
                     onMouseEnter={() => setHoveredSkill(skill)}
                     onMouseLeave={() => setHoveredSkill(null)}
-                    className="absolute cursor-pointer p-4 md:p-5 rounded-full bg-glossy border border-white/10 group shadow-lg"
+                    className="absolute cursor-pointer p-4 md:p-5 rounded-full bg-glossy border border-[var(--theme-btn-border)] group shadow-lg"
                   >
                     <div className={`text-xl md:text-2xl transition-colors duration-300 ${isHovered ? 'text-accent' : 'text-theme group-hover:text-accent'}`}>
                       {skill.icon}

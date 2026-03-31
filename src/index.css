@@ -192,7 +192,11 @@
 
   .bg-glossy {
     background: var(--theme-glossy);
-    backdrop-filter: blur(0.1rem);
+    backdrop-filter: blur(8px);
+  }
+
+  .border-subtle {
+    border-color: var(--theme-btn-border);
   }
 
   .form {

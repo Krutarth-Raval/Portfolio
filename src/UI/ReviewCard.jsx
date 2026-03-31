@@ -27,7 +27,7 @@ const ReviewCard = ({ rev, onClick }) => {
             "{rev.description}"
           </p>
           {rev.description.length > 150 && (
-            <p className="mt-2 text-[9px] font-black uppercase tracking-widest text-accent opacity-60">
+            <p className="mt-2 text-[9px] font-black uppercase tracking-widest text-accent opacity-60 underline">
               Tap to read full review
             </p>
           )}
@@ -43,7 +43,10 @@ const ReviewCard = ({ rev, onClick }) => {
             {rev.name}
           </h3>
           <p className="text-[9px] sm:text-[11px] font-bold text-theme-secondary uppercase tracking-[0.2em] opacity-60">
-            {rev.company}
+            {rev.role}
+          </p>
+          <p className="text-[9px] sm:text-[11px] font-bold text-theme-secondary uppercase tracking-[0.2em] opacity-60">
+            @ {rev.company}
           </p>
         </div>
       </div>

@@ -51,8 +51,8 @@ const Card = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-4 border-t border-white/5 pt-6 group-hover:border-[var(--theme-accent)]/20 transition-colors">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-[var(--theme-accent)]/20 via-transparent to-[var(--theme-accent)]/20 flex items-center justify-center border border-white/5 font-bold text-theme">
+            <div className="flex items-center gap-4 border-t border-[var(--theme-btn-border)] pt-6 group-hover:border-accent/30 transition-colors">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-accent/20 via-transparent to-accent/20 flex items-center justify-center border border-[var(--theme-btn-border)] font-bold text-theme">
                 {rev.name.charAt(0)}
               </div>
               <div className="flex flex-col">

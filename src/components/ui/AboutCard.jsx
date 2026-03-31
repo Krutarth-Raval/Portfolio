@@ -8,19 +8,19 @@ import SocialLinks from "@/UI/SocialLinks";
 const AboutCard = () => {
   return (
     <div className="mx-2 py-2">
-      <div className="relative overflow-hidden rounded-2xl bg-glossy border border-white/10 shadow-xl transition-all duration-500 hover:border-white/20">
+      <div className="relative overflow-hidden rounded-2xl bg-glossy border border-[var(--theme-btn-border)] shadow-xl transition-all duration-500 hover:border-accent/30">
         {/* Subtler decorative element */}
         <div className="absolute top-[-20%] right-[-10%] w-48 h-48 bg-accent/15 rounded-full blur-3xl -z-10"></div>
 
         <div className="flex flex-col md:flex-row items-stretch">
           {/* Left Column: Focused Profile */}
-          <div className="md:w-[35%] p-6 md:p-8 flex flex-col items-center justify-center bg-white/5 border-b md:border-b-0 md:border-r border-white/10 animate-fade-in text-center">
+          <div className="md:w-[35%] p-6 md:p-8 flex flex-col items-center justify-center bg-[var(--theme-btn-bg)] border-b md:border-b-0 md:border-r border-[var(--theme-btn-border)] animate-fade-in text-center">
             <div className="relative group mb-6">
               <div className="absolute -inset-1 bg-gradient-to-tr from-accent/50 to-transparent rounded-full blur opacity-25 group-hover:opacity-40 transition duration-500"></div>
               <img
                 src={myImage}
                 alt="Krutarth Raval"
-                className="relative object-cover w-32 h-32 md:w-44 md:h-44 rounded-full border-2 border-white/10 shadow-lg select-none transform transition duration-500 group-hover:scale-[1.02]"
+                className="relative object-cover w-32 h-32 md:w-44 md:h-44 rounded-full border-2 border-[var(--theme-btn-border)] shadow-lg select-none transform transition duration-500 group-hover:scale-[1.02]"
               />
             </div>
 
@@ -61,7 +61,7 @@ const AboutCard = () => {
 
               <NavLink
                 to="/contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-surface/50 border border-white/10 font-bold rounded-lg backdrop-blur-md hover:border-white/20 transition-all duration-300 md:w-auto w-full text-sm"
+                className="btn-glossy inline-flex items-center justify-center gap-2 px-6 py-2.5 font-bold rounded-lg hover:border-accent transition-all duration-300 md:w-auto w-full text-sm"
               >
                 <IoCall className="text-accent" />
                 <span>Contact</span>

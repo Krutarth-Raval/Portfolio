@@ -2,11 +2,13 @@
   {
     "name": "Jaimin Acharya",
     "description": "Krutarth demonstrates a strong balance of technical capability, adaptability, and professionalism. He approaches challenges with a solution-oriented mindset, communicates effectively, and consistently delivers reliable, high-quality work while contributing positively to the team environment.",
+    "role": "Juniour Web Developer",
     "company": "NotionMind"
   },
   {
     "name": "AniruddhSinh Rathore",
     "description": "He shows a well-rounded skill set combined with a mature and growth-focused attitude. His ability to learn quickly, handle challenges with confidence, and collaborate effectively reflects both his technical strength and professional mindset.",
+    "role": "Lead Mobile AI Engineer",
     "company": "NotionMind"
   }
 ]

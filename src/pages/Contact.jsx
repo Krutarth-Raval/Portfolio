@@ -74,7 +74,7 @@ const Contact = () => {
             <h2 className="description-font-size font-black uppercase tracking-widest text-theme">
               Connect With Me
             </h2>
-            <div className="flex-1 h-px bg-white/10"></div>
+            <div className="flex-1 h-px bg-[var(--theme-btn-border)]"></div>
           </div>
 
           <motion.h1
@@ -108,14 +108,14 @@ const Contact = () => {
               rel="noopener noreferrer"
               variants={itemVariants}
               whileHover={{ y: -5 }}
-              className="p-6 rounded-2xl bg-glossy border border-white/5 hover:border-white/20 transition-all duration-300 group relative overflow-hidden"
+              className="p-6 rounded-2xl bg-[var(--theme-btn-bg)] border border-[var(--theme-btn-border)] hover:border-accent transition-all duration-300 group relative overflow-hidden"
             >
               {/* Subtle accent glow */}
               <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 blur-3xl -z-10 group-hover:bg-accent/10 transition-colors duration-500" />
 
               <div className="flex flex-col gap-4">
                 <div className="flex items-center justify-between">
-                  <div className="p-3 rounded-xl bg-white/5 text-theme/40 group-hover:text-accent group-hover:bg-accent/10 transition-all duration-300">
+                  <div className="p-3 rounded-xl bg-[var(--theme-btn-bg)] text-theme/40 group-hover:text-accent group-hover:bg-accent/10 transition-all duration-300 border border-[var(--theme-btn-border)]">
                     {info.icon}
                   </div>
                   <IoOpenOutline className="text-theme/20 group-hover:text-accent transition-colors duration-300" size={18} />
@@ -137,13 +137,13 @@ const Contact = () => {
 
 
       {/* Minimalist Footer Navigation */}
-      <div className="pt-16 pb-8 flex flex-col items-center gap-4 border-t border-white/5 opacity-60">
+      <div className="pt-16 pb-8 flex flex-col items-center gap-4 border-t border-[var(--theme-btn-border)] opacity-60">
         <p className="text-[10px] font-black uppercase tracking-[0.2em] text-theme/40 text-center">
           Want to learn more?
         </p>
         <a
           href="/about"
-          className="text-xs font-bold py-2 px-6 border border-white/10 rounded-lg hover:bg-white/5 hover:border-white/20 transition-all duration-300"
+          className="text-xs font-bold py-2 px-6 border border-[var(--theme-btn-border)] rounded-lg hover:bg-[var(--theme-btn-bg)] hover:border-accent transition-all duration-300"
         >
           Explore About Me
         </a>

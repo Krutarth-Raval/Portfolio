@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { BsTwitterX } from "react-icons/bs";
 import {
   SiGmail
 } from "react-icons/si";
@@ -12,19 +11,18 @@ const SocialLinks = () => {
   const [showAll, setShowAll] = useState(false);
 
   const mainLinks = [
-    { name: "LickedIn", icon: <RiLinkedinFill />, url: "https://www.linkedin.com/in/raval-krutarth" },
+    { name: "LinkedIn", icon: <RiLinkedinFill />, url: "https://www.linkedin.com/in/raval-krutarth" },
     { name: "GitHub", icon: <PiGithubLogoFill />, url: "https://github.com/Krutarth-Raval" },
     { name: "Gmail", icon: <SiGmail />, url: "mailto:krutarth@example.com" },
   ];
 
   const moreLinks = [
     { name: "Instagram", icon: <GrInstagram />, url: "https://www.instagram.com/raval_krutarth" },
-    // {name:'X', icon: <BsTwitterX />, url: "https://x.com/_krutarth_raval" },
     { name: "Ahmedabad, India", icon: <FaLocationDot />, url: "https://maps.app.goo.gl/VVGJ8iKMzXpnKqzU8" },
   ];
 
   const iconClass =
-    "p-2 bg-accent rounded-md text-xl max-sm:text-base cursor-pointer hover:text-theme-accent relative group";
+    "p-2 bg-[var(--theme-btn-bg)] border border-[var(--theme-btn-border)] rounded-md text-xl max-sm:text-base cursor-pointer hover:text-accent relative group transition-all duration-300";
 
   return (
 
@@ -38,17 +36,17 @@ const SocialLinks = () => {
             className={iconClass}
           >
             {item.icon}
-            <span className="absolute bg-accent px-2 py-1 rounded-md top-10 left-1/2 -translate-x-1/2 w-max opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition duration-300 ease-in-out metadata-font-size">{item.name}</span>
+            <span className="absolute bg-[var(--theme-btn-bg)] border border-[var(--theme-btn-border)] px-2 py-1 rounded-md top-10 left-1/2 -translate-x-1/2 w-max opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition duration-300 ease-in-out metadata-font-size">{item.name}</span>
           </NavLink>
         )
       )}
       {!showAll && (
         <button
           onClick={() => setShowAll(true)}
-          className="p-1 relative bg-accent text-theme-secondary  rounded-md text-xl max-sm:text-base max-sm:px-1.5 font-bold cursor-pointer hover:text-theme-accent group"
+          className="py-1 px-2 relative bg-[var(--theme-btn-bg)] border border-[var(--theme-btn-border)] text-theme-secondary rounded-md text-xl max-sm:text-base max-sm:px-1.5 font-bold cursor-pointer hover:text-accent group transition-all duration-300"
         >
           +2
-          <span className="absolute bg-accent px-2 py-1 rounded-md top-10 left-1/2 -translate-x-1/2 w-max opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition duration-300 ease-in-out metadata-font-size">More</span>
+          <span className="absolute bg-[var(--theme-btn-bg)] border border-[var(--theme-btn-border)] px-2 py-1 rounded-md top-10 left-1/2 -translate-x-1/2 w-max opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition duration-300 ease-in-out metadata-font-size">More</span>
         </button>
       )}
     </div>
