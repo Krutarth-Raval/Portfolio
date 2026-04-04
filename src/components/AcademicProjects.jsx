@@ -95,12 +95,22 @@ const AcademicProjects = () => {
             transition={{ duration: 0.4, delay: index * 0.1 }}
           >
             <Card className="relative h-full p-0 gap-0 overflow-hidden border border-white/5 bg-glossy shadow-2xl hover:shadow-[0_0_30px_rgba(0,0,0,0.3)] transition-all duration-500 group rounded-3xl">
-              <div className="relative aspect-video w-full overflow-hidden rounded-t-3xl">
-                <div className="absolute inset-0 z-30 bg-black/20 group-hover:bg-black/5 transition-colors duration-500" />
+              <div
+                className="relative aspect-video w-full overflow-hidden cursor-crosshair"
+                onMouseMove={(e) => {
+                  const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+                  const x = ((e.clientX - left) / width) * 100;
+                  const y = ((e.clientY - top) / height) * 100;
+                  e.currentTarget.style.setProperty("--x", `${x}%`);
+                  e.currentTarget.style.setProperty("--y", `${y}%`);
+                }}
+              >
+                <div className="absolute inset-0 z-30 bg-black/20 group-hover:bg-black/5 transition-colors duration-500 pointer-events-none" />
                 <img
                   src={project.image && project.image !== "" ? project.image : "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=2070&auto=format&fit=crop"}
                   alt={project.name}
-                  className="relative z-10 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 rounded-t-3xl"
+                  style={{ transformOrigin: "var(--x, center) var(--y, center)" }}
+                  className="relative z-10 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-150"
                 />
               </div>
 
@@ -151,7 +161,7 @@ const AcademicProjects = () => {
       {/* Project Detail Modal */}
       <AnimatePresence>
         {selectedProject && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -168,77 +178,87 @@ const AcademicProjects = () => {
                 onClick={() => setSelectedProject(null)}
                 className="absolute top-[-15px] right-[-15px] z-50 h-6 w-6 bg-red-600 hover:bg-red-700 text-white rounded-full transition-all cursor-pointer shadow-xl flex items-center justify-center px-1 py-2"
               >
-              <span className="text-sm font-bold leading-none">✕</span>
-            </Button>
+                <span className="text-sm font-bold leading-none">✕</span>
+              </Button>
 
-            <div className="aspect-video w-full overflow-hidden bg-surface rounded-xl">
-              <img
-                src={selectedProject.image && selectedProject.image !== "" ? selectedProject.image : "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=2070&auto=format&fit=crop"}
-                alt={selectedProject.name}
-                className="w-full h-full object-cover p-1 rounded-xl"
-              />
-            </div>
+              <div
+                className="aspect-video w-full overflow-hidden bg-surface rounded-xl group cursor-crosshair"
+                onMouseMove={(e) => {
+                  const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+                  const x = ((e.clientX - left) / width) * 100;
+                  const y = ((e.clientY - top) / height) * 100;
+                  e.currentTarget.style.setProperty("--x", `${x}%`);
+                  e.currentTarget.style.setProperty("--y", `${y}%`);
+                }}
+              >
+                <img
+                  src={selectedProject.image && selectedProject.image !== "" ? selectedProject.image : "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=2070&auto=format&fit=crop"}
+                  alt={selectedProject.name}
+                  style={{ transformOrigin: "var(--x, center) var(--y, center)" }}
+                  className="w-full h-full object-cover p-1 rounded-xl transition-transform duration-500 ease-out hover:scale-[2]"
+                />
+              </div>
 
-            <div className="p-6">
-              <div className="flex justify-between items-start mb-3">
-                <h2 className="text-xl font-bold text-theme leading-tight">
-                  {selectedProject.name}
-                </h2>
-                <div className="flex gap-2 shrink-0">
-                  <a
-                    href={selectedProject.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 btn-glossy rounded-xl transition-all text-theme-secondary hover:text-theme"
-                    title="Github"
-                  >
-                    <SiGithub className="w-4 h-4" />
-                  </a>
-                  {selectedProject.live && selectedProject.live.trim() !== "" && (
+              <div className="p-6">
+                <div className="flex justify-between items-start mb-3">
+                  <h2 className="text-xl font-bold text-theme leading-tight">
+                    {selectedProject.name}
+                  </h2>
+                  <div className="flex gap-2 shrink-0">
                     <a
-                      href={selectedProject.live}
+                      href={selectedProject.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-2 btn-glossy rounded-xl transition-all text-theme-secondary hover:text-theme"
-                      title="Live Demo"
+                      title="Github"
                     >
-                      <BiLinkExternal className="w-4 h-4" />
+                      <SiGithub className="w-4 h-4" />
                     </a>
-                  )}
+                    {selectedProject.live && selectedProject.live.trim() !== "" && (
+                      <a
+                        href={selectedProject.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 btn-glossy rounded-xl transition-all text-theme-secondary hover:text-theme"
+                        title="Live Demo"
+                      >
+                        <BiLinkExternal className="w-4 h-4" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                <div className="max-h-[25vh] overflow-y-auto pr-2 text-sm text-theme-secondary/90 leading-relaxed mb-6 scrollbar-thin">
+                  {selectedProject.description}
+                </div>
+
+                <div className="overflow-hidden pause-on-hover py-4 border-t border-white/10">
+                  <p className="text-[10px] text-theme-secondary opacity-50 uppercase tracking-[0.2em] font-bold mb-4">
+                    Tech Stack
+                  </p>
+                  <div className="animate-marquee flex gap-4 w-max">
+                    {[...selectedProject.techSkill, ...selectedProject.techSkill, ...selectedProject.techSkill, ...selectedProject.techSkill].map((skill, i) => (
+                      <div
+                        key={i}
+                        className="flex items-center gap-1.5 bg-theme border border-white/10 px-3 py-1.5 rounded-md shrink-0"
+                      >
+                        <img
+                          src={skillLogos[skill]}
+                          alt={skill}
+                          className="h-4 w-4 object-contain"
+                        />
+                        <span className="text-[11px] text-theme opacity-80 uppercase tracking-wider font-bold">
+                          {skill}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-
-              <div className="max-h-[25vh] overflow-y-auto pr-2 text-sm text-theme-secondary/90 leading-relaxed mb-6 scrollbar-thin">
-                {selectedProject.description}
-              </div>
-
-              <div className="overflow-hidden pause-on-hover py-4 border-t border-white/10">
-                <p className="text-[10px] text-theme-secondary opacity-50 uppercase tracking-[0.2em] font-bold mb-4">
-                  Tech Stack
-                </p>
-                <div className="animate-marquee flex gap-4 w-max">
-                  {[...selectedProject.techSkill, ...selectedProject.techSkill, ...selectedProject.techSkill, ...selectedProject.techSkill].map((skill, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center gap-1.5 bg-theme border border-white/10 px-3 py-1.5 rounded-md shrink-0"
-                    >
-                      <img
-                        src={skillLogos[skill]}
-                        alt={skill}
-                        className="h-4 w-4 object-contain"
-                      />
-                      <span className="text-[11px] text-theme opacity-80 uppercase tracking-wider font-bold">
-                        {skill}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            </motion.div>
           </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+        )}
+      </AnimatePresence>
 
       {projects.length > 2 && !showAll && (
         <div className="text-center mt-10">

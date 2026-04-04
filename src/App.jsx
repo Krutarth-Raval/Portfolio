@@ -19,8 +19,7 @@ const App = () => {
           className="bg-surface  p-3 max-sm:p-2 md:p-4 rounded-xl
                    mx-auto w-full 
                    max-w-full sm:max-w-[640px] md:max-w-[768px] lg:max-w-[800px] xl:max-w-[1000px] 
-                   max-sm:my-1 max-sm:mx-2 sm:my-2 md:my-4 lg:my-10 overflow-hidden"
-        >
+                   max-sm:my-1 max-sm:mx-2 sm:my-2 md:my-4 lg:my-10">
           <Navbar />
 
           {/* ✅ Routes added here */}

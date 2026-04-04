@@ -62,7 +62,7 @@ const Contact = () => {
       </motion.div>
 
       {/* Redesigned Intro & Links Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start p-4">
         <motion.div
           initial="hidden"
           whileInView="visible"

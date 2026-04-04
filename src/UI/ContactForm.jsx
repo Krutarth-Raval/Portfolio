@@ -15,7 +15,7 @@ const ContactBox = () => {
   };
 
   return (
-    <section className="p-2 flex flex-col justify-start mt-20 mb-20 relative overflow-visible">
+    <section className="p-4 flex flex-col justify-start mt-20 mb-20 relative overflow-visible">
       <div className="flex flex-col items-center text-center gap-4 mb-12">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
