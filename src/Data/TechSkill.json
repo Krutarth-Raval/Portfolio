@@ -2,7 +2,7 @@
   {
     "image": "devicon-html5-plain colored",
     "name": "HTML5",
-    "url": "https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5"
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
   },
   {
     "image": "devicon-css3-plain colored",
@@ -25,19 +25,34 @@
     "url": "https://react.dev/"
   },
   {
+    "image": "devicon-nextjs-original-wordmark",
+    "name": "Next.js",
+    "url": "https://nextjs.org/"
+  },
+  {
     "image": "devicon-tailwindcss-plain colored",
     "name": "Tailwind CSS",
     "url": "https://tailwindcss.com/"
   },
   {
-    "image": "https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg",
+    "image": "devicon-nodejs-plain colored",
     "name": "Node.js",
     "url": "https://nodejs.org/"
   },
   {
-    "image": "devicon-express-original colored",
+    "image": "devicon-express-original",
     "name": "Express.js",
     "url": "https://expressjs.com/"
+  },
+  {
+    "image": "devicon-laravel-plain colored",
+    "name": "Laravel",
+    "url": "https://laravel.com/"
+  },
+  {
+    "image": "devicon-php-plain colored",
+    "name": "PHP",
+    "url": "https://www.php.net/"
   },
   {
     "image": "devicon-mongodb-plain colored",
@@ -45,9 +60,9 @@
     "url": "https://www.mongodb.com/"
   },
   {
-    "image": "devicon-mongoose-original colored",
-    "name": "Mongoose",
-    "url": "https://mongoosejs.com/"
+    "image": "devicon-mysql-plain colored",
+    "name": "MySQL",
+    "url": "https://www.mysql.com/"
   },
   {
     "image": "devicon-git-plain colored",
@@ -55,7 +70,7 @@
     "url": "https://git-scm.com/"
   },
   {
-    "image": "devicon-github-original colored",
+    "image": "devicon-github-original",
     "name": "GitHub",
     "url": "https://github.com/"
   },
@@ -70,58 +85,23 @@
     "url": "https://vitejs.dev/"
   },
   {
+    "image": "devicon-vercel-original",
+    "name": "Vercel",
+    "url": "https://vercel.com/"
+  },
+  {
     "image": "devicon-netlify-plain colored",
     "name": "Netlify",
     "url": "https://www.netlify.com/"
   },
   {
-    "image": "devicon-vercel-original colored",
-    "name": "Vercel",
-    "url": "https://vercel.com/"
-  },
-  {
-    "image": "devicon-json-plain colored",
-    "name": "REST APIs",
-    "url": "https://restfulapi.net/"
-  },
-  {
-    "image": "https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/4/jwt-icon-138bxvrhijus263d2f2wur.png/jwt-icon-aqjx58uyj3lrxtborzgyg.png?_a=DATAiZAAZAA0",
-    "name": "JWT Authentication",
-    "url": "https://jwt.io/"
-  },
-  {
-    "image": "https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/vector-icons/brand-framer-motion-pk1mas1m7u9hi06fqzq77f.png/brand-framer-motion-nuunolaqtcs7zlblwkjs.png?_a=DATAiZAAZAA0",
+    "image": "devicon-framermotion-original",
     "name": "Framer Motion",
     "url": "https://www.framer.com/motion/"
   },
   {
-    "image": "https://bun.sh/logo.svg",
-    "name": "Bun",
-    "url": "https://bun.sh/"
-  },
-  {
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg",
-    "name": "Gemini AI",
-    "url": "https://deepmind.google/technologies/gemini/"
-  },
-  {
-    "image": "https://img.icons8.com/color/48/000000/artificial-intelligence.png",
-    "name": "Antigravity",
-    "url": "https://antigravity.ai/"
-  },
-  {
-    "image": "https://img.icons8.com/color/48/000000/processor.png",
-    "name": "Claude AI",
-    "url": "https://claude.ai/"
-  },
-  {
-    "image": "https://avatars.githubusercontent.com/u/49538330?s=200&v=4",
-    "name": "Clerk Auth",
-    "url": "https://clerk.com/"
-  },
-  {
-    "image": "https://avatars.githubusercontent.com/u/77690634?s=200&v=4",
-    "name": "Neon Database",
-    "url": "https://neon.tech/"
+    "image": "devicon-json-plain",
+    "name": "REST APIs",
+    "url": "https://restfulapi.net/"
   }
 ]
