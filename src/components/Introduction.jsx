@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import SocialLinks from "../UI/SocialLinks";
 
 const roles = [
-  "React.js Developer",
-  "Full-Stack Developer (MERN)",
-  "UI/UX-Focused Front-End Engineer",
+  "Full-Stack Engineer",
+  "Building Scalable Web Applications",
+  "Backend & API Systems Developer",
+  "Crafting Modern User Experiences",
 ];
 
 const Introduction = () => {
@@ -13,7 +14,7 @@ const Introduction = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % roles.length);
-    }, 2000); // switch every 2s
+    }, 3000); // switch every 3s
 
     return () => clearInterval(interval);
   }, []);
@@ -38,7 +39,7 @@ const Introduction = () => {
 
       <div className="max-sm:my-1 md:my-3 lg:my-5 bg-surface px-0  py-4 border-t-1 border-b-1 border-[var(--theme-accent)]  animate-fade-in overflow-hidden">
         <p className=" max-sm:p-1 metadata-font-size text-theme-secondary max-sm:font-normal font-medium text-pretty animate-fade-in">
-          Frontend Developer focused on crafting modern, scalable, and user-friendly web applications. I value clean design, performance, and attention to detail, aiming to create digital experiences that are both efficient and enjoyable to use.
+          Full-stack developer focused on building modern, scalable, and high-performance web applications with clean architecture, secure systems, and thoughtful user experiences.
         </p>
       </div>
 
