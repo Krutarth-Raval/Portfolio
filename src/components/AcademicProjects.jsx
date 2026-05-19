@@ -55,6 +55,9 @@ const AcademicProjects = () => {
 
     "Gemini AI":
       "https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg",
+    Laravel: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg",
+    PHP: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+    MySQL: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
 
   };
 
