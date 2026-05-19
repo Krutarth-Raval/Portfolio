@@ -16,6 +16,20 @@
     "live": "https://notely-web-application.vercel.app"
   },
   {
+    "image": "/Banners/taskey.png",
+    "name": "Taskey - Task Management System",
+    "description": "A full-stack task management web application built with React and Laravel. Users can securely register, login, manage personal tasks, track completed tasks, and view task statistics through a clean dashboard UI. Features include authentication with Laravel Sanctum, CRUD operations for tasks, protected API routes, responsive design, and real-time task status management.",
+    "techSkill": [
+      "React",
+      "Laravel",
+      "PHP",
+      "MySQL",
+      "Tailwind CSS"
+    ],
+    "github": "https://github.com/Krutarth-Raval/taskey",
+    "live": "https://taskey-eta.vercel.app/"
+  },
+  {
     "image": "/Banners/mindlink.png",
     "name": "Mindlink Career Coach",
     "description": "A premium, AI-powered career coaching platform designed to bridge the gap between your current skills and your dream job. Features AI video and image generation, automated resume tailoring, and mock interview prep.",
@@ -30,20 +44,6 @@
     ],
     "github": "https://github.com/Krutarth-Raval/mindlink-project",
     "live": "https://mindlink-project.vercel.app/"
-  },
-  {
-    "image": "",
-    "name": "Task Manager",
-    "description": "A full-stack application for managing tasks with features like creating, updating, and tracking task progress.",
-    "techSkill": [
-      "React",
-      "Node.js",
-      "Express.js",
-      "MongoDB",
-      "Tailwind CSS"
-    ],
-    "github": "https://github.com/Krutarth-Raval/Task-Manager",
-    "live": ""
   },
   {
     "image": "/Banners/portfolio.png",
