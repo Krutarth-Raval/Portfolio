@@ -16,15 +16,14 @@ export const BackgroundRippleEffect = ({
       ref={ref}
       className={cn(
         "fixed inset-0 h-full w-full",
-        "[--cell-border-color:var(--color-neutral-300)] [--cell-fill-color:var(--color-neutral-100)] [--cell-shadow-color:var(--color-neutral-500)]",
-        "dark:[--cell-border-color:var(--color-neutral-700)] dark:[--cell-fill-color:var(--color-neutral-900)] dark:[--cell-shadow-color:var(--color-neutral-800)]"
+        "[--cell-border-color:var(--theme-btn-border)] [--cell-fill-color:transparent] [--cell-shadow-color:transparent]"
       )}>
       <div className="relative h-auto w-auto overflow-hidden">
         <div
           className="pointer-events-none absolute inset-0 z-[2] h-full w-full overflow-hidden" />
         <DivGrid
           key={`base-${rippleKey}`}
-          className="mask-radial-from-20% mask-radial-at-top opacity-600"
+          className="mask-radial-from-20% mask-radial-at-top opacity-60"
           rows={rows}
           cols={cols}
           cellSize={cellSize}
