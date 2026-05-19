@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   RiTailwindCssFill,
   RiReactjsLine,
-  RiJavascriptFill,
-  RiHtml5Fill,
-  RiCss3Fill,
+
   RiNodejsLine,
   RiGitMergeFill,
   RiGithubLine,
 } from "react-icons/ri";
 import { FaGraduationCap } from "react-icons/fa";
-import { SiMongodb, SiExpress, SiPostman, SiTypescript, SiMongoose, SiJsonwebtokens, SiVercel, SiSwagger } from "react-icons/si";
+import {
+  SiMongodb, SiExpress, SiPostman, SiTypescript, SiMongoose, SiJsonwebtokens, SiVercel, SiSwagger, SiLaravel, SiNextdotjs, SiPhp, SiMysql,
+} from "react-icons/si";
 import { TbBrandFramerMotion } from "react-icons/tb";
-import { VscVscode } from "react-icons/vsc";
 
 const EduAndExpCard = () => {
   const [activeTab, setActiveTab] = useState("Frontend");
@@ -53,32 +52,54 @@ const EduAndExpCard = () => {
   const skillGroups = {
     Frontend: [
       { icon: <RiReactjsLine />, name: "React" },
+      { icon: <SiNextdotjs />, name: "Next.js" },
       { icon: <SiTypescript />, name: "TypeScript" },
-      { icon: <RiTailwindCssFill />, name: "Tailwind" },
-      { icon: <TbBrandFramerMotion />, name: "Framer" },
-      { icon: <RiJavascriptFill />, name: "JavaScript" },
-      { icon: <RiHtml5Fill />, name: "HTML5" }
+      { icon: <RiTailwindCssFill />, name: "Tailwind CSS" },
+      { icon: <TbBrandFramerMotion />, name: "Framer Motion" }
     ],
+
     Backend: [
       { icon: <RiNodejsLine />, name: "Node.js" },
-      { icon: <SiExpress />, name: "Express" },
+      { icon: <SiExpress />, name: "Express.js" },
+      { icon: <SiLaravel />, name: "Laravel" },
+      { icon: <SiPhp />, name: "PHP" },
+      { icon: <SiJsonwebtokens />, name: "JWT Auth" },
+      { icon: <SiSwagger />, name: "REST APIs" }
+    ],
+
+    Database: [
       { icon: <SiMongodb />, name: "MongoDB" },
       { icon: <SiMongoose />, name: "Mongoose" },
-      { icon: <SiJsonwebtokens />, name: "JWT" },
-      { icon: <SiSwagger />, name: "APIs" }
     ],
+
     Tools: [
       { icon: <RiGitMergeFill />, name: "Git" },
       { icon: <RiGithubLine />, name: "GitHub" },
-      { icon: <SiVercel />, name: "Vercel" },
-      { icon: <VscVscode />, name: "VS Code" },
-      { icon: <SiPostman />, name: "Postman" }
+      { icon: <SiPostman />, name: "Postman" },
+      { icon: <SiVercel />, name: "Vercel" }
     ]
   };
 
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 1200
+  );
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const getPosition = (index, total) => {
     const angle = (index / total) * 2 * Math.PI - Math.PI / 2;
-    const radius = typeof window !== 'undefined' && window.innerWidth < 768 ? 100 : 150;
+    let radius = 150;
+    if (windowWidth < 360) {
+      radius = 80;
+    } else if (windowWidth < 480) {
+      radius = 95;
+    } else if (windowWidth < 768) {
+      radius = 115;
+    }
     return {
       x: Math.cos(angle) * radius,
       y: Math.sin(angle) * radius
@@ -129,12 +150,12 @@ const EduAndExpCard = () => {
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex justify-center gap-2 md:mb-5 mb-10 p-1 bg-[var(--theme-btn-bg)] w-max mx-auto rounded-xl border border-[var(--theme-btn-border)]">
+        <div className="flex flex-wrap sm:flex-nowrap justify-center gap-1 md:gap-2 md:mb-5 mb-10 p-1 bg-[var(--theme-btn-bg)] w-full max-w-max mx-auto rounded-xl border border-[var(--theme-btn-border)]">
           {Object.keys(skillGroups).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-6 py-2 rounded-lg text-xs font-black uppercase tracking-widest transition-all duration-300 cursor-pointer ${activeTab === tab
+              className={`px-3 py-1.5 md:px-6 md:py-2 rounded-lg text-[10px] md:text-xs font-black uppercase tracking-widest transition-all duration-300 cursor-pointer ${activeTab === tab
                 ? "bg-accent text-white shadow-lg shadow-accent/20"
                 : "text-theme/40 hover:text-theme/80 hover:bg-[var(--theme-btn-bg)]"
                 }`}
@@ -172,7 +193,7 @@ const EduAndExpCard = () => {
                     const someoneIsHovered = hoveredSkill !== null;
 
                     // Start the line away from center so it doesn't overlap text
-                    const innerRadiusRatio = typeof window !== 'undefined' && window.innerWidth < 768 ? 0.45 : 0.35;
+                    const innerRadiusRatio = windowWidth < 768 ? 0.45 : 0.35;
                     const xStart = pos.x * innerRadiusRatio;
                     const yStart = pos.y * innerRadiusRatio;
 
@@ -214,7 +235,7 @@ const EduAndExpCard = () => {
               transition={{ duration: 0.4 }}
               className="text-center z-10 pointer-events-none absolute"
             >
-              <h3 className="text-2xl md:text-3xl font-black text-theme uppercase tracking-tighter opacity-10 leading-none">
+              <h3 className="text-lg sm:text-2xl md:text-3xl font-black text-theme uppercase tracking-tighter opacity-10 leading-none px-4">
                 {hoveredSkill ? hoveredSkill.name : activeTab}
               </h3>
             </motion.div>
@@ -253,9 +274,9 @@ const EduAndExpCard = () => {
                     }}
                     onMouseEnter={() => setHoveredSkill(skill)}
                     onMouseLeave={() => setHoveredSkill(null)}
-                    className="absolute cursor-pointer p-4 md:p-5 rounded-full bg-glossy border border-[var(--theme-btn-border)] group shadow-lg"
+                    className="absolute cursor-pointer p-3 sm:p-4 md:p-5 rounded-full bg-glossy border border-[var(--theme-btn-border)] group shadow-lg"
                   >
-                    <div className={`text-xl md:text-2xl transition-colors duration-300 ${isHovered ? 'text-accent' : 'text-theme group-hover:text-accent'}`}>
+                    <div className={`text-lg sm:text-xl md:text-2xl transition-colors duration-300 ${isHovered ? 'text-accent' : 'text-theme group-hover:text-accent'}`}>
                       {skill.icon}
                     </div>
                   </motion.div>
