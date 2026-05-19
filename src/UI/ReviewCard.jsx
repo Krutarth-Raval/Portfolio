@@ -35,7 +35,7 @@ const ReviewCard = ({ rev, onClick }) => {
       </div>
 
       <div className="flex items-center gap-3 sm:gap-4 border-t border-white/5 pt-4 sm:pt-6 group-hover:border-[var(--theme-accent)]/20 transition-colors">
-        <div className="w-10 h-10 sm:w-12 h:12 rounded-full bg-gradient-to-tr from-[var(--theme-accent)]/20 via-transparent to-[var(--theme-accent)]/20 flex items-center justify-center border border-white/5 font-bold text-theme text-sm sm:text-base">
+        <div className="w-10 h-10 sm:w-10 h:12 rounded-full bg-gradient-to-tr from-[var(--theme-accent)]/20 via-transparent to-[var(--theme-accent)]/20 flex items-center justify-center border border-white/5 font-bold text-theme text-sm sm:text-base">
           {rev.name.charAt(0)}
         </div>
         <div className="flex flex-col">
