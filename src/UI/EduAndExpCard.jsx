@@ -33,7 +33,7 @@ const EduAndExpCard = () => {
       year: "2023 — 2026",
       degree: "B.Voc in IT & ITES",
       school: "Silver Oak University",
-      score: "CGPA (3rd Year): 8.44"
+      score: "CGPA: 8.48"
     },
     {
       year: "2022 — 2023",
