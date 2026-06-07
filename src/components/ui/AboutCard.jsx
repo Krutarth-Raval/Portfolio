@@ -54,7 +54,7 @@ const AboutCard = () => {
                 href="/krutarthraval-resume.pdf"
                 className="group relative inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-accent text-white font-bold rounded-lg overflow-hidden transition-all duration-300 md:w-auto w-full text-sm"
               >
-                <div className="absolute inset-0 w-0 bg-white/10 transition-all duration-300 group-hover:w-full"></div>
+                <div className="absolute inset-0 w-0 bg-[var(--theme-btn-bg)] transition-all duration-300 group-hover:w-full"></div>
                 <FiDownload className="relative" />
                 <span className="relative">CV</span>
               </a>
