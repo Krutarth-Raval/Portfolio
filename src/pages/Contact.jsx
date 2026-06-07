@@ -55,7 +55,7 @@ const Contact = () => {
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         transition={{ duration: 0.8 }}
       >
         <ContactForm />
@@ -66,7 +66,7 @@ const Contact = () => {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           variants={containerVariants}
           className="flex flex-col gap-6"
         >
@@ -96,7 +96,7 @@ const Contact = () => {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           variants={containerVariants}
           className="grid grid-cols-1 sm:grid-cols-2 gap-4"
         >
