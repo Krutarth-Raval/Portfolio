@@ -256,7 +256,7 @@ const AcademicProjects = () => {
       </AnimatePresence>
 
       {projects.length > 2 && !showAll && (
-        <div className="text-center mt-12">
+        <div className="text-center md:ml-[44%] mt-12">
           <button
             onClick={() => setShowAll(true)}
             className="more-btn px-8 py-3 bg-accent/20 rounded-full hover:bg-[var(--theme-accent)] hover:text-white transition-all duration-300 font-bold uppercase tracking-widest text-[11px]"

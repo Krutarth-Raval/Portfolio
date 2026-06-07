@@ -95,7 +95,7 @@ const Experience = () => {
       </div>
 
       {ExperienceData.length > 2 && !showAll && (
-        <div className="text-center mt-12">
+        <div className="text-center mt-12 md:ml-[44%]">
           <button
             onClick={() => setShowAll(true)}
             className="more-btn px-8 py-3 bg-accent/20 rounded-full transition-all duration-300 font-bold uppercase tracking-widest text-[11px]"

@@ -50,7 +50,7 @@ const Testimonials = () => {
           ))}
 
           {reviews.length > 3 && !showAll && (
-            <div className="text-center mt-6">
+            <div className="text-center mt-6 md:ml-[44%]">
               <button
                 onClick={() => setShowAll(true)}
                 className="more-btn px-8 py-3 bg-accent/20 rounded-full transition-all duration-300 font-bold uppercase tracking-widest text-[11px] cursor-pointer"

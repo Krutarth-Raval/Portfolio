@@ -1,5 +1,15 @@
 [
   {
+    "name": "EverythingX",
+    "role": "Laravel Intern",
+    "type": "Onsite",
+    "location": "Ahmedabad, India",
+    "starting": "May-2026",
+    "ending": "Present",
+    "description": "Developed and maintained RESTful APIs using Laravel, following MVC architecture and clean coding practices.Worked with MySQL databases, Eloquent ORM, validation, authentication, and API integrations to build and enhance application features.",
+    "site": "https://everythingx.in/"
+  },
+  {
     "name": "Mindlink Research Academy",
     "role": "Web Developer Intern",
     "type": "Onsite",
