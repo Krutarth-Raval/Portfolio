@@ -8,7 +8,7 @@ const Card = () => {
   const [showAll, setShowAll] = useState(false);
   const [expandedIdx, setExpandedIdx] = useState(null);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: false, margin: "-100px" });
 
   const visibleReviews = showAll ? reviews : reviews.slice(0, 2);
 
