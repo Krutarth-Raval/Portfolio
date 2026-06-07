@@ -6,9 +6,9 @@ const Greeting = () => {
   const ref = useRef(null);
   const ref2 = useRef(null);
   const ref3 = useRef(null);
-  const isView = useInView(ref, { once: true });
-  const isView2 = useInView(ref2, { once: true });
-  const isView3 = useInView(ref3, { once: true });
+  const isView = useInView(ref, { once: false });
+  const isView2 = useInView(ref2, { once: false });
+  const isView3 = useInView(ref3, { once: false });
   return (
     <div className="mt-5 p-2 pt-5 flex-col items-center ">
       <motion.section
