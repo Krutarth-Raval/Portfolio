@@ -18,19 +18,19 @@ const BackToTop = () => {
     };
 
     window.addEventListener("scroll", toggleVisibility);
-    
+
     // Cleanup the listener on unmount
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   return (
-    <div className="fixed bottom-10 right-6 z-10">
+    <div className="fixed bottom-18 right-4 z-100">
       {isVisible && (
         <button
           onClick={goToTop}
           className="back-to-top"
         >
-            <BiSolidUpArrow size={25}  className="animate-bounce text-blue-500"/>
+          <BiSolidUpArrow size={25} className="animate-bounce text-blue-500" />
         </button>
       )}
     </div>
