@@ -17,7 +17,7 @@
     --theme-border: #d4d4d4;
     --theme-accent: #4d4d4d;
     --theme-button: #0f0f0f;
-    --theme-glossy: #0d0d0d8f;
+    --theme-glossy: rgba(255, 255, 255, 0.05);
     --theme-btn-bg: rgba(255, 255, 255, 0.05);
     --theme-btn-border: rgba(255, 255, 255, 0.1);
   }
@@ -30,7 +30,7 @@
     --theme-border: #2e2e2e;
     --theme-accent: #c0c0c0;
     --theme-button: #e4e4e4;
-    --theme-glossy: #fafafa8f;
+    --theme-glossy: rgba(0, 0, 0, 0.05);
     --theme-btn-bg: rgba(0, 0, 0, 0.05);
     --theme-btn-border: rgba(0, 0, 0, 0.1);
   }
@@ -131,7 +131,7 @@
   }
 
   .back-to-top {
-    background-color: rgba(255, 255, 255, 0.137);
+    background-color: var(--theme-btn-bg);
     backdrop-filter: blur(0.1rem);
     padding: 15px;
     border-radius: 50%;
@@ -149,28 +149,25 @@
     background-color: var(--theme-btn-bg);
     padding: 2px 10px;
     font-size: clamp(1rem, 2vw, 1rem);
-    border: 1px solid var(--theme-btn-border);
+    border: none;
     border-radius: 6px;
     transition: all 0.2s ease-in-out;
   }
 
   .more-btn:hover {
     background: var(--theme-bg);
-    border-color: var(--theme-text);
-    border-style: 2px;
     box-shadow: 0px 0px 100px var(--theme-accent);
   }
 
   .btn-glossy {
     background-color: var(--theme-btn-bg);
-    border: 1px solid var(--theme-btn-border);
+    border: none;
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
   }
 
   .btn-glossy:hover {
     background-color: var(--theme-btn-border);
-    border-color: var(--theme-btn-bg);
   }
   .send {
     cursor: pointer;
@@ -250,11 +247,11 @@
   }
 
   .pop-up-block {
-    background: rgba(13, 13, 13, 0.7);
+    background: var(--theme-glossy);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 25px 70px -10px rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--theme-btn-border);
+    box-shadow: 0 25px 70px -10px rgba(0, 0, 0, 0.3);
   }
 
   @keyframes fade-left {
@@ -398,4 +395,67 @@
   .pause-on-hover:hover .animate-marquee {
     animation-play-state: paused;
   }
+
+  /* Wavy Marquee and Premium Card Redesign Utilities */
+  .marquee-fade {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  }
+
+  .marquee-track-wavy {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    animation: marquee-scroll-wavy 35s linear infinite;
+    padding: 3rem 0; /* Extra height to prevent vertical clipping */
+  }
+
+  @keyframes marquee-scroll-wavy {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes wavy-bob {
+    0% {
+      transform: translateY(var(--wave-y-start, -10px));
+    }
+    100% {
+      transform: translateY(var(--wave-y-end, 10px));
+    }
+  }
+
+  .wavy-item {
+    animation: wavy-bob 4s ease-in-out infinite alternate;
+  }
+
+  .premium-glow-card {
+    position: relative;
+    background: var(--theme-glossy);
+    border: none;
+    backdrop-filter: blur(16px);
+    border-radius: 1.75rem;
+    overflow: hidden;
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.4);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .light .premium-glow-card {
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.05);
+  }
+
+  .premium-glow-card:hover {
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+  }
+
+  .light .premium-glow-card:hover {
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+  }
 }
+
