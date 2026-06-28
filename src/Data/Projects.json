@@ -1,5 +1,18 @@
 [
   {
+    "image": "/Banners/beatzy.png",
+    "name": "Betzy - Free Music App",
+    "description": "A modern, fast, and seamless music streaming application. Discover new tracks, manage your playlists, and enjoy an immersive audio experience with a sleek and responsive interface.",
+    "techSkill": [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "TypeScript"
+    ],
+    "github": "https://github.com/Krutarth-Raval/Beatzy",
+    "live": "https://beatzy-muzic.vercel.app"
+  },
+  {
     "image": "/Banners/notely.png",
     "name": "Notly - Modern Notes App",
     "description": "A modern, fast, and secure notes application built with Next.js 15. Features a clean, distraction-free interface for capturing ideas, managing tasks, and staying organized.",
@@ -55,18 +68,5 @@
     ],
     "github": "https://github.com/Krutarth-Raval/Portfolio",
     "live": "https://krutarthraval.netlify.app"
-  },
-  {
-    "image": "/Banners/batmancave.png",
-    "name": "BatCave - Movie & Series Info",
-    "description": "A responsive web app built with HTML, CSS, and JavaScript, focused on showcasing Batman movies using a custom JSON data file. The app features detailed overviews, cast info, trailers, and a smooth UI for exploring the Batman universe.",
-    "techSkill": [
-      "HTML",
-      "JavaScript",
-      "CSS",
-      "Custom JSON"
-    ],
-    "github": "https://github.com/Krutarth-Raval/BatCave",
-    "live": "https://batmancave.netlify.app"
   }
 ]

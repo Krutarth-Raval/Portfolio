@@ -18,7 +18,7 @@ const CursorTrail = () => {
     canvas.height = height;
 
     const mouse = { x: width / 2, y: height / 2 };
-    const maxTrail = 40;
+    const maxTrail = 20;
     const points = Array.from({ length: maxTrail }, () => ({ x: mouse.x, y: mouse.y }));
 
     const onResize = () => {
@@ -64,8 +64,8 @@ const CursorTrail = () => {
       for (let i = 0; i < points.length - 1; i++) {
         const pt = points[i];
         const nextPt = points[i + 1];
-        // Calculate dynamic width based on index. Lowered multiplier to make the head thinner.
-        const lineWidth = Math.max((maxTrail - i) * 0.5, 0);
+        // Use a constant, very thin line width for the entire trail
+        const lineWidth = 0.5;
 
         ctx.lineWidth = lineWidth;
         ctx.beginPath();
