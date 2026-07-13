@@ -1,5 +1,19 @@
 [
   {
+    "image": "/Banners/cinexium.png",
+    "name": "Cinexium - Discover Trending Movies & TV Shows",
+    "description": "The ultimate cinema tracking experience. Discover trending entertainment, dive deep into cast and crew details, watch high-quality trailers, and keep track of your favorite films and shows with a custom watchlist.",
+    "techSkill": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "TMDb API"
+    ],
+    "github": "https://github.com/Krutarth-Raval/Cinexium",
+    "live": "https://cinexium.site"
+  },
+  {
     "image": "/Banners/beatzy.png",
     "name": "Betzy - Free Music App",
     "description": "A modern, fast, and seamless music streaming application. Discover new tracks, manage your playlists, and enjoy an immersive audio experience with a sleek and responsive interface.",

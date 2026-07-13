@@ -247,7 +247,7 @@
   }
 
   .pop-up-block {
-    background: var(--theme-glossy);
+    background-color: var(--theme-bg);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
     border: 1px solid var(--theme-btn-border);
