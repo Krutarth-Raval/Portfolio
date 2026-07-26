@@ -7,7 +7,8 @@
     "starting": "Feb-2026",
     "ending": "July-2026",
     "description": "Developed and maintained RESTful APIs using Laravel, following MVC architecture and clean coding practices.Worked with MySQL databases, Eloquent ORM, validation, authentication, and API integrations to build and enhance application features.",
-    "site": "https://everythingx.in/"
+    "site": "https://everythingx.in/",
+    "color": "#10b981"
   },
   {
     "name": "NotionMind",
@@ -17,6 +18,7 @@
     "starting": "Nov-2024",
     "ending": "Apr-2025",
     "description": "Worked remotely as a Frontend Intern, collaborating with senior developers on CineSpot, a movie and series platform built with React and Tailwind CSS. Gained real-world experience in component-based architecture, REST API integration (TMDb), responsive design, Git version control, Framer Motion animations, and clean UI/UX practices. Contributed to development workflows, participated in team discussions, and improved code quality through peer reviews.",
-    "site": "https://notionmind.com/"
+    "site": "https://notionmind.com/",
+    "color": "#8b5cf6"
   }
 ]

@@ -26,7 +26,7 @@ const MarqueeRow = ({ skills, direction = 1 }) => {
     const timer = setTimeout(setInitialScroll, 100);
 
     let frameId;
-    const scrollSpeed = 0.8 * direction;
+    const scrollSpeed = 2.5 * direction;
 
     const animate = () => {
       if (!isPausedRef.current && !isDraggingRef.current) {
@@ -116,7 +116,7 @@ const MarqueeRow = ({ skills, direction = 1 }) => {
         onMouseEnter={() => {
           isPausedRef.current = true;
         }}
-        className="overflow-x-auto no-scrollbar flex gap-6 py-6 px-4 cursor-grab active:cursor-grabbing select-none w-full scroll-smooth"
+        className="overflow-x-auto no-scrollbar flex gap-8 md:gap-12 py-10 cursor-grab active:cursor-grabbing select-none w-full scroll-smooth"
         style={{ scrollBehavior: "auto" }}
       >
         {loopSkills.map((skill, index) => {
@@ -133,7 +133,7 @@ const MarqueeRow = ({ skills, direction = 1 }) => {
               target="_blank"
               rel="noopener noreferrer"
               key={`${skill.name}-${index}`}
-              className="wavy-item group relative flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-glossy border border-[var(--theme-btn-border)] hover:border-accent hover:shadow-lg transition-all duration-300 cursor-pointer shrink-0"
+              className="wavy-item group relative flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 lg:w-28 lg:h-28 xl:w-32 xl:h-32 rounded-full bg-[var(--theme-bg)]/60 backdrop-blur-xl border border-[var(--theme-btn-border)] shadow-xl hover:border-accent hover:shadow-2xl transition-all duration-300 cursor-pointer shrink-0"
               style={{
                 "--wave-y-start": startY,
                 "--wave-y-end": endY,
@@ -142,7 +142,7 @@ const MarqueeRow = ({ skills, direction = 1 }) => {
             >
               <div className="absolute inset-0 bg-[var(--theme-accent)]/5 opacity-0 group-hover:opacity-100 rounded-full transition-opacity duration-300" />
 
-              <div className="relative flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 pointer-events-none">
+              <div className="relative flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 lg:w-14 lg:h-14 pointer-events-none">
                 {skill.image.startsWith("http") ? (
                   <img
                     src={skill.image}
@@ -150,7 +150,7 @@ const MarqueeRow = ({ skills, direction = 1 }) => {
                     className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
                   />
                 ) : (
-                  <i className={`${skill.image} text-xl sm:text-3xl text-theme-secondary group-hover:text-theme transition-colors duration-300`}></i>
+                  <i className={`${skill.image} text-xl sm:text-3xl lg:text-5xl text-theme-secondary group-hover:text-theme transition-colors duration-300`}></i>
                 )}
               </div>
 
@@ -171,35 +171,26 @@ const TechSkills = () => {
   const row2Skills = skillData.slice(half);
 
   return (
-    <div className="min-h-screen flex flex-col justify-center py-16 px-6 max-w-6xl mx-auto w-full select-none overflow-hidden">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-
-        {/* Left Column - Sticky Details */}
+    <div className="lg:min-h-screen flex flex-col justify-center py-24 lg:py-16 w-full select-none overflow-hidden">
+      <div className="flex flex-col items-center w-full">
+        {/* Centered Title Section */}
         <motion.div
-          className="lg:col-span-5 lg:sticky lg:top-16 flex flex-col gap-4 text-left"
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
-          transition={{ duration: 0.8, cubicBezier: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col items-center justify-center text-center w-full mb-12 md:mb-20 z-40 px-6"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-50px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <div className="flex items-center gap-4">
-            <span className="text-[10px] font-black uppercase tracking-widest text-accent">03 / Tech Stacks</span>
-            <div className="h-px bg-accent/20 flex-1"></div>
-          </div>
-          <h2 className="title-font-size font-extrabold text-theme leading-none tracking-tight">
+          <h2 className="text-5xl md:text-7xl font-extrabold text-theme leading-none tracking-tight">
             Tech Stacks
           </h2>
-          <p className="normal-font-size text-theme-secondary/80 font-medium leading-relaxed max-w-md mt-2">
-            My core technical skills, including modern frontend frameworks, backend architectures, databases, and development tools I use daily.
-          </p>
         </motion.div>
 
-        {/* Right Column - Marquees */}
-        <div className="lg:col-span-7 flex flex-col justify-center h-full gap-4 relative mt-10 lg:mt-0">
+        {/* Marquees */}
+        <div className="w-full flex flex-col justify-center gap-4 md:gap-8 relative mt-4">
           <MarqueeRow skills={row1Skills} direction={1} />
           <MarqueeRow skills={row2Skills} direction={-1} />
         </div>
-
       </div>
     </div>
   );

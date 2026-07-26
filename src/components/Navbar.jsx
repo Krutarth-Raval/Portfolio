@@ -1,5 +1,5 @@
 import React from "react";
-import ThemeToggle from "../UI/ThemeToggle";
+
 import { NavLink } from "react-router-dom";
 import { IoHome, IoCall } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
@@ -74,12 +74,7 @@ const Navbar = () => {
         </NavLink>
       </div>
 
-      <div className="relative group flex-shrink-0">
-        <ThemeToggle />
-        <span className="absolute left-1/2 -translate-x-1/2 top-11 opacity-0 text-theme font-semibold group-hover:opacity-100 bg-accent rounded-md py-1 px-2 text-sm transition-all duration-300 whitespace-nowrap z-10 max-sm:group-hover:opacity-0">
-          Theme
-        </span>
-      </div>
+
 
       {/* Share Button */}
       <div className="relative group flex-shrink-0">

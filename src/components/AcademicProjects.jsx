@@ -34,10 +34,8 @@ const AcademicProjects = () => {
     MySQL: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
   };
 
-  const [showAll, setShowAll] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
-
-  const visibleProjects = showAll ? projects : projects.slice(0, 2);
+  const [isClosing, setIsClosing] = useState(false);
 
   // Prevent background scroll when modal is open
   useEffect(() => {
@@ -52,73 +50,63 @@ const AcademicProjects = () => {
   }, [selectedProject]);
 
   return (
-    <div id="projects" className="min-h-screen flex flex-col justify-center py-16 px-6 max-w-6xl mx-auto w-full select-none">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-
-        {/* Left Column - Sticky Section Details */}
+    <div id="projects" className="lg:min-h-screen flex flex-col justify-center py-24 lg:py-16 px-6 max-w-7xl mx-auto w-full select-none">
+      <div className="flex flex-col items-center w-full">
+        {/* Centered Title Section Details */}
         <motion.div
-          className="lg:col-span-5 sticky top-0 lg:top-16 z-40 flex flex-col gap-4 text-left pt-8 pb-20 -mt-8 -mx-6 px-6 mb-[40vh] lg:mb-0 lg:mx-0 lg:px-0 lg:pt-0 lg:pb-0 lg:mt-0 bg-gradient-to-b from-[var(--theme-bg)] via-[var(--theme-bg)] via-75% to-transparent lg:bg-none"
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
-          transition={{ duration: 0.8, cubicBezier: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col items-center justify-center text-center w-full mb-12 md:mb-20 z-40"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-50px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <div className="flex items-center gap-4">
-            <span className="text-[10px] font-black uppercase tracking-widest text-accent">01 / Featured Projects</span>
-            <div className="h-px bg-accent/20 flex-1"></div>
-          </div>
-          <h2 className="title-font-size font-extrabold text-theme leading-none tracking-tight">
+          <h2 className="text-5xl md:text-7xl font-extrabold text-theme leading-none tracking-tight">
             My Projects
           </h2>
-          <p className="normal-font-size text-theme-secondary/80 font-medium leading-relaxed max-w-md mt-2">
-            A selection of modern web applications and solutions built with performance, responsive design, and robust code architectures in mind.
-          </p>
         </motion.div>
 
-        {/* Right Column - Project List */}
-        <div className="lg:col-span-7 flex flex-col gap-10 -mt-[40vh] lg:mt-0">
-          {visibleProjects.map((project, index) => {
+        {/* Project List */}
+        <div className="w-full flex flex-col">
+          {projects.map((project, index) => {
             return (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 60, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: false, margin: "-50px" }}
-                transition={{ duration: 0.8, delay: index * 0.1, cubicBezier: [0.16, 1, 0.3, 1] }}
-                whileHover={{ y: -6, scale: 1.01 }}
-                className="premium-glow-card bg-glossy group shadow-2xl relative"
+                className="group relative cursor-pointer border-t border-b border-[var(--theme-btn-border)] -mt-px py-10 md:py-14 transition-all duration-500 hover:bg-surface/30 rounded-none"
+                onClick={() => setSelectedProject(project)}
+                style={{ "--hover-color": project.color || "var(--theme-accent)" }}
               >
-
-                <div
-                  className="relative aspect-video w-full overflow-hidden cursor-crosshair border-b border-[var(--theme-btn-border)]"
-                  onMouseMove={(e) => {
-                    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
-                    const x = ((e.clientX - left) / width) * 100;
-                    const y = ((e.clientY - top) / height) * 100;
-                    e.currentTarget.style.setProperty("--x", `${x}%`);
-                    e.currentTarget.style.setProperty("--y", `${y}%`);
-                  }}
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, margin: "-50px" }}
+                  transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+                  className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 px-4 transition-all duration-500"
                 >
-                  <div className="absolute inset-0 z-30 bg-black/10 group-hover:bg-black/0 transition-colors duration-500 pointer-events-none" />
-                  <img
-                    src={project.image && project.image !== "" ? project.image : "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=2070&auto=format&fit=crop"}
-                    alt={project.name}
-                    style={{ transformOrigin: "var(--x, center) var(--y, center)" }}
-                    className="relative z-10 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                  />
-                </div>
-
-                <CardHeader className="p-8">
-                  <div className="flex justify-between items-center gap-4">
-                    <CardTitle className="text-xl font-bold text-theme tracking-tight group-hover:text-accent transition-colors duration-300">
+                  <div className="flex-1">
+                    <h3 className="text-2xl md:text-4xl font-extrabold text-theme tracking-tight group-hover:text-[var(--hover-color)] transition-colors duration-300">
                       {project.name}
-                    </CardTitle>
-                    <div className="flex gap-2 shrink-0 z-40">
+                    </h3>
+                    <div className="flex flex-wrap items-center gap-2 mt-4">
+                      {project.techSkill && project.techSkill.slice(0, 4).map((skill, i) => (
+                        <span key={i} className="flex items-center text-[10px] md:text-xs text-theme-secondary opacity-80 uppercase tracking-widest font-bold">
+                          {skill}{i < 3 && i < project.techSkill.length - 1 ? <span className="mx-2 text-accent/50">•</span> : ''}
+                        </span>
+                      ))}
+                      {project.techSkill && project.techSkill.length > 4 && (
+                        <span className="flex items-center text-[10px] md:text-xs text-theme-secondary opacity-80 uppercase tracking-widest font-bold">
+                          <span className="mx-2 text-accent/50">•</span>+{project.techSkill.length - 4} MORE
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-4 shrink-0 relative z-10 w-full md:w-auto justify-between md:justify-end mt-2 md:mt-0" onClick={(e) => e.stopPropagation()}>
+                    <div className="flex gap-2">
                       <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2.5 btn-glossy rounded-xl transition-all text-theme-secondary hover:text-theme hover:scale-105 active:scale-95"
+                        className="p-3 bg-surface border border-[var(--theme-btn-border)] rounded-full transition-all text-theme-secondary hover:text-theme hover:scale-110 active:scale-95 shadow-sm hover:shadow-accent/20"
                         title="Github"
                       >
                         <SiGithub className="w-5 h-5" />
@@ -128,24 +116,22 @@ const AcademicProjects = () => {
                           href={project.live}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-2.5 btn-glossy rounded-xl transition-all text-theme-secondary hover:text-theme hover:scale-105 active:scale-95"
+                          className="p-3 bg-surface border border-[var(--theme-btn-border)] rounded-full transition-all text-theme-secondary hover:text-theme hover:scale-110 active:scale-95 shadow-sm hover:shadow-accent/20"
                           title="Live Demo"
                         >
                           <BiLinkExternal className="w-5 h-5" />
                         </a>
                       )}
                     </div>
+                    <div className="md:hidden text-[10px] font-black uppercase tracking-widest text-accent flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+                      Details
+                      <span className="text-lg leading-none">→</span>
+                    </div>
                   </div>
-                  <div className="mt-8">
-                    <Button
-                      onClick={() => setSelectedProject(project)}
-                      className="w-full cursor-pointer btn-glossy rounded-xl py-5 transition-all text-theme font-bold tracking-wide hover:shadow-[0_0_20px_rgba(255,255,255,0.05)] active:scale-[0.98]"
-                    >
-                      View Details
-                    </Button>
-                  </div>
-                </CardHeader>
-              </motion.div>
+                </motion.div>
+
+
+              </div>
             );
           })}
         </div>
@@ -154,95 +140,70 @@ const AcademicProjects = () => {
       {/* Project Detail Modal */}
       <AnimatePresence>
         {selectedProject && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/75 backdrop-blur-md"
-          >
+          <div className="fixed inset-0 z-[100] w-full h-full overflow-hidden pointer-events-auto">
+            {/* The shrinking full-screen content */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              transition={{ type: "spring", damping: 25, stiffness: 400 }}
-              className="w-full max-w-lg pop-up-block rounded-3xl relative shadow-2xl overflow-hidden"
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={
+                isClosing 
+                  ? { scale: 0, opacity: 0, rotate: -90, x: "50vw", y: "-50vh" } 
+                  : { opacity: 1, scale: 1, rotate: 0, x: 0, y: 0 }
+              }
+              exit={{ opacity: 0 }}
+              transition={{ duration: isClosing ? 0.7 : 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute inset-0 w-full h-full bg-[var(--theme-bg)] flex flex-col-reverse md:flex-row shadow-2xl"
             >
-              <Button
-                onClick={() => setSelectedProject(null)}
-                className="absolute top-[12px] right-[12px] z-50 h-8 w-8 bg-red-600 hover:bg-red-700 text-white rounded-full transition-all cursor-pointer shadow-xl flex items-center justify-center font-bold"
-              >
-                ✕
-              </Button>
+              {/* Left Side: Information (Bottom on mobile) */}
+              <div className="w-full flex-1 md:flex-none md:w-[40%] md:h-full p-6 pt-4 md:p-12 lg:p-16 flex flex-col overflow-y-auto no-scrollbar relative z-10 bg-[var(--theme-bg)]/80 backdrop-blur-2xl">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-theme leading-tight mb-4 md:mb-8">
+                  {selectedProject.name}
+                </h2>
 
-              <div
-                className="aspect-video w-full overflow-hidden bg-surface relative group cursor-crosshair"
-                onMouseMove={(e) => {
-                  const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
-                  const x = ((e.clientX - left) / width) * 100;
-                  const y = ((e.clientY - top) / height) * 100;
-                  e.currentTarget.style.setProperty("--x", `${x}%`);
-                  e.currentTarget.style.setProperty("--y", `${y}%`);
-                }}
-              >
-                <img
-                  src={selectedProject.image && selectedProject.image !== "" ? selectedProject.image : "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=2070&auto=format&fit=crop"}
-                  alt={selectedProject.name}
-                  style={{ transformOrigin: "var(--x, center) var(--y, center)" }}
-                  className="w-full h-full object-cover transition-transform duration-500 ease-out hover:scale-[1.8]"
-                />
-              </div>
-
-              <div className="p-8">
-                <div className="flex justify-between items-start mb-4">
-                  <h2 className="text-2xl font-bold text-theme leading-tight">
-                    {selectedProject.name}
-                  </h2>
-                  <div className="flex gap-2 shrink-0">
+                <div className="flex flex-wrap gap-2 md:gap-4 shrink-0 mb-6 md:mb-10">
+                  <a
+                    href={selectedProject.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-2 md:px-6 md:py-4 bg-surface border border-[var(--theme-btn-border)] rounded-full transition-all text-theme hover:bg-[var(--theme-accent)] hover:border-transparent hover:text-white"
+                  >
+                    <SiGithub className="w-5 h-5 md:w-6 md:h-6" />
+                    <span className="font-bold tracking-wider uppercase text-[10px] md:text-xs">GitHub Repository</span>
+                  </a>
+                  {selectedProject.live && selectedProject.live.trim() !== "" && (
                     <a
-                      href={selectedProject.github}
+                      href={selectedProject.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2.5 btn-glossy rounded-xl transition-all text-theme-secondary hover:text-theme"
-                      title="Github"
+                      className="flex items-center gap-2 px-4 py-2 md:px-6 md:py-4 bg-surface border border-[var(--theme-btn-border)] rounded-full transition-all text-theme hover:bg-[var(--theme-accent)] hover:border-transparent hover:text-white"
                     >
-                      <SiGithub className="w-5 h-5" />
+                      <BiLinkExternal className="w-5 h-5 md:w-6 md:h-6" />
+                      <span className="font-bold tracking-wider uppercase text-[10px] md:text-xs">Live Demo</span>
                     </a>
-                    {selectedProject.live && selectedProject.live.trim() !== "" && (
-                      <a
-                        href={selectedProject.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2.5 btn-glossy rounded-xl transition-all text-theme-secondary hover:text-theme"
-                        title="Live Demo"
-                      >
-                        <BiLinkExternal className="w-5 h-5" />
-                      </a>
-                    )}
-                  </div>
+                  )}
                 </div>
 
-                <div className="max-h-[20vh] overflow-y-auto pr-2 text-sm text-theme-secondary leading-relaxed mb-6 scrollbar-thin">
+                <div className="text-base sm:text-lg md:text-xl text-theme-secondary/90 leading-relaxed mb-6 md:mb-12 max-w-3xl">
                   {selectedProject.description}
                 </div>
 
-                <div className="overflow-hidden pause-on-hover py-4 border-t border-[var(--theme-btn-border)]">
-                  <p className="text-[10px] text-theme-secondary opacity-50 uppercase tracking-[0.2em] font-bold mb-3">
-                    Tech Stack
+                <div className="border-t border-[var(--theme-btn-border)] pt-6 md:pt-8 mt-auto">
+                  <p className="text-[10px] md:text-xs text-theme-secondary opacity-50 uppercase tracking-[0.3em] font-bold mb-4 md:mb-6">
+                    Technologies Used
                   </p>
-                  <div className="animate-marquee flex gap-4 w-max">
-                    {[...selectedProject.techSkill, ...selectedProject.techSkill, ...selectedProject.techSkill].map((skill, i) => (
+                  <div className="flex flex-wrap gap-2 md:gap-4">
+                    {selectedProject.techSkill.map((skill, i) => (
                       <div
                         key={i}
-                        className="flex items-center gap-1.5 bg-[var(--theme-btn-bg)] border border-[var(--theme-btn-border)] px-3 py-1.5 rounded-lg shrink-0"
+                        className="flex items-center gap-2 bg-[var(--theme-btn-bg)] backdrop-blur-md border border-[var(--theme-btn-border)] px-3 py-1.5 md:px-4 md:py-2 rounded-lg md:rounded-xl"
                       >
                         {skillLogos[skill] && (
                           <img
                             src={skillLogos[skill]}
                             alt={skill}
-                            className="h-4 w-4 object-contain"
+                            className="h-4 w-4 md:h-5 md:w-5 object-contain"
                           />
                         )}
-                        <span className="text-[10px] text-theme opacity-80 uppercase tracking-wider font-bold">
+                        <span className="text-[10px] md:text-xs text-theme opacity-90 uppercase tracking-widest font-bold">
                           {skill}
                         </span>
                       </div>
@@ -250,21 +211,37 @@ const AcademicProjects = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Right Side: Image Banner (Top on mobile) */}
+              <div className="w-full h-auto md:w-[60%] md:h-full relative overflow-hidden bg-[var(--theme-bg)] flex-shrink-0 flex items-center justify-center p-6 pt-20 pb-4 md:p-8">
+                <img
+                   src={selectedProject.image && selectedProject.image !== "" ? selectedProject.image : "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=2070&auto=format&fit=crop"}
+                   alt={selectedProject.name}
+                   className="max-w-full max-h-[35vh] md:max-h-full object-contain rounded-2xl md:rounded-3xl border border-[var(--theme-btn-border)] shadow-2xl"
+                />
+              </div>
             </motion.div>
-          </motion.div>
+
+            {/* Close Button - Acts as the black hole singularity */}
+            <motion.button
+              initial={{ opacity: 0, scale: 0 }}
+              animate={
+                isClosing 
+                  ? { rotate: 1080, scale: [1, 4, 0], backgroundColor: "black", color: "transparent", borderColor: "transparent" } 
+                  : { opacity: 1, scale: 1 }
+              }
+              transition={{ duration: isClosing ? 0.8 : 0.3, ease: "easeInOut" }}
+              onClick={() => {
+                setIsClosing(true);
+                setTimeout(() => { setSelectedProject(null); setIsClosing(false); }, 750);
+              }}
+              className="absolute top-4 right-4 md:top-8 md:right-8 z-[110] h-12 w-12 md:h-16 md:w-16 bg-black/50 hover:bg-red-600 backdrop-blur-md border border-white/20 text-white rounded-full transition-colors cursor-pointer shadow-[0_0_50px_rgba(0,0,0,0.5)] flex items-center justify-center font-bold text-xl md:text-2xl"
+            >
+              {!isClosing && "✕"}
+            </motion.button>
+          </div>
         )}
       </AnimatePresence>
-
-      {projects.length > 2 && !showAll && (
-        <div className="text-center md:ml-[44%] mt-12">
-          <button
-            onClick={() => setShowAll(true)}
-            className="more-btn px-8 py-3 bg-accent/20 rounded-full hover:bg-[var(--theme-accent)] hover:text-white transition-all duration-300 font-bold uppercase tracking-widest text-[11px]"
-          >
-            More +
-          </button>
-        </div>
-      )}
     </div>
   );
 };

@@ -11,7 +11,7 @@
 @layer base {
   :root {
     --theme-bg: #0d0d0d;
-    --theme-surface: #1a1a1a;
+    --theme-surface: rgba(26, 26, 26, 0.5);
     --theme-text: #e0e0e0;
     --theme-text-secondary: #b3b3b3;
     --theme-border: #d4d4d4;
@@ -24,7 +24,7 @@
 
   .light {
     --theme-bg: #fafafa;
-    --theme-surface: #f0f0f0;
+    --theme-surface: rgba(240, 240, 240, 0.6);
     --theme-text: #1a1a1a;
     --theme-text-secondary: #4a4a4a;
     --theme-border: #2e2e2e;
@@ -55,6 +55,8 @@
   }
   .bg-surface {
     background-color: var(--theme-surface);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
   }
   .text-theme {
     color: var(--theme-text);

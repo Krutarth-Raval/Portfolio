@@ -11,7 +11,8 @@
       "TMDb API"
     ],
     "github": "https://github.com/Krutarth-Raval/Cinexium",
-    "live": "https://cinexium.site"
+    "live": "https://cinexium.site",
+    "color": "#f43f5e"
   },
   {
     "image": "/Banners/beatzy.png",
@@ -24,7 +25,8 @@
       "TypeScript"
     ],
     "github": "https://github.com/Krutarth-Raval/Beatzy",
-    "live": "https://beatzy-muzic.vercel.app"
+    "live": "https://beatzy-muzic.vercel.app",
+    "color": "#8b5cf6"
   },
   {
     "image": "/Banners/notely.png",
@@ -40,7 +42,8 @@
       "Neon"
     ],
     "github": "https://github.com/Krutarth-Raval/Notly",
-    "live": "https://notely-web-application.vercel.app"
+    "live": "https://notely-web-application.vercel.app",
+    "color": "#10b981"
   },
   {
     "image": "/Banners/taskey.png",
@@ -54,23 +57,8 @@
       "Tailwind CSS"
     ],
     "github": "https://github.com/Krutarth-Raval/taskey",
-    "live": "https://taskey-eta.vercel.app/"
-  },
-  {
-    "image": "/Banners/mindlink.png",
-    "name": "Mindlink Career Coach",
-    "description": "A premium, AI-powered career coaching platform designed to bridge the gap between your current skills and your dream job. Features AI video and image generation, automated resume tailoring, and mock interview prep.",
-    "techSkill": [
-      "Next.js",
-      "Tailwind CSS",
-      "PostgreSQL",
-      "Prisma",
-      "Clerk",
-      "Razorpay",
-      "Gemini AI"
-    ],
-    "github": "https://github.com/Krutarth-Raval/mindlink-project",
-    "live": "https://mindlink-project.vercel.app/"
+    "live": "https://taskey-eta.vercel.app/",
+    "color": "#3b82f6"
   },
   {
     "image": "/Banners/portfolio.png",
@@ -81,6 +69,7 @@
       "Tailwind CSS"
     ],
     "github": "https://github.com/Krutarth-Raval/Portfolio",
-    "live": "https://krutarthraval.netlify.app"
+    "live": "https://krutarthraval.netlify.app",
+    "color": "#06b6d4"
   }
 ]
