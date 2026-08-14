@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FiShare2 } from "react-icons/fi";
 import SocialLinks from "../UI/SocialLinks";
 
 const roles = [
@@ -22,6 +23,32 @@ const Introduction = () => {
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center text-center px-6 relative w-full overflow-hidden select-none">
+      
+      {/* Share Button */}
+      <motion.div 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2.2, duration: 0.8 }}
+        className="absolute top-6 right-6 md:top-8 md:right-8 z-50"
+      >
+        <button 
+          onClick={() => {
+            if (navigator.share) {
+              navigator.share({
+                title: 'Krutarth Raval - Full-Stack Developer',
+                url: window.location.href,
+              }).catch(console.error);
+            } else {
+              navigator.clipboard.writeText(window.location.href);
+              alert('Link copied to clipboard!');
+            }
+          }}
+          className="flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 bg-[var(--theme-btn-bg)] border border-[var(--theme-btn-border)] rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest text-theme-secondary hover:text-theme hover:bg-white/5 hover:border-white/20 transition-all shadow-xl backdrop-blur-md cursor-pointer"
+        >
+          <FiShare2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+          <span className="hidden sm:inline">Share</span>
+        </button>
+      </motion.div>
 
       {/* Redesigned Auto-Sizing Animated Pill Badge */}
       <motion.div 

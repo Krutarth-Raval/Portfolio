@@ -1,5 +1,19 @@
 [
   {
+    "image": "/Banners/waypoint.png",
+    "name": "Waypoint",
+    "description": "A modern web application built with a focus on seamless user experience and robust functionality. Features an intuitive interface and responsive design.",
+    "techSkill": [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "TypeScript"
+    ],
+    "github": "https://github.com/Krutarth-Raval/Waypoint",
+    "live": "https://waypoint-tasks.vercel.app",
+    "color": "#f59e0b"
+  },
+  {
     "image": "/Banners/cinexium.png",
     "name": "Cinexium - Discover Trending Movies & TV Shows",
     "description": "The ultimate cinema tracking experience. Discover trending entertainment, dive deep into cast and crew details, watch high-quality trailers, and keep track of your favorite films and shows with a custom watchlist.",
@@ -30,7 +44,7 @@
   },
   {
     "image": "/Banners/notely.png",
-    "name": "Notly - Modern Notes App",
+    "name": "Notely - Modern Notes App",
     "description": "A modern, fast, and secure notes application built with Next.js 15. Features a clean, distraction-free interface for capturing ideas, managing tasks, and staying organized.",
     "techSkill": [
       "Next.js",

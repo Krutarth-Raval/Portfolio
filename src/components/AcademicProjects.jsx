@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { BiLinkExternal } from "react-icons/bi";
 import { SiGithub } from "react-icons/si";
@@ -138,110 +139,113 @@ const AcademicProjects = () => {
       </div>
 
       {/* Project Detail Modal */}
-      <AnimatePresence>
-        {selectedProject && (
-          <div className="fixed inset-0 z-[100] w-full h-full overflow-hidden pointer-events-auto">
-            {/* The shrinking full-screen content */}
-            <motion.div
-              initial={{ opacity: 0, scale: 1.05 }}
-              animate={
-                isClosing 
-                  ? { scale: 0, opacity: 0, rotate: -90, x: "50vw", y: "-50vh" } 
-                  : { opacity: 1, scale: 1, rotate: 0, x: 0, y: 0 }
-              }
-              exit={{ opacity: 0 }}
-              transition={{ duration: isClosing ? 0.7 : 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute inset-0 w-full h-full bg-[var(--theme-bg)] flex flex-col-reverse md:flex-row shadow-2xl"
-            >
-              {/* Left Side: Information (Bottom on mobile) */}
-              <div className="w-full flex-1 md:flex-none md:w-[40%] md:h-full p-6 pt-4 md:p-12 lg:p-16 flex flex-col overflow-y-auto no-scrollbar relative z-10 bg-[var(--theme-bg)]/80 backdrop-blur-2xl">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-theme leading-tight mb-4 md:mb-8">
-                  {selectedProject.name}
-                </h2>
+      {createPortal(
+        <AnimatePresence>
+          {selectedProject && (
+            <div className="fixed inset-0 z-[9999] w-full h-full overflow-hidden pointer-events-auto">
+              {/* The shrinking full-screen content */}
+              <motion.div
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={
+                  isClosing 
+                    ? { scale: 0, opacity: 0, rotate: -90, x: "50vw", y: "-50vh" } 
+                    : { opacity: 1, scale: 1, rotate: 0, x: 0, y: 0 }
+                }
+                exit={{ opacity: 0 }}
+                transition={{ duration: isClosing ? 0.7 : 0.4, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute inset-0 w-full h-full bg-[var(--theme-bg)] flex flex-col-reverse md:flex-row shadow-2xl"
+              >
+                {/* Left Side: Information (Bottom on mobile) */}
+                <div className="w-full flex-1 md:flex-none md:w-[40%] md:h-full p-6 pt-4 md:p-12 lg:p-16 flex flex-col overflow-y-auto no-scrollbar relative z-10 bg-[var(--theme-bg)]/80 backdrop-blur-2xl">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-theme leading-tight mb-4 md:mb-8">
+                    {selectedProject.name}
+                  </h2>
 
-                <div className="flex flex-wrap gap-2 md:gap-4 shrink-0 mb-6 md:mb-10">
-                  <a
-                    href={selectedProject.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 md:px-6 md:py-4 bg-surface border border-[var(--theme-btn-border)] rounded-full transition-all text-theme hover:bg-[var(--theme-accent)] hover:border-transparent hover:text-white"
-                  >
-                    <SiGithub className="w-5 h-5 md:w-6 md:h-6" />
-                    <span className="font-bold tracking-wider uppercase text-[10px] md:text-xs">GitHub Repository</span>
-                  </a>
-                  {selectedProject.live && selectedProject.live.trim() !== "" && (
+                  <div className="flex flex-wrap gap-2 md:gap-4 shrink-0 mb-6 md:mb-10">
                     <a
-                      href={selectedProject.live}
+                      href={selectedProject.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 px-4 py-2 md:px-6 md:py-4 bg-surface border border-[var(--theme-btn-border)] rounded-full transition-all text-theme hover:bg-[var(--theme-accent)] hover:border-transparent hover:text-white"
                     >
-                      <BiLinkExternal className="w-5 h-5 md:w-6 md:h-6" />
-                      <span className="font-bold tracking-wider uppercase text-[10px] md:text-xs">Live Demo</span>
+                      <SiGithub className="w-5 h-5 md:w-6 md:h-6" />
+                      <span className="font-bold tracking-wider uppercase text-[10px] md:text-xs">GitHub Repository</span>
                     </a>
-                  )}
-                </div>
-
-                <div className="text-base sm:text-lg md:text-xl text-theme-secondary/90 leading-relaxed mb-6 md:mb-12 max-w-3xl">
-                  {selectedProject.description}
-                </div>
-
-                <div className="border-t border-[var(--theme-btn-border)] pt-6 md:pt-8 mt-auto">
-                  <p className="text-[10px] md:text-xs text-theme-secondary opacity-50 uppercase tracking-[0.3em] font-bold mb-4 md:mb-6">
-                    Technologies Used
-                  </p>
-                  <div className="flex flex-wrap gap-2 md:gap-4">
-                    {selectedProject.techSkill.map((skill, i) => (
-                      <div
-                        key={i}
-                        className="flex items-center gap-2 bg-[var(--theme-btn-bg)] backdrop-blur-md border border-[var(--theme-btn-border)] px-3 py-1.5 md:px-4 md:py-2 rounded-lg md:rounded-xl"
+                    {selectedProject.live && selectedProject.live.trim() !== "" && (
+                      <a
+                        href={selectedProject.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 md:px-6 md:py-4 bg-surface border border-[var(--theme-btn-border)] rounded-full transition-all text-theme hover:bg-[var(--theme-accent)] hover:border-transparent hover:text-white"
                       >
-                        {skillLogos[skill] && (
-                          <img
-                            src={skillLogos[skill]}
-                            alt={skill}
-                            className="h-4 w-4 md:h-5 md:w-5 object-contain"
-                          />
-                        )}
-                        <span className="text-[10px] md:text-xs text-theme opacity-90 uppercase tracking-widest font-bold">
-                          {skill}
-                        </span>
-                      </div>
-                    ))}
+                        <BiLinkExternal className="w-5 h-5 md:w-6 md:h-6" />
+                        <span className="font-bold tracking-wider uppercase text-[10px] md:text-xs">Live Demo</span>
+                      </a>
+                    )}
+                  </div>
+
+                  <div className="text-base sm:text-lg md:text-xl text-theme-secondary/90 leading-relaxed mb-6 md:mb-12 max-w-3xl">
+                    {selectedProject.description}
+                  </div>
+
+                  <div className="border-t border-[var(--theme-btn-border)] pt-6 md:pt-8 mt-auto">
+                    <p className="text-[10px] md:text-xs text-theme-secondary opacity-50 uppercase tracking-[0.3em] font-bold mb-4 md:mb-6">
+                      Technologies Used
+                    </p>
+                    <div className="flex flex-wrap gap-2 md:gap-4">
+                      {selectedProject.techSkill.map((skill, i) => (
+                        <div
+                          key={i}
+                          className="flex items-center gap-2 bg-[var(--theme-btn-bg)] backdrop-blur-md border border-[var(--theme-btn-border)] px-3 py-1.5 md:px-4 md:py-2 rounded-lg md:rounded-xl"
+                        >
+                          {skillLogos[skill] && (
+                            <img
+                              src={skillLogos[skill]}
+                              alt={skill}
+                              className="h-4 w-4 md:h-5 md:w-5 object-contain"
+                            />
+                          )}
+                          <span className="text-[10px] md:text-xs text-theme opacity-90 uppercase tracking-widest font-bold">
+                            {skill}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Right Side: Image Banner (Top on mobile) */}
-              <div className="w-full h-auto md:w-[60%] md:h-full relative overflow-hidden bg-[var(--theme-bg)] flex-shrink-0 flex items-center justify-center p-6 pt-20 pb-4 md:p-8">
-                <img
-                   src={selectedProject.image && selectedProject.image !== "" ? selectedProject.image : "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=2070&auto=format&fit=crop"}
-                   alt={selectedProject.name}
-                   className="max-w-full max-h-[35vh] md:max-h-full object-contain rounded-2xl md:rounded-3xl border border-[var(--theme-btn-border)] shadow-2xl"
-                />
-              </div>
-            </motion.div>
+                {/* Right Side: Image Banner (Top on mobile) */}
+                <div className="w-full h-auto md:w-[60%] md:h-full relative overflow-hidden bg-[var(--theme-bg)] flex-shrink-0 flex items-center justify-center p-6 pt-20 pb-4 md:p-8">
+                  <img
+                     src={selectedProject.image && selectedProject.image !== "" ? selectedProject.image : "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=2070&auto=format&fit=crop"}
+                     alt={selectedProject.name}
+                     className="max-w-full max-h-[35vh] md:max-h-full object-contain rounded-2xl md:rounded-3xl border border-[var(--theme-btn-border)] shadow-2xl"
+                  />
+                </div>
+              </motion.div>
 
-            {/* Close Button - Acts as the black hole singularity */}
-            <motion.button
-              initial={{ opacity: 0, scale: 0 }}
-              animate={
-                isClosing 
-                  ? { rotate: 1080, scale: [1, 4, 0], backgroundColor: "black", color: "transparent", borderColor: "transparent" } 
-                  : { opacity: 1, scale: 1 }
-              }
-              transition={{ duration: isClosing ? 0.8 : 0.3, ease: "easeInOut" }}
-              onClick={() => {
-                setIsClosing(true);
-                setTimeout(() => { setSelectedProject(null); setIsClosing(false); }, 750);
-              }}
-              className="absolute top-4 right-4 md:top-8 md:right-8 z-[110] h-12 w-12 md:h-16 md:w-16 bg-black/50 hover:bg-red-600 backdrop-blur-md border border-white/20 text-white rounded-full transition-colors cursor-pointer shadow-[0_0_50px_rgba(0,0,0,0.5)] flex items-center justify-center font-bold text-xl md:text-2xl"
-            >
-              {!isClosing && "✕"}
-            </motion.button>
-          </div>
-        )}
-      </AnimatePresence>
+              {/* Close Button - Acts as the black hole singularity */}
+              <motion.button
+                initial={{ opacity: 0, scale: 0 }}
+                animate={
+                  isClosing 
+                    ? { rotate: 1080, scale: [1, 4, 0], backgroundColor: "black", color: "transparent", borderColor: "transparent" } 
+                    : { opacity: 1, scale: 1 }
+                }
+                transition={{ duration: isClosing ? 0.8 : 0.3, ease: "easeInOut" }}
+                onClick={() => {
+                  setIsClosing(true);
+                  setTimeout(() => { setSelectedProject(null); setIsClosing(false); }, 750);
+                }}
+                className="absolute top-4 right-4 md:top-8 md:right-8 z-[110] h-12 w-12 md:h-16 md:w-16 bg-black/50 hover:bg-red-600 backdrop-blur-md border border-white/20 text-white rounded-full transition-colors cursor-pointer shadow-[0_0_50px_rgba(0,0,0,0.5)] flex items-center justify-center font-bold text-xl md:text-2xl"
+              >
+                {!isClosing && "✕"}
+              </motion.button>
+            </div>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </div>
   );
 };
