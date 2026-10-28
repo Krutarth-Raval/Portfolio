@@ -1,4 +1,15 @@
 [
+   {
+    "name": "M&B Engineering",
+    "role": "IT Executive",
+    "type": "Onsite",
+    "location": "Ahmedabad, India",
+    "starting": "sep-2026",
+    "ending": "",
+    "description": "Responsible for IT operations, digital systems management, process improvement, and technology-driven business support to enhance organizational efficiency and productivity.",
+    "site": "https://www.mbel.in/",
+    "color": "#F36F21"
+  },
   {
     "name": "EverythingX",
     "role": "Laravel Intern",
